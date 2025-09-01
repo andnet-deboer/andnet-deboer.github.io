@@ -10,7 +10,7 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
-      <main>
+      <main className="pt-16"> {/* Add padding-top to account for fixed navbar */}
         <HeroSection />
         <EducationSection />
         <CareerSection />

@@ -1,12 +1,14 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import { cn } from '@/lib/utils';
 import { Menu, X } from 'lucide-react';
 
 const Navigation = () => {
   const [activeSection, setActiveSection] = useState('home');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [showNav, setShowNav] = useState(true);
   const [underlineStyle, setUnderlineStyle] = useState({ left: 0, width: 0 });
   const navRef = useRef<HTMLDivElement>(null);
+  const sectionRatios = useRef<Record<string, number>>({});
 
   const navItems = [
     { id: 'home', label: 'Home' },
@@ -16,16 +18,47 @@ const Navigation = () => {
     { id: 'contact', label: 'Contact' },
   ];
 
+  // Update underline position - discrete positioning centered under label text
+  const updateUnderlinePosition = useCallback(() => {
+    if (navRef.current) {
+      const activeLabel = navRef.current.querySelector(`[data-label="${activeSection}"]`) as HTMLElement;
+      if (activeLabel) {
+        const navContainer = navRef.current;
+        const containerRect = navContainer.getBoundingClientRect();
+        const labelRect = activeLabel.getBoundingClientRect();
+        
+        setUnderlineStyle({
+          left: labelRect.left - containerRect.left,
+          width: labelRect.width
+        });
+      }
+    }
+  }, [activeSection]);
+
+  // 50% rule: only switch active section when >= 50% visible
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveSection(entry.target.id);
+          sectionRatios.current[entry.target.id] = entry.intersectionRatio;
+        });
+
+        // Find section with highest intersection ratio >= 0.5
+        let bestSection = activeSection;
+        let bestRatio = sectionRatios.current[activeSection] || 0;
+
+        Object.entries(sectionRatios.current).forEach(([sectionId, ratio]) => {
+          if (ratio >= 0.5 && ratio > bestRatio) {
+            bestSection = sectionId;
+            bestRatio = ratio;
           }
         });
+
+        if (bestSection !== activeSection && bestRatio >= 0.5) {
+          setActiveSection(bestSection);
+        }
       },
-      { threshold: 0.6 }
+      { threshold: [0, 0.25, 0.5, 0.75, 1] }
     );
 
     navItems.forEach(({ id }) => {
@@ -34,36 +67,81 @@ const Navigation = () => {
     });
 
     return () => observer.disconnect();
-  }, []);
-
-  // Update underscore position when active section changes
-  useEffect(() => {
-    if (navRef.current) {
-      const activeButton = navRef.current.querySelector(`[data-section="${activeSection}"]`) as HTMLElement;
-      if (activeButton) {
-        const navContainer = navRef.current;
-        const containerRect = navContainer.getBoundingClientRect();
-        const buttonRect = activeButton.getBoundingClientRect();
-        
-        setUnderlineStyle({
-          left: buttonRect.left - containerRect.left,
-          width: buttonRect.width
-        });
-      }
-    }
   }, [activeSection]);
+
+  // Update underline position when active section changes or window resizes
+  useEffect(() => {
+    updateUnderlinePosition();
+    
+    const handleResize = () => updateUnderlinePosition();
+    const handleFontLoad = () => updateUnderlinePosition();
+    
+    window.addEventListener('resize', handleResize);
+    document.fonts.addEventListener('loadingdone', handleFontLoad);
+    
+    return () => {
+      window.removeEventListener('resize', handleResize);
+      document.fonts.removeEventListener('loadingdone', handleFontLoad);
+    };
+  }, [updateUnderlinePosition]);
+
+  // Navbar visibility logic
+  useEffect(() => {
+    let scrollTimeout: NodeJS.Timeout;
+    let mouseTimeout: NodeJS.Timeout;
+
+    const handleScroll = () => {
+      clearTimeout(scrollTimeout);
+      scrollTimeout = setTimeout(() => {
+        const isAtTop = window.scrollY <= 16;
+        setShowNav(isAtTop || isMobileMenuOpen);
+      }, 50);
+    };
+
+    const handleMouseMove = (e: MouseEvent) => {
+      clearTimeout(mouseTimeout);
+      mouseTimeout = setTimeout(() => {
+        const isNearTop = e.clientY <= 72;
+        const isAtTop = window.scrollY <= 16;
+        setShowNav(isAtTop || isNearTop || isMobileMenuOpen);
+      }, 50);
+    };
+
+    // On mobile/touch devices, only show at top
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    
+    if (isMobile) {
+      window.addEventListener('scroll', handleScroll, { passive: true });
+    } else {
+      window.addEventListener('scroll', handleScroll, { passive: true });
+      window.addEventListener('mousemove', handleMouseMove, { passive: true });
+    }
+
+    return () => {
+      clearTimeout(scrollTimeout);
+      clearTimeout(mouseTimeout);
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('mousemove', handleMouseMove);
+    };
+  }, [isMobileMenuOpen]);
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
-      setIsMobileMenuOpen(false); // Close mobile menu after navigation
+      setIsMobileMenuOpen(false);
     }
   };
 
   return (
     <>
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-card/95 backdrop-blur-md border-b border-border shadow-sm">
+      <nav className={cn(
+        "fixed top-0 left-0 right-0 z-50 bg-card/95 backdrop-blur-md border-b border-border shadow-sm",
+        "transition-all duration-200 ease-out",
+        (showNav || isMobileMenuOpen) 
+          ? "translate-y-0 opacity-100" 
+          : "-translate-y-full opacity-0 pointer-events-none"
+      )}>
         <div className="container mx-auto px-4 sm:px-6">
           <div className="flex items-center justify-between h-16">
             <div className="font-bold text-xl text-foreground">
@@ -78,23 +156,26 @@ const Navigation = () => {
                   data-section={id}
                   onClick={() => scrollToSection(id)}
                   className={cn(
-                    "relative py-2 px-4 text-sm font-medium transition-all duration-300",
-                    "hover:text-primary hover:scale-105",
+                    "relative py-2 px-4 text-sm font-medium transition-colors duration-200",
+                    "hover:text-primary",
                     activeSection === id
                       ? "text-primary"
                       : "text-muted-foreground"
                   )}
+                  aria-current={activeSection === id ? "page" : undefined}
                 >
-                  {label}
+                  <span data-label={id}>{label}</span>
                 </button>
               ))}
-              {/* Sliding underscore */}
+              {/* Discrete underscore - Northwestern purple */}
               <span 
-                className="absolute bottom-0 h-0.5 bg-gradient-primary rounded-full shadow-glow transition-all duration-500 ease-out"
+                className="absolute bottom-0 h-[3px] rounded-full opacity-100"
                 style={{
                   left: `${underlineStyle.left}px`,
                   width: `${underlineStyle.width}px`,
-                  transform: 'translateY(2px)'
+                  backgroundColor: '#4E2A84', // Northwestern purple
+                  transform: 'translateY(2px)',
+                  transition: 'none' // No animation - discrete jump
                 }}
               />
             </div>
@@ -129,12 +210,14 @@ const Navigation = () => {
                     key={id}
                     onClick={() => scrollToSection(id)}
                     className={cn(
-                      "text-left py-3 px-4 rounded-lg text-base font-medium transition-all duration-300",
+                      "text-left py-3 px-4 rounded-lg text-base font-medium transition-all duration-200",
                       "hover:bg-subtle hover:text-primary",
                       activeSection === id
-                        ? "text-primary bg-subtle border-l-4 border-primary"
+                        ? "text-primary bg-subtle border-l-[3px]"
                         : "text-muted-foreground"
                     )}
+                    style={activeSection === id ? { borderLeftColor: '#4E2A84' } : {}}
+                    aria-current={activeSection === id ? "page" : undefined}
                   >
                     {label}
                   </button>
