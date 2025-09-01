@@ -25,7 +25,7 @@ const Index = () => {
           <div className="flex flex-col md:flex-row items-center justify-between">
             <div className="text-center md:text-left mb-4 md:mb-0">
               <p className="text-muted-foreground">
-                © 2024 Andnet DeBoer. Crafted with passion for robotics innovation.
+                © 2025 Andnet DeBoer. Crafted with passion for robotics innovation.
               </p>
             </div>
             <div className="text-center md:text-right">

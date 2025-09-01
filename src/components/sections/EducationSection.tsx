@@ -6,15 +6,15 @@ const EducationSection = () => {
     {
       degree: "Master of Science in Robotics",
       institution: "Northwestern University",
-      period: "2024 - Present",
-      status: "Incoming",
+      period: "2025 - Present",
+      status: "Current Student",
       description: "Focusing on advanced robotics, machine learning, and autonomous systems research.",
       highlights: ["Robot Learning", "Computer Vision", "Control Systems", "AI/ML"]
     },
     {
       degree: "Bachelor of Science in Electrical Engineering",
       institution: "University Name", // Replace with actual
-      period: "2020 - 2024",
+      period: "2020 - 2025",
       status: "Completed",
       description: "Strong foundation in electrical engineering with computer science emphasis.",
       highlights: ["Embedded Systems", "Signal Processing", "Software Engineering", "Hardware Design"]

@@ -6,7 +6,7 @@ const CareerSection = () => {
     {
       role: "Research Assistant",
       company: "Northwestern University Robotics Lab",
-      period: "2024 - Present",
+      period: "2025 - Present",
       type: "Research",
       description: "Conducting cutting-edge research in robot learning and autonomous systems, contributing to breakthrough developments in the field.",
       achievements: [
@@ -32,7 +32,7 @@ const CareerSection = () => {
     {
       role: "Undergraduate Researcher",
       company: "University Robotics Laboratory",
-      period: "2022 - 2024",
+      period: "2022 - 2025",
       type: "Research",
       description: "Gained hands-on experience with robotic systems, contributing to multiple research projects and publications.",
       achievements: [

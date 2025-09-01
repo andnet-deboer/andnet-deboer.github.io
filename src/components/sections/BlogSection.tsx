@@ -8,7 +8,7 @@ const BlogSection = () => {
     {
       title: "Advances in Robot Learning: From Simulation to Reality",
       excerpt: "Exploring the latest developments in sim-to-real transfer learning and how we're bridging the gap between simulated training and real-world robot deployment.",
-      date: "2024-03-15",
+      date: "2025-03-15",
       category: "Research",
       readTime: "8 min read",
       featured: true
@@ -16,7 +16,7 @@ const BlogSection = () => {
     {
       title: "Building Autonomous Systems: Lessons from the Field",
       excerpt: "Key insights and challenges encountered while developing autonomous navigation systems for mobile robots in complex environments.",
-      date: "2024-03-01",
+      date: "2025-03-01",
       category: "Engineering",
       readTime: "6 min read",
       featured: false
@@ -24,7 +24,7 @@ const BlogSection = () => {
     {
       title: "The Future of Human-Robot Interaction",
       excerpt: "Discussing emerging trends in HRI and how robotics will transform various industries in the coming decade.",
-      date: "2024-02-20",
+      date: "2025-02-20",
       category: "Insights",
       readTime: "5 min read",
       featured: false

@@ -22,13 +22,13 @@ const HeroSection = () => {
             </h1>
             
             <h2 className="text-xl lg:text-2xl text-accent font-medium mb-6">
-              Incoming Robotics M.S. student @ Northwestern University
+              Robotics M.S. student @ Northwestern University
             </h2>
             
             <p className="text-lg text-muted-foreground mb-8 max-w-2xl leading-relaxed">
               I'm passionate about innovation at the intersection of hardware and software, 
               with particular interest in robotics. My background spans electrical engineering 
-              and computer science, driving breakthrough solutions in autonomous systems.
+              and computer science, with a drive to develop autonmous mobile robots.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">

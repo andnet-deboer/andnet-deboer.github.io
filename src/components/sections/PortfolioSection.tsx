@@ -3,7 +3,7 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { ExternalLink, Github } from 'lucide-react';
 import bassGuitarImage from '@/assets/bass-guitar-robot.jpg';
-import autonomousRobotImage from '@/assets/autonomous-robot.jpg';
+import autonomousRobotImage from '@/assets/MultiAgentResearch.gif';
 
 const PortfolioSection = () => {
   const projects = [
@@ -84,6 +84,7 @@ const PortfolioSection = () => {
                     src={project.image}
                     alt={project.title}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    loading="lazy"
                   />
                 </div>
               )}
