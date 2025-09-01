@@ -4,43 +4,40 @@ import { Badge } from '@/components/ui/badge';
 const CareerSection = () => {
   const experiences = [
     {
-      role: "Research Assistant",
-      company: "Northwestern University Robotics Lab",
-      period: "2025 - Present",
-      type: "Research",
-      description: "Conducting cutting-edge research in robot learning and autonomous systems, contributing to breakthrough developments in the field.",
+      role: "Robotics Co-op",
+      company: "Gentex",
+      period: "Jan 2025 - May 2025",
+      description: "Robotics Simulation, CI/CD",
       achievements: [
-        "Developing novel algorithms for robot policy learning",
-        "Contributing to research publications",
-        "Collaborating with interdisciplinary research teams"
+        "Built application to convert ABB rapid code to FANUC Karel code",
+        "Commissioned control software developed in simulation onto production robots",
+      
       ],
-      technologies: ["Python", "ROS", "PyTorch", "Computer Vision", "Control Theory"]
+      technologies: ["FANUC", "Python", "RoboGuide", "VB.NET"]
     },
     {
-      role: "Robotics Engineer Intern",
-      company: "Technology Company", // Replace with actual
+      role: "Robotics Intern",
+      company: "Gentex", // Replace with actual
       period: "Summer 2023",
-      type: "Industry",
-      description: "Applied theoretical knowledge to real-world robotics challenges, developing practical solutions for autonomous systems.",
+      description: "Robotics Simulation, Path Optimization, Created Work Object & Tooling in CAD",
       achievements: [
-        "Implemented control algorithms for robotic systems",
-        "Optimized sensor integration and data processing",
-        "Contributed to product development lifecycle"
+        "Achieved 40% cycle time improvment on cart unloading application.",
+        "Full simulation of mechanical assembly, sensors, and robotics in Robot Studio",
+        "Trained in Kata continous improvement methodology"
       ],
-      technologies: ["C++", "MATLAB", "Embedded Systems", "Sensors", "Real-time Systems"]
+      technologies: ["RAPID", "RobotStudio", "Solidworks"]
     },
     {
-      role: "Undergraduate Researcher",
-      company: "University Robotics Laboratory",
-      period: "2022 - 2025",
-      type: "Research",
-      description: "Gained hands-on experience with robotic systems, contributing to multiple research projects and publications.",
+      role: "R&D Electrical Engineering Intern",
+      company: "Stryker",
+      period: "Summer 2023",
+      description: "Worked at in the Autmation lab designing , building, wiring and programming novel automated testing solutions for OR medical device validation and verification.",
       achievements: [
-        "Co-authored research papers",
-        "Designed and built experimental setups",
-        "Mentored incoming students"
+        "Designed automated testing fixture for 5,000 cycle video interface validation",
+        "Implemented PID control systems for precise medical device testing",
+        "Developed serial communication protocols for test automation"
       ],
-      technologies: ["Python", "Arduino", "3D Printing", "CAD", "Data Analysis"]
+      technologies: ["PID Controllers", "Serial Communications", "3D Printing", "CAD", "Linear Actuators"]
     }
   ];
 
@@ -52,73 +49,57 @@ const CareerSection = () => {
             Career & Experience
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            My professional journey in robotics research and engineering
+            My professional journey in robotics 
           </p>
         </div>
 
-        <div className="max-w-4xl mx-auto">
-          <div className="relative">
-            {/* Timeline line */}
-            <div className="absolute left-4 md:left-1/2 transform md:-translate-x-px top-0 bottom-0 w-0.5 bg-border" />
-            
+        <div className="max-w-7xl mx-auto">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {experiences.map((exp, index) => (
-              <div key={index} className="relative mb-12">
-                {/* Timeline dot */}
-                <div className="absolute left-2 md:left-1/2 transform md:-translate-x-1/2 w-4 h-4 bg-primary rounded-full border-4 border-background shadow-md" />
-                
-                <div className={`ml-12 md:ml-0 ${index % 2 === 0 ? 'md:mr-1/2 md:pr-12' : 'md:ml-1/2 md:pl-12'}`}>
-                  <Card className="p-6 shadow-lg hover:shadow-xl transition-all duration-300 animate-fade-in">
-                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4">
-                      <div>
-                        <h3 className="text-xl font-bold text-foreground mb-1">
-                          {exp.role}
-                        </h3>
-                        <p className="text-lg text-primary font-medium">
-                          {exp.company}
-                        </p>
-                      </div>
-                      <div className="flex flex-col items-start sm:items-end mt-2 sm:mt-0">
-                        <Badge 
-                          variant={exp.type === "Research" ? "default" : "secondary"}
-                          className="mb-1"
-                        >
-                          {exp.type}
-                        </Badge>
-                        <span className="text-muted-foreground text-sm font-medium">
-                          {exp.period}
-                        </span>
-                      </div>
-                    </div>
-                    
-                    <p className="text-muted-foreground mb-4 leading-relaxed">
-                      {exp.description}
+              <Card key={index} className="p-6 shadow-lg hover:shadow-xl transition-all duration-300 animate-fade-in">
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4">
+                  <div>
+                    <h3 className="text-xl font-bold text-foreground mb-1">
+                      {exp.role}
+                    </h3>
+                    <p className="text-lg text-primary font-medium">
+                      {exp.company}
                     </p>
-                    
-                    <div className="mb-4">
-                      <h4 className="font-medium text-foreground mb-2">Key Achievements:</h4>
-                      <ul className="space-y-1">
-                        {exp.achievements.map((achievement, idx) => (
-                          <li key={idx} className="text-sm text-muted-foreground flex items-start">
-                            <span className="w-2 h-2 bg-primary rounded-full mt-2 mr-3 flex-shrink-0" />
-                            {achievement}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                    
-                    <div>
-                      <h4 className="font-medium text-foreground mb-2">Technologies:</h4>
-                      <div className="flex flex-wrap gap-2">
-                        {exp.technologies.map((tech, idx) => (
-                          <Badge key={idx} variant="outline" className="text-xs">
-                            {tech}
-                          </Badge>
-                        ))}
-                      </div>
-                    </div>
-                  </Card>
+                  </div>
+                  <div className="flex flex-col items-start sm:items-end mt-2 sm:mt-0">
+                    <span className="text-muted-foreground text-sm font-medium">
+                      {exp.period}
+                    </span>
+                  </div>
                 </div>
-              </div>
+                
+                <p className="text-muted-foreground mb-4 leading-relaxed">
+                  {exp.description}
+                </p>
+                
+                <div className="mb-4">
+                  <h4 className="font-medium text-foreground mb-2">Key Achievements:</h4>
+                  <ul className="space-y-1">
+                    {exp.achievements.map((achievement, idx) => (
+                      <li key={idx} className="text-sm text-muted-foreground flex items-start">
+                        <span className="w-2 h-2 bg-primary rounded-full mt-2 mr-3 flex-shrink-0" />
+                        {achievement}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                
+                <div>
+                  <h4 className="font-medium text-foreground mb-2">Technologies:</h4>
+                  <div className="flex flex-wrap gap-2">
+                    {exp.technologies.map((tech, idx) => (
+                      <Badge key={idx} variant="outline" className="text-xs">
+                        {tech}
+                      </Badge>
+                    ))}
+                  </div>
+                </div>
+              </Card>
             ))}
           </div>
         </div>

@@ -1,17 +1,32 @@
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Calendar, ArrowRight } from 'lucide-react';
+import { Calendar, ArrowRight, Play, Instagram } from 'lucide-react';
+import bassBotFeatureVideo from '@/assets/BassBotFeature.mp4';
 
 const BlogSection = () => {
+  const handleVideoClick = () => {
+    // Open Instagram post in new tab
+    window.open('https://www.instagram.com/hopecollege/reel/DKKydQzKDWy/', '_blank');
+  };
+
   const posts = [
+    {
+      title: "BassBot Featured by Hope College",
+      excerpt: "My autonomous bass guitar project was officially featured by Hope College on their social media, showcasing innovative robotics and music technology.",
+      date: "2025-01-15",
+      category: "Featured",
+      readTime: "2 min read",
+      featured: true,
+      isVideo: true
+    },
     {
       title: "Advances in Robot Learning: From Simulation to Reality",
       excerpt: "Exploring the latest developments in sim-to-real transfer learning and how we're bridging the gap between simulated training and real-world robot deployment.",
       date: "2025-03-15",
       category: "Research",
       readTime: "8 min read",
-      featured: true
+      featured: false
     },
     {
       title: "Building Autonomous Systems: Lessons from the Field",
@@ -19,14 +34,6 @@ const BlogSection = () => {
       date: "2025-03-01",
       category: "Engineering",
       readTime: "6 min read",
-      featured: false
-    },
-    {
-      title: "The Future of Human-Robot Interaction",
-      excerpt: "Discussing emerging trends in HRI and how robotics will transform various industries in the coming decade.",
-      date: "2025-02-20",
-      category: "Insights",
-      readTime: "5 min read",
       featured: false
     }
   ];
@@ -57,10 +64,30 @@ const BlogSection = () => {
           <div className="mb-12">
             <Card className="overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 group">
               <div className="md:flex">
-                <div className="md:w-1/3 bg-gradient-primary p-8 text-white flex items-center justify-center">
-                  <div className="text-center">
-                    <div className="text-4xl font-bold mb-2">FEATURED</div>
-                    <div className="text-lg opacity-90">Latest Research</div>
+                <div className="md:w-1/3 relative overflow-hidden">
+                  <div className="aspect-square relative">
+                    <video
+                      src={bassBotFeatureVideo}
+                      className="w-full h-full object-cover cursor-pointer"
+                      onClick={handleVideoClick}
+                      poster=""
+                      preload="metadata"
+                    />
+                    
+                    {/* Play Button Overlay */}
+                    <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                      <div className="bg-black/50 rounded-full p-4 backdrop-blur-sm">
+                        <Play className="w-8 h-8 text-white" />
+                      </div>
+                    </div>
+                    
+                    {/* Featured Badge */}
+                    <div className="absolute top-4 left-4">
+                      <Badge variant="default" className="bg-primary text-primary-foreground text-xs">
+                        <Instagram className="w-3 h-3 mr-1" />
+                        Featured
+                      </Badge>
+                    </div>
                   </div>
                 </div>
                 <div className="md:w-2/3 p-8">
@@ -85,8 +112,12 @@ const BlogSection = () => {
                     {posts[0].excerpt}
                   </p>
                   
-                  <Button className="bg-gradient-primary">
-                    Read Full Article
+                  <Button 
+                    onClick={handleVideoClick}
+                    className="bg-gradient-primary"
+                  >
+                    <Instagram className="w-4 h-4 mr-2" />
+                    View on Instagram
                     <ArrowRight className="w-4 h-4 ml-2" />
                   </Button>
                 </div>

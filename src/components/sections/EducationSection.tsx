@@ -6,19 +6,35 @@ const EducationSection = () => {
     {
       degree: "Master of Science in Robotics",
       institution: "Northwestern University",
-      period: "2025 - Present",
+      period: "2025 - 2026",
       status: "Current Student",
-      description: "Focusing on advanced robotics, machine learning, and autonomous systems research.",
-      highlights: ["Robot Learning", "Computer Vision", "Control Systems", "AI/ML"]
+      description: "Focusing on mobile manipulation, machine learning, and autonomous systems research.",
+      highlights: ["ROS2", "C++", "Control Systems", "AI/ML"]
     },
     {
-      degree: "Bachelor of Science in Electrical Engineering",
-      institution: "University Name", // Replace with actual
-      period: "2020 - 2025",
+      degree: "B.S. Electrical Engineering, B.A. Computer Science, Mathematics Minor",
+      institution: "Hope College",
+      period: "2021 - 2025",
       status: "Completed",
-      description: "Strong foundation in electrical engineering with computer science emphasis.",
-      highlights: ["Embedded Systems", "Signal Processing", "Software Engineering", "Hardware Design"]
-    }
+      description: "Completed three degrees simultaneously, demonstrating strong interdisciplinary foundation in engineering, computer science, and mathematics.",
+      highlights: ["Electrical Engineering", "Computer Science", "Mathematics", "Control Systems", "Software Engineering", "Algorithms"]
+    },
+          {
+        degree: "Semester Abroad",
+        institution: "Singapore Management University",
+        period: "2023",
+        status: "Completed",
+        description: "Studied AI and Data Strucures/Algorithm along with cross cultural courses on south east asian politics and history.",
+        highlights: ["AI", "Data Structures", "Cross-Cultural Communication"]
+      },
+      {
+        degree: "Summer Term",
+        institution: "Technische Universität Berlin",
+        period: "Summer 2022",
+        status: "Completed",
+        description: "International study experience focusing on engineering mechanics and German language.",
+        highlights: ["Statics", "German Language", "Cross-Cultural Communication", ]
+      }
   ];
 
   return (
@@ -61,6 +77,8 @@ const EducationSection = () => {
               <p className="text-muted-foreground mb-4 leading-relaxed">
                 {item.description}
               </p>
+              
+
               
               <div className="flex flex-wrap gap-2">
                 {item.highlights.map((highlight, idx) => (

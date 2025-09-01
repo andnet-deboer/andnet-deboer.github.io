@@ -1,54 +1,73 @@
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { ExternalLink, Github } from 'lucide-react';
-import bassGuitarImage from '@/assets/bass-guitar-robot.jpg';
+import { ExternalLink, Github, Volume2, VolumeX } from 'lucide-react';
+import bassGuitarImage from '@/assets/Bass-Guitar.gif';
 import autonomousRobotImage from '@/assets/MultiAgentResearch.gif';
+import pelotonRobotVideo from '@/assets/PelotonRobotVideo.gif';
+import { useState, useRef } from 'react';
 
 const PortfolioSection = () => {
+  const [isAudioPlaying, setIsAudioPlaying] = useState(false);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
+
+  const toggleAudio = () => {
+    if (audioRef.current) {
+      if (isAudioPlaying) {
+        audioRef.current.pause();
+        setIsAudioPlaying(false);
+      } else {
+        audioRef.current.play();
+        setIsAudioPlaying(true);
+      }
+    }
+  };
+
   const projects = [
     {
-      title: "Self-Playing Bass Guitar Robot",
-      description: "An innovative robotic bass guitar that reads sheet music and plays recognizable bass lines using precision servos and solenoids. This project demonstrates advanced mechanical engineering, computer vision for music reading, and real-time control systems.",
+      title: "BassBot: Self-Playing Bass Guitar",
+      description: "A fully autonomous robotic bass guitar that combines mechanical engineering, computer vision, and computational musicology to perform complex musical pieces with human-like precision.",
       image: bassGuitarImage,
-      technologies: ["Arduino", "Computer Vision", "Mechanical Design", "Real-time Control", "Music Theory"],
-      category: "Robotics",
-      status: "Completed",
+      technologies: ["Raspberry Pi", "Mechanical Design", "Computational Musicology"],
       links: {
         github: "#",
         demo: "#",
         paper: "#"
       },
-      highlights: [
-        "Custom mechanical finger actuators",
-        "Real-time sheet music recognition",
-        "Precise timing and rhythm control",
-        "Multi-string simultaneous playing capability"
-      ]
+      isBassGuitar: true // Special flag for bass guitar project
     },
     {
-      title: "Multi-agent Robotics Project",
+      title: "Multi-Agent Robotics Project",
       description: "Low cost general purpose multi-robot system to serve as controls system test platform",
       image: autonomousRobotImage,
       technologies: ["ROS", "Python", "LIDAR", "Computer Vision"],
       links: {
         github: "#",
         paper: "#"
-      },
+      }
     },
     {
       title: "Multi-robot collaboration",
       description: "Mobile robot platform utilzing SLAM in collboartion with 6DOF manipulator for warheouuse part restocking application",
-      image: null,
-      technologies: ["Mobile Industrial Robot", "FANUC 200iD"],
+      image: pelotonRobotVideo,
+      technologies: ["Mobile Industrial Robot", "FANUC 200iD", "Allen Bradley PLC",],
       links: {
         paper: "#"
       },
+      isMultiRobot: true // Special flag for multi-robot project
     }
   ];
 
   return (
     <section id="portfolio" className="py-20 bg-subtle/30 scroll-mt-16">
+      {/* Hidden audio element */}
+      <audio 
+        ref={audioRef}
+        src="/src/assets/bassbotaudio.mp3"
+        onEnded={() => setIsAudioPlaying(false)}
+        onError={() => setIsAudioPlaying(false)}
+      />
+      
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-foreground mb-4">
@@ -64,28 +83,74 @@ const PortfolioSection = () => {
             <Card key={index} className="overflow-hidden shadow-lg hover:shadow-xl transition-all duration-500 group animate-fade-in">
               {project.image && (
                 <div className="aspect-video overflow-hidden">
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    loading="lazy"
-                  />
+                                     {project.isBassGuitar ? (
+                     // Special split view for bass guitar with audio control
+                     <div className="relative">
+                       <div className="grid grid-cols-2 gap-1 h-full">
+                         <div className="relative overflow-hidden">
+                                                    <img
+                              src={project.image}
+                              alt={`${project.title} - Fretboard View`}
+                              className="w-full h-full object-cover object-top scale-125 group-hover:scale-130 transition-transform duration-500"
+                              loading="lazy"
+                            />
+                           <div className="absolute top-2 left-2">
+                             <span className="text-white text-xs font-medium bg-black/30 px-2 py-1 rounded">
+                               Fretting Subsystem
+                             </span>
+                           </div>
+                         </div>
+                                                                                                                                                                                                               <div className="relative overflow-hidden">
+                                                       <img
+                                 src={project.image}
+                                 alt={`${project.title} - Body View`}
+                                 className="w-full h-full object-cover scale-200 group-hover:scale-210 transition-transform duration-500"
+                                 style={{ objectPosition: 'center 125%' }}
+                                 loading="lazy"
+                               />
+                             <div className="absolute top-2 left-2">
+                               <span className="text-white text-xs font-medium bg-black/30 px-2 py-1 rounded">
+                                 Pick/Damp Subsystem
+                               </span>
+                             </div>
+                           </div>
+                       </div>
+                       {/* Audio control button */}
+                                               <button
+                          onClick={toggleAudio}
+                          className="absolute top-2 right-2 p-2 bg-black/50 hover:bg-black/70 text-white rounded-full transition-all duration-200 backdrop-blur-sm"
+                          title={isAudioPlaying ? "Mute Audio" : "Play Audio"}
+                        >
+                          {isAudioPlaying ? (
+                            <Volume2 className="w-4 h-4" />
+                          ) : (
+                            <VolumeX className="w-4 h-4" />
+                          )}
+                        </button>
+                     </div>
+                                       ) : project.isMultiRobot ? (
+                      // Special tall view for multi-robot project
+                      <div className="aspect-[4/5] overflow-hidden">
+                        <img
+                          src={project.image}
+                          alt={project.title}
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                          loading="lazy"
+                        />
+                      </div>
+                   ) : (
+                     // Standard view for other projects
+                     <img
+                       src={project.image}
+                       alt={project.title}
+                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                       loading="lazy"
+                     />
+                   )}
                 </div>
               )}
               
               <div className="p-6">
-                <div className="flex items-center justify-between mb-3">
-                  <Badge variant="default" className="text-xs">
-                    {project.category}
-                  </Badge>
-                  <Badge 
-                    variant={project.status === "Completed" ? "secondary" : "outline"}
-                    className="text-xs"
-                  >
-                    {project.status}
-                  </Badge>
-                </div>
-                
                 <h3 className="text-xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors">
                   {project.title}
                 </h3>
@@ -93,18 +158,6 @@ const PortfolioSection = () => {
                 <p className="text-muted-foreground text-sm mb-4 leading-relaxed">
                   {project.description}
                 </p>
-                
-                <div className="mb-4">
-                  <h4 className="font-medium text-foreground text-sm mb-2">Key Highlights:</h4>
-                  <ul className="space-y-1">
-                    {project.highlights.slice(0, 2).map((highlight, idx) => (
-                      <li key={idx} className="text-xs text-muted-foreground flex items-start">
-                        <span className="w-1.5 h-1.5 bg-primary rounded-full mt-1.5 mr-2 flex-shrink-0" />
-                        {highlight}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
                 
                 <div className="mb-4">
                   <div className="flex flex-wrap gap-1">

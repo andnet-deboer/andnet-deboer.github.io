@@ -1,5 +1,6 @@
 import Navigation from '@/components/Navigation';
 import HeroSection from '@/components/sections/HeroSection';
+import FeaturedSection from '@/components/sections/FeaturedSection';
 import EducationSection from '@/components/sections/EducationSection';
 import CareerSection from '@/components/sections/CareerSection';
 import PortfolioSection from '@/components/sections/PortfolioSection';
@@ -12,6 +13,7 @@ const Index = () => {
       <Navigation />
       <main className="pt-16"> {/* Add padding-top to account for fixed navbar */}
         <HeroSection />
+        <FeaturedSection />
         <EducationSection />
         <CareerSection />
         <PortfolioSection />
