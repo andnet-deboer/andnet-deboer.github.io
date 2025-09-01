@@ -1,10 +1,12 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { cn } from '@/lib/utils';
 import { Menu, X } from 'lucide-react';
 
 const Navigation = () => {
   const [activeSection, setActiveSection] = useState('home');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [underlineStyle, setUnderlineStyle] = useState({ left: 0, width: 0 });
+  const navRef = useRef<HTMLDivElement>(null);
 
   const navItems = [
     { id: 'home', label: 'Home' },
@@ -34,6 +36,23 @@ const Navigation = () => {
     return () => observer.disconnect();
   }, []);
 
+  // Update underscore position when active section changes
+  useEffect(() => {
+    if (navRef.current) {
+      const activeButton = navRef.current.querySelector(`[data-section="${activeSection}"]`) as HTMLElement;
+      if (activeButton) {
+        const navContainer = navRef.current;
+        const containerRect = navContainer.getBoundingClientRect();
+        const buttonRect = activeButton.getBoundingClientRect();
+        
+        setUnderlineStyle({
+          left: buttonRect.left - containerRect.left,
+          width: buttonRect.width
+        });
+      }
+    }
+  }, [activeSection]);
+
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
@@ -52,13 +71,14 @@ const Navigation = () => {
             </div>
             
             {/* Desktop Navigation */}
-            <div className="hidden md:flex space-x-8">
+            <div ref={navRef} className="hidden md:flex space-x-8 relative">
               {navItems.map(({ id, label }) => (
                 <button
                   key={id}
+                  data-section={id}
                   onClick={() => scrollToSection(id)}
                   className={cn(
-                    "relative py-2 px-1 text-sm font-medium transition-all duration-300",
+                    "relative py-2 px-4 text-sm font-medium transition-all duration-300",
                     "hover:text-primary hover:scale-105",
                     activeSection === id
                       ? "text-primary"
@@ -66,11 +86,17 @@ const Navigation = () => {
                   )}
                 >
                   {label}
-                  {activeSection === id && (
-                    <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-primary rounded-full shadow-glow" />
-                  )}
                 </button>
               ))}
+              {/* Sliding underscore */}
+              <span 
+                className="absolute bottom-0 h-0.5 bg-gradient-primary rounded-full shadow-glow transition-all duration-500 ease-out"
+                style={{
+                  left: `${underlineStyle.left}px`,
+                  width: `${underlineStyle.width}px`,
+                  transform: 'translateY(2px)'
+                }}
+              />
             </div>
 
             {/* Mobile menu button */}
