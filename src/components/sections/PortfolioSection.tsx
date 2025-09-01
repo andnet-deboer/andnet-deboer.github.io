@@ -27,39 +27,23 @@ const PortfolioSection = () => {
       ]
     },
     {
-      title: "Autonomous Navigation System",
-      description: "Developed a sophisticated autonomous navigation system for mobile robots using advanced sensor fusion, SLAM algorithms, and path planning. The system enables robots to navigate complex environments while avoiding obstacles and reaching target destinations efficiently.",
+      title: "Multi-agent Robotics Project",
+      description: "Low cost general purpose multi-robot system to serve as controls system test platform",
       image: autonomousRobotImage,
-      technologies: ["ROS", "Python", "LIDAR", "Computer Vision", "SLAM", "Path Planning"],
-      category: "AI/Robotics",
-      status: "In Progress",
+      technologies: ["ROS", "Python", "LIDAR", "Computer Vision"],
       links: {
         github: "#",
         paper: "#"
       },
-      highlights: [
-        "Advanced SLAM implementation",
-        "Multi-sensor fusion algorithms",
-        "Dynamic obstacle avoidance",
-        "Real-time path optimization"
-      ]
     },
     {
-      title: "Robot Learning Policy Framework",
-      description: "Research project focused on developing novel approaches for robot policy learning. Implementing reinforcement learning algorithms that enable robots to learn complex tasks through interaction with their environment.",
+      title: "Multi-robot collaboration",
+      description: "Mobile robot platform utilzing SLAM in collboartion with 6DOF manipulator for warheouuse part restocking application",
       image: null,
-      technologies: ["PyTorch", "Reinforcement Learning", "Python", "ROS", "Simulation"],
-      category: "Research",
-      status: "Ongoing Research",
+      technologies: ["Mobile Industrial Robot", "FANUC 200iD"],
       links: {
         paper: "#"
       },
-      highlights: [
-        "Novel policy learning algorithms",
-        "Sim-to-real transfer techniques",
-        "Multi-task learning capabilities",
-        "Efficient exploration strategies"
-      ]
     }
   ];
 
