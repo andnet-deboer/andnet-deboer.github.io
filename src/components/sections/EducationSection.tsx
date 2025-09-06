@@ -8,16 +8,16 @@ const EducationSection = () => {
       institution: "Northwestern University",
       period: "2025 - 2026",
       status: "Current Student",
-      description: "Focusing on mobile manipulation, machine learning, and autonomous systems research.",
-      highlights: ["ROS2", "C++", "Control Systems", "AI/ML"]
+      description: "Focus on mobile manipulation for autonomous robots.",
+      highlights: ["ROS2", "Python", "Control Systems"]
     },
     {
-      degree: "B.S. Electrical Engineering, B.A. Computer Science, Mathematics Minor",
+      degree: "Dual degree in EE/CS with a minor in math",
       institution: "Hope College",
       period: "2021 - 2025",
       status: "Completed",
       description: "Completed three degrees simultaneously, demonstrating strong interdisciplinary foundation in engineering, computer science, and mathematics.",
-      highlights: ["Electrical Engineering", "Computer Science", "Mathematics", "Control Systems", "Software Engineering", "Algorithms"]
+      highlights: ["Embedded Systems", "CS", "EE"]
     },
           {
         degree: "Semester Abroad",

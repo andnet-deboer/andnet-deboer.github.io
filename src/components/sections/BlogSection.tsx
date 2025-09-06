@@ -57,7 +57,6 @@ const BlogSection = () => {
                       src={bassBotFeatureVideo}
                       className="w-full h-full object-cover cursor-pointer"
                       onClick={handleVideoClick}
-                      poster=""
                       preload="metadata"
                     />
                     
