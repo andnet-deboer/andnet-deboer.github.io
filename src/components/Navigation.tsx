@@ -12,7 +12,6 @@ const Navigation = () => {
     { id: 'portfolio', label: 'Portfolio' },
     { id: 'career', label: 'Career' },
     { id: 'education', label: 'Education' },
-    { id: 'blog', label: 'Blog' },
     { id: 'contact', label: 'Contact' },
   ];
 
