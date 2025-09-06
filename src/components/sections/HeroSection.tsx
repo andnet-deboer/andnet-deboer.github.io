@@ -1,4 +1,5 @@
 import profilePhoto from '@/assets/profilephoto.jpg';
+import { Github, Linkedin } from 'lucide-react';
 
 const HeroSection = () => {
 
@@ -15,10 +16,32 @@ const HeroSection = () => {
               Robotics M.S. student @ Northwestern University
             </h2>
             
-            <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
+            <p className="text-sm md:text-base text-muted-foreground leading-relaxed mb-6">
               Passionate about robotics and autonomous systems. Background in electrical engineering 
               and computer science with particular interest in mobile manipulation.
             </p>
+            
+            {/* Social Media Icons */}
+            <div className="flex justify-center md:justify-start gap-4">
+              <a
+                href="https://github.com/andnet-deboer"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2 rounded-full bg-muted hover:bg-primary/10 transition-colors duration-200 group"
+                aria-label="GitHub Profile"
+              >
+                <Github className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors" />
+              </a>
+              <a
+                href="https://www.linkedin.com/in/andnetdeboer/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2 rounded-full bg-muted hover:bg-primary/10 transition-colors duration-200 group"
+                aria-label="LinkedIn Profile"
+              >
+                <Linkedin className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors" />
+              </a>
+            </div>
           </div>
           
           <div className="flex justify-center md:justify-end order-1 md:order-2">

@@ -1,6 +1,6 @@
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Mail, Copy, Check } from 'lucide-react';
+import { Mail, Copy, Check, Github, Linkedin } from 'lucide-react';
 import { useState } from 'react';
 
 const ContactSection = () => {
@@ -69,6 +69,31 @@ const ContactSection = () => {
               <p className="text-sm text-muted-foreground mt-4 font-mono">
                 {email}
               </p>
+              
+              {/* Social Media Links */}
+              <div className="mt-6 pt-6 border-t border-border">
+                <p className="text-sm text-muted-foreground mb-4">Connect with me</p>
+                <div className="flex justify-center gap-4">
+                  <a
+                    href="https://github.com/andnet-deboer"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="p-3 rounded-full bg-muted hover:bg-primary/10 transition-colors duration-200 group"
+                    aria-label="GitHub Profile"
+                  >
+                    <Github className="w-6 h-6 text-muted-foreground group-hover:text-primary transition-colors" />
+                  </a>
+                  <a
+                    href="https://www.linkedin.com/in/andnetdeboer/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="p-3 rounded-full bg-muted hover:bg-primary/10 transition-colors duration-200 group"
+                    aria-label="LinkedIn Profile"
+                  >
+                    <Linkedin className="w-6 h-6 text-muted-foreground group-hover:text-primary transition-colors" />
+                  </a>
+                </div>
+              </div>
             </div>
           </Card>
         </div>
