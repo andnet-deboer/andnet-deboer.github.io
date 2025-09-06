@@ -12,11 +12,11 @@ const EducationSection = () => {
       highlights: ["ROS2", "Python", "Control Systems"]
     },
     {
-      degree: "Dual degree in EE/CS with a minor in math",
+      degree: "B.S. Electrical Engineering, B.A. Computer Science",
       institution: "Hope College",
       period: "2021 - 2025",
       status: "Completed",
-      description: "Completed three degrees simultaneously, demonstrating strong interdisciplinary foundation in engineering, computer science, and mathematics.",
+      description: "Dual degree in EE/CS with a minor in mathematics",
       highlights: ["Embedded Systems", "CS", "EE"]
     },
           {
