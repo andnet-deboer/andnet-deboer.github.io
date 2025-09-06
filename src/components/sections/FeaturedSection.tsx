@@ -1,14 +1,19 @@
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { ExternalLink, Play, Instagram } from 'lucide-react';
 import { useState } from 'react';
 import bassBotFeatureVideo from '@/assets/BassBotFeature.mp4';
 
 const FeaturedSection = () => {
-  const [isVideoPlaying, setIsVideoPlaying] = useState(false);
+  const [isVideoOpen, setIsVideoOpen] = useState(false);
 
   const handleVideoClick = () => {
+    setIsVideoOpen(true);
+  };
+
+  const handleInstagramClick = () => {
     // Open Instagram post in new tab
     window.open('https://www.instagram.com/hopecollege/reel/DKKydQzKDWy/', '_blank');
   };
@@ -31,7 +36,7 @@ const FeaturedSection = () => {
         <div className="max-w-4xl mx-auto">
           <Card className="overflow-hidden shadow-lg hover:shadow-xl transition-all duration-500 group">
                          <div className="relative">
-               {/* Actual Video */}
+               {/* Video Preview */}
                <div className="aspect-video relative overflow-hidden">
                  <video
                    src={bassBotFeatureVideo}
@@ -39,6 +44,7 @@ const FeaturedSection = () => {
                    onClick={handleVideoClick}
                    poster=""
                    preload="metadata"
+                   muted
                  />
                  
                  {/* Play Button Overlay */}
@@ -59,7 +65,7 @@ const FeaturedSection = () => {
                  {/* Click to View Badge */}
                  <div className="absolute bottom-4 right-4">
                    <Badge variant="secondary" className="bg-black/50 text-white backdrop-blur-sm">
-                     Click to view on Instagram
+                     Click to play video
                    </Badge>
                  </div>
                </div>
@@ -84,17 +90,45 @@ const FeaturedSection = () => {
                 <Badge variant="outline" className="text-xs">Music Technology</Badge>
               </div>
               
-              <Button 
-                onClick={handleVideoClick}
-                className="w-full bg-gradient-primary hover:opacity-90 transition-opacity"
-              >
-                <Instagram className="w-4 h-4 mr-2" />
-                View on Instagram
-              </Button>
+              <div className="flex gap-3">
+                <Button 
+                  onClick={handleVideoClick}
+                  className="flex-1 bg-gradient-primary hover:opacity-90 transition-opacity"
+                >
+                  <Play className="w-4 h-4 mr-2" />
+                  Play Video
+                </Button>
+                <Button 
+                  onClick={handleInstagramClick}
+                  variant="outline"
+                  className="flex-1"
+                >
+                  <Instagram className="w-4 h-4 mr-2" />
+                  View on Instagram
+                </Button>
+              </div>
             </div>
           </Card>
         </div>
       </div>
+
+      {/* Video Dialog */}
+      <Dialog open={isVideoOpen} onOpenChange={setIsVideoOpen}>
+        <DialogContent className="max-w-4xl w-full h-[80vh] p-0">
+          <DialogHeader className="p-4 pb-2 border-b">
+            <DialogTitle>BassBot Featured Video</DialogTitle>
+          </DialogHeader>
+          <div className="flex-1 p-4 overflow-hidden">
+            <video
+              src={bassBotFeatureVideo}
+              className="w-full h-full object-contain rounded"
+              controls
+              autoPlay
+              title="BassBot Featured Video"
+            />
+          </div>
+        </DialogContent>
+      </Dialog>
     </section>
   );
 };

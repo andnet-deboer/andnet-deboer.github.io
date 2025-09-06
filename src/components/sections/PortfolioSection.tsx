@@ -106,9 +106,9 @@ const PortfolioSection = () => {
                                                                                                                                                                                                                <div className="relative overflow-hidden">
                                                        <img
                                  src={project.image}
-                                 alt={`${project.title} - Body View`}
+                                 alt={`${project.title} - Picking Area View`}
                                  className="w-full h-full object-cover"
-                                 style={{ objectPosition: 'center 75%' }}
+                                 style={{ objectPosition: 'center 30%' }}
                                  loading="lazy"
                                />
                              <div className="absolute top-2 left-2">
@@ -227,14 +227,15 @@ const PortfolioSection = () => {
 
       {/* PDF Viewer Dialog - Multi-robot */}
       <Dialog open={isPdfOpen} onOpenChange={setIsPdfOpen}>
-        <DialogContent className="max-w-3xl w-full h-[90vh] p-0">
+        <DialogContent className="max-w-4xl w-full h-[90vh] p-0">
           <DialogHeader className="p-4 pb-2 border-b">
             <DialogTitle>Internship Summary</DialogTitle>
           </DialogHeader>
-          <div className="h-full overflow-auto">
+          <div className="flex-1 overflow-hidden">
             <iframe
-              src={`${pelotonPdf}#view=FitH&zoom=100&scrollbar=1&toolbar=1&navpanes=0&scroll=0,0.6`}
-              className="w-full h-full border-0 min-h-[600px]"
+              src={`${pelotonPdf}#toolbar=1&navpanes=0&scrollbar=1&view=FitH`}
+              className="w-full h-full border-0"
+              style={{ height: 'calc(90vh - 80px)' }}
               title="Internship Summary PDF"
             />
           </div>
@@ -243,14 +244,15 @@ const PortfolioSection = () => {
 
       {/* PDF Viewer Dialog - BassBot */}
       <Dialog open={isBassBotPdfOpen} onOpenChange={setIsBassBotPdfOpen}>
-        <DialogContent className="max-w-3xl w-full h-[90vh] p-0">
+        <DialogContent className="max-w-4xl w-full h-[90vh] p-0">
           <DialogHeader className="p-4 pb-2 border-b">
             <DialogTitle>BassBot Final Presentation</DialogTitle>
           </DialogHeader>
-          <div className="h-full overflow-auto">
+          <div className="flex-1 overflow-hidden">
             <iframe
-              src={bassBotPdf}
-              className="w-full h-full border-0 min-h-[600px]"
+              src={`${bassBotPdf}#toolbar=1&navpanes=0&scrollbar=1&view=FitH`}
+              className="w-full h-full border-0"
+              style={{ height: 'calc(90vh - 80px)' }}
               title="BassBot Final Presentation PDF"
             />
           </div>

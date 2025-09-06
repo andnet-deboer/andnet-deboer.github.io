@@ -4,7 +4,7 @@ on:
   push:
     branches: [ portfolio-2 ]
   pull_request:
-    branches: [ portfolio-2 ]
+    branches: [ por
 
 jobs:
   build-and-deploy:
