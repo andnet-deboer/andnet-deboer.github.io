@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, useCallback } from 'react';
+import { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
 import { Menu, X } from 'lucide-react';
 
@@ -6,84 +6,15 @@ const Navigation = () => {
   const [activeSection, setActiveSection] = useState('home');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [showNav, setShowNav] = useState(true);
-  const [underlineStyle, setUnderlineStyle] = useState({ left: 0, width: 0 });
-  const navRef = useRef<HTMLDivElement>(null);
-  const sectionRatios = useRef<Record<string, number>>({});
 
   const navItems = [
     { id: 'home', label: 'Home' },
-    { id: 'education', label: 'Education' },
-    { id: 'career', label: 'Career' },
     { id: 'portfolio', label: 'Portfolio' },
+    { id: 'career', label: 'Career' },
+    { id: 'education', label: 'Education' },
+    { id: 'blog', label: 'Blog' },
     { id: 'contact', label: 'Contact' },
   ];
-
-  // Update underline position - discrete positioning centered under label text
-  const updateUnderlinePosition = useCallback(() => {
-    if (navRef.current) {
-      const activeLabel = navRef.current.querySelector(`[data-label="${activeSection}"]`) as HTMLElement;
-      if (activeLabel) {
-        const navContainer = navRef.current;
-        const containerRect = navContainer.getBoundingClientRect();
-        const labelRect = activeLabel.getBoundingClientRect();
-        
-        setUnderlineStyle({
-          left: labelRect.left - containerRect.left,
-          width: labelRect.width
-        });
-      }
-    }
-  }, [activeSection]);
-
-  // 50% rule: only switch active section when >= 50% visible
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          sectionRatios.current[entry.target.id] = entry.intersectionRatio;
-        });
-
-        // Find section with highest intersection ratio >= 0.5
-        let bestSection = activeSection;
-        let bestRatio = sectionRatios.current[activeSection] || 0;
-
-        Object.entries(sectionRatios.current).forEach(([sectionId, ratio]) => {
-          if (ratio >= 0.5 && ratio > bestRatio) {
-            bestSection = sectionId;
-            bestRatio = ratio;
-          }
-        });
-
-        if (bestSection !== activeSection && bestRatio >= 0.5) {
-          setActiveSection(bestSection);
-        }
-      },
-      { threshold: [0, 0.25, 0.5, 0.75, 1] }
-    );
-
-    navItems.forEach(({ id }) => {
-      const element = document.getElementById(id);
-      if (element) observer.observe(element);
-    });
-
-    return () => observer.disconnect();
-  }, [activeSection]);
-
-  // Update underline position when active section changes or window resizes
-  useEffect(() => {
-    updateUnderlinePosition();
-    
-    const handleResize = () => updateUnderlinePosition();
-    const handleFontLoad = () => updateUnderlinePosition();
-    
-    window.addEventListener('resize', handleResize);
-    document.fonts.addEventListener('loadingdone', handleFontLoad);
-    
-    return () => {
-      window.removeEventListener('resize', handleResize);
-      document.fonts.removeEventListener('loadingdone', handleFontLoad);
-    };
-  }, [updateUnderlinePosition]);
 
   // Navbar visibility logic
   useEffect(() => {
@@ -126,6 +57,7 @@ const Navigation = () => {
   }, [isMobileMenuOpen]);
 
   const scrollToSection = (sectionId: string) => {
+    setActiveSection(sectionId);
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
@@ -149,35 +81,23 @@ const Navigation = () => {
             </div>
             
             {/* Desktop Navigation */}
-            <div ref={navRef} className="hidden md:flex space-x-8 relative">
+            <div className="hidden md:flex space-x-8">
               {navItems.map(({ id, label }) => (
                 <button
                   key={id}
-                  data-section={id}
                   onClick={() => scrollToSection(id)}
                   className={cn(
                     "relative py-2 px-4 text-sm font-medium transition-colors duration-200",
                     "hover:text-primary",
                     activeSection === id
-                      ? "text-primary"
+                      ? "text-primary border-b-2 border-primary"
                       : "text-muted-foreground"
                   )}
                   aria-current={activeSection === id ? "page" : undefined}
                 >
-                  <span data-label={id}>{label}</span>
+                  {label}
                 </button>
               ))}
-              {/* Discrete underscore - Northwestern purple */}
-              <span 
-                className="absolute bottom-0 h-[3px] rounded-full opacity-100"
-                style={{
-                  left: `${underlineStyle.left}px`,
-                  width: `${underlineStyle.width}px`,
-                  backgroundColor: '#4E2A84', // Northwestern purple
-                  transform: 'translateY(2px)',
-                  transition: 'none' // No animation - discrete jump
-                }}
-              />
             </div>
 
             {/* Mobile menu button */}

@@ -38,54 +38,92 @@ const EducationSection = () => {
   ];
 
   return (
-    <section id="education" className="py-20 bg-subtle/30 scroll-mt-16">
+    <section id="education" className="py-12 bg-subtle/30 scroll-mt-16">
       <div className="container mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-foreground mb-4">
+        <div className="text-center mb-6 md:mb-8">
+          <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-2">
             Education
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            My academic journey in robotics, electrical engineering, and computer science
-          </p>
         </div>
 
-        <div className="max-w-4xl mx-auto space-y-8">
+        <div className="max-w-3xl mx-auto space-y-4">
           {education.map((item, index) => (
-            <Card key={index} className="p-8 shadow-lg hover:shadow-xl transition-all duration-300 animate-fade-in border-l-4 border-l-primary">
-              <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-4">
+            <Card key={index} className="p-3 md:p-4 border border-border bg-card border-l-4 border-l-primary rounded-none">
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">
                 <div>
-                  <h3 className="text-2xl font-bold text-foreground mb-2">
+                  <h3 className="text-base md:text-lg font-bold text-foreground">
                     {item.degree}
                   </h3>
-                  <p className="text-xl text-primary font-medium">
-                    {item.institution}
+                  <p className="text-primary font-medium text-xs md:text-sm">
+                    {item.institution === "Northwestern University" ? (
+                      <a 
+                        href="https://www.northwestern.edu/" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="hover:text-primary/80 transition-colors"
+                      >
+                        {item.institution}
+                      </a>
+                    ) : item.institution === "Hope College" ? (
+                      <a 
+                        href="https://hope.edu/" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="hover:text-primary/80 transition-colors"
+                      >
+                        {item.institution}
+                      </a>
+                    ) : item.institution === "Singapore Management University" ? (
+                      <a 
+                        href="https://www.smu.edu.sg/" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="hover:text-primary/80 transition-colors"
+                      >
+                        {item.institution}
+                      </a>
+                    ) : item.institution === "Technische Universität Berlin" ? (
+                      <a 
+                        href="https://www.tu.berlin/en/" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="hover:text-primary/80 transition-colors"
+                      >
+                        {item.institution}
+                      </a>
+                    ) : (
+                      item.institution
+                    )}
                   </p>
                 </div>
-                <div className="flex flex-col items-start lg:items-end mt-4 lg:mt-0">
+                <div className="flex items-center gap-2 mt-2 sm:mt-0">
                   <Badge 
-                    variant={item.status === "Incoming" ? "default" : "secondary"}
-                    className="mb-2"
+                    variant={item.status === "Current Student" ? "default" : "secondary"}
+                    className="text-xs"
                   >
                     {item.status}
                   </Badge>
-                  <span className="text-muted-foreground font-medium">
+                  <span className="text-muted-foreground text-sm">
                     {item.period}
                   </span>
                 </div>
               </div>
               
-              <p className="text-muted-foreground mb-4 leading-relaxed">
+              <p className="text-muted-foreground text-sm mb-3">
                 {item.description}
               </p>
               
-
-              
-              <div className="flex flex-wrap gap-2">
-                {item.highlights.map((highlight, idx) => (
-                  <Badge key={idx} variant="outline" className="text-sm">
+              <div className="flex flex-wrap gap-1">
+                {item.highlights.slice(0, 4).map((highlight, idx) => (
+                  <Badge key={idx} variant="outline" className="text-xs">
                     {highlight}
                   </Badge>
                 ))}
+                {item.highlights.length > 4 && (
+                  <Badge variant="outline" className="text-xs">
+                    +{item.highlights.length - 4}
+                  </Badge>
+                )}
               </div>
             </Card>
           ))}

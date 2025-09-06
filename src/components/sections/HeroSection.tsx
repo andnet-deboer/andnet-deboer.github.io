@@ -1,63 +1,32 @@
-import { Button } from '@/components/ui/button';
 import profilePhoto from '@/assets/profile-photo.png';
 
 const HeroSection = () => {
-  const scrollToPortfolio = () => {
-    const element = document.getElementById('portfolio');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center bg-gradient-hero scroll-mt-16">
+    <section id="home" className="py-12 md:py-20 bg-background scroll-mt-16">
       <div className="container mx-auto px-6">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <div className="text-center lg:text-left animate-fade-in">
-            <h1 className="text-5xl lg:text-6xl font-bold text-foreground mb-6 leading-tight">
-              Hello, I'm{' '}
-              <span className="bg-gradient-primary bg-clip-text text-transparent">
-                Andnet DeBoer
-              </span>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 items-center max-w-4xl mx-auto">
+          <div className="text-center md:text-left order-2 md:order-1">
+            <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+              Hello, I'm Andnet DeBoer
             </h1>
             
-            <h2 className="text-xl lg:text-2xl text-accent font-medium mb-6">
+            <h2 className="text-base md:text-lg text-muted-foreground mb-4">
               Robotics M.S. student @ Northwestern University
             </h2>
             
-            <p className="text-lg text-muted-foreground mb-8 max-w-2xl leading-relaxed">
-              I'm passionate about innovation at the intersection of hardware and software, 
-              with particular interest in robotics. My background spans electrical engineering 
-              and computer science, with a drive to develop autonmous mobile robots.
+            <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
+              Passionate about robotics and autonomous systems. Background in electrical engineering 
+              and computer science with particular interest in mobile manipulation.
             </p>
-            
-            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <Button 
-                size="lg" 
-                onClick={scrollToPortfolio}
-                className="bg-gradient-primary hover:opacity-90 transition-opacity font-medium px-8"
-              >
-                View My Work
-              </Button>
-              <Button 
-                variant="outline" 
-                size="lg"
-                className="border-primary text-primary hover:bg-primary hover:text-primary-foreground font-medium px-8"
-              >
-                Download CV
-              </Button>
-            </div>
           </div>
           
-          <div className="flex justify-center lg:justify-end animate-scale-in">
-            <div className="relative">
-              <div className="absolute -inset-4 bg-gradient-primary rounded-full blur-xl opacity-20 animate-float" />
-              <img
-                src={profilePhoto}
-                alt="Andnet DeBoer - Robotics Student at Northwestern University"
-                className="relative w-80 h-80 object-cover rounded-full border-4 border-card shadow-xl"
-              />
-            </div>
+          <div className="flex justify-center md:justify-end order-1 md:order-2">
+            <img
+              src={profilePhoto}
+              alt="Andnet DeBoer - Robotics Student at Northwestern University"
+              className="w-32 h-32 md:w-48 md:h-48 object-cover rounded-full border-2 border-border"
+            />
           </div>
         </div>
       </div>

@@ -1,14 +1,19 @@
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { ExternalLink, Github, Volume2, VolumeX } from 'lucide-react';
 import bassGuitarImage from '@/assets/Bass-Guitar.gif';
 import autonomousRobotImage from '@/assets/MultiAgentResearch.gif';
 import pelotonRobotVideo from '@/assets/PelotonRobotVideo.gif';
+import pelotonPdf from '@/assets/Peloton_Internship_Summary.pdf';
+import bassBotPdf from '@/assets/Bass_Bot_Final_Presentation.pdf';
 import { useState, useRef } from 'react';
 
 const PortfolioSection = () => {
   const [isAudioPlaying, setIsAudioPlaying] = useState(false);
+  const [isPdfOpen, setIsPdfOpen] = useState(false);
+  const [isBassBotPdfOpen, setIsBassBotPdfOpen] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   const toggleAudio = () => {
@@ -26,13 +31,13 @@ const PortfolioSection = () => {
   const projects = [
     {
       title: "BassBot: Self-Playing Bass Guitar",
-      description: "A fully autonomous robotic bass guitar that combines mechanical engineering, computer vision, and computational musicology to perform complex musical pieces with human-like precision.",
+      description: "A fully autonomous robotic bass guitar that combines mechanical engineering and computational musicology to perform music.",
       image: bassGuitarImage,
       technologies: ["Raspberry Pi", "Mechanical Design", "Computational Musicology"],
       links: {
-        github: "#",
-        demo: "#",
-        paper: "#"
+        github: "https://github.com/andnet-deboer/ENGS-451---Senior-Capstone-Project",
+        demo: "https://drive.google.com/file/d/1XTVOsowfazB2RvkpoZpZAnLUGEhnzxQw/view",
+        paper: bassBotPdf
       },
       isBassGuitar: true // Special flag for bass guitar project
     },
@@ -40,26 +45,26 @@ const PortfolioSection = () => {
       title: "Multi-Agent Robotics Project",
       description: "Low cost general purpose multi-robot system to serve as controls system test platform",
       image: autonomousRobotImage,
-      technologies: ["ROS", "Python", "LIDAR", "Computer Vision"],
+      technologies: ["ROS", "Python", "Raspberry Pi"],
       links: {
-        github: "#",
+        github: "https://github.com/andnet-deboer/ROS-Kobuki-Research-2022",
         paper: "#"
       }
     },
     {
       title: "Multi-robot collaboration",
-      description: "Mobile robot platform utilzing SLAM in collboartion with 6DOF manipulator for warheouuse part restocking application",
+      description: "Mobile robot platform in collaboration with 6DOF manipulator for research project on warehouse part restocking application.",
       image: pelotonRobotVideo,
       technologies: ["Mobile Industrial Robot", "FANUC 200iD", "Allen Bradley PLC",],
       links: {
-        paper: "#"
+        paper: "/src/assets/Peloton_Internship_Summary.pdf"
       },
       isMultiRobot: true // Special flag for multi-robot project
     }
   ];
 
   return (
-    <section id="portfolio" className="py-20 bg-subtle/30 scroll-mt-16">
+    <section id="portfolio" className="py-12 md:py-16 bg-subtle/30 scroll-mt-16">
       {/* Hidden audio element */}
       <audio 
         ref={audioRef}
@@ -69,18 +74,15 @@ const PortfolioSection = () => {
       />
       
       <div className="container mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-foreground mb-4">
-            Portfolio & Projects
+        <div className="text-center mb-8 md:mb-12">
+          <h2 className="text-2xl md:text-3xl font-bold text-foreground">
+            Projects
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            A showcase of my robotics projects, research contributions, and innovative solutions
-          </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 xl:grid-cols-3 gap-8 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 md:gap-6 max-w-6xl mx-auto">
           {projects.map((project, index) => (
-            <Card key={index} className="overflow-hidden shadow-lg hover:shadow-xl transition-all duration-500 group animate-fade-in">
+            <Card key={index} className="overflow-hidden border border-border bg-card rounded-none">
               {project.image && (
                 <div className="aspect-video overflow-hidden">
                                      {project.isBassGuitar ? (
@@ -91,7 +93,7 @@ const PortfolioSection = () => {
                                                     <img
                               src={project.image}
                               alt={`${project.title} - Fretboard View`}
-                              className="w-full h-full object-cover object-top scale-125 group-hover:scale-130 transition-transform duration-500"
+                              className="w-full h-full object-cover object-top"
                               loading="lazy"
                             />
                            <div className="absolute top-2 left-2">
@@ -104,7 +106,7 @@ const PortfolioSection = () => {
                                                        <img
                                  src={project.image}
                                  alt={`${project.title} - Body View`}
-                                 className="w-full h-full object-cover scale-200 group-hover:scale-210 transition-transform duration-500"
+                                 className="w-full h-full object-cover"
                                  style={{ objectPosition: 'center 125%' }}
                                  loading="lazy"
                                />
@@ -134,7 +136,7 @@ const PortfolioSection = () => {
                         <img
                           src={project.image}
                           alt={project.title}
-                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                          className="w-full h-full object-cover"
                           loading="lazy"
                         />
                       </div>
@@ -143,15 +145,15 @@ const PortfolioSection = () => {
                      <img
                        src={project.image}
                        alt={project.title}
-                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                       className="w-full h-full object-cover"
                        loading="lazy"
                      />
                    )}
                 </div>
               )}
               
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors">
+              <div className="p-4 md:p-6">
+                <h3 className="text-lg md:text-xl font-bold text-foreground mb-3">
                   {project.title}
                 </h3>
                 
@@ -174,22 +176,45 @@ const PortfolioSection = () => {
                   </div>
                 </div>
                 
-                <div className="flex gap-2">
+                <div className="flex flex-col sm:flex-row gap-2">
                   {project.links.github && (
-                    <Button size="sm" variant="outline" className="flex-1">
+                    <Button 
+                      size="sm" 
+                      variant="outline" 
+                      className="flex-1"
+                      onClick={() => window.open(project.links.github, '_blank')}
+                    >
                       <Github className="w-4 h-4 mr-1" />
                       Code
                     </Button>
                   )}
                   {project.links.demo && (
-                    <Button size="sm" variant="outline" className="flex-1">
+                    <Button 
+                      size="sm" 
+                      variant="outline" 
+                      className="flex-1"
+                      onClick={() => window.open(project.links.demo, '_blank')}
+                    >
                       <ExternalLink className="w-4 h-4 mr-1" />
                       Demo
                     </Button>
                   )}
                   {project.links.paper && (
-                    <Button size="sm" className="flex-1 bg-gradient-primary">
-                      Paper
+                    <Button 
+                      size="sm" 
+                      variant="outline"
+                      className="flex-1"
+                      onClick={() => {
+                        if (project.isMultiRobot) {
+                          setIsPdfOpen(true);
+                        } else if (project.isBassGuitar) {
+                          setIsBassBotPdfOpen(true);
+                        } else {
+                          window.open(project.links.paper, '_blank');
+                        }
+                      }}
+                    >
+                      {project.isBassGuitar ? "Presentation" : project.isMultiRobot ? "Internship Summary" : "Pending Publication"}
                     </Button>
                   )}
                 </div>
@@ -197,13 +222,33 @@ const PortfolioSection = () => {
             </Card>
           ))}
         </div>
-        
-        <div className="text-center mt-12">
-          <Button variant="outline" size="lg" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground">
-            View All Projects
-          </Button>
-        </div>
       </div>
+
+      {/* PDF Viewer Dialog - Multi-robot */}
+      <Dialog open={isPdfOpen} onOpenChange={setIsPdfOpen}>
+        <DialogContent className="max-w-3xl w-full h-[90vh] p-0">
+          <div className="h-full">
+            <iframe
+              src={`${pelotonPdf}#view=FitH&zoom=100&scrollbar=1&toolbar=1&navpanes=0&scroll=0,0.6`}
+              className="w-full h-full border-0"
+              title="Internship Summary PDF"
+            />
+          </div>
+        </DialogContent>
+      </Dialog>
+
+      {/* PDF Viewer Dialog - BassBot */}
+      <Dialog open={isBassBotPdfOpen} onOpenChange={setIsBassBotPdfOpen}>
+        <DialogContent className="max-w-3xl w-full h-[90vh] p-0">
+          <div className="h-full">
+            <iframe
+              src={bassBotPdf}
+              className="w-full h-full border-0"
+              title="BassBot Final Presentation PDF"
+            />
+          </div>
+        </DialogContent>
+      </Dialog>
     </section>
   );
 };

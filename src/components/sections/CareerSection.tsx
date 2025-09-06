@@ -42,28 +42,45 @@ const CareerSection = () => {
   ];
 
   return (
-    <section id="career" className="py-20 bg-background scroll-mt-16">
+    <section id="career" className="py-12 md:py-20 bg-background scroll-mt-16">
       <div className="container mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-foreground mb-4">
-            Career & Experience
+        <div className="text-center mb-8 md:mb-16">
+          <h2 className="text-2xl md:text-4xl font-bold text-foreground">
+            Career
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            My professional journey in robotics 
-          </p>
         </div>
 
         <div className="max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
             {experiences.map((exp, index) => (
-              <Card key={index} className="p-6 shadow-lg hover:shadow-xl transition-all duration-300 animate-fade-in">
+              <Card key={index} className="p-4 md:p-6 border border-border bg-card rounded-none">
                 <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4">
                   <div>
                     <h3 className="text-xl font-bold text-foreground mb-1">
                       {exp.role}
                     </h3>
-                    <p className="text-lg text-primary font-medium">
-                      {exp.company}
+                    <p className="text-lg text-foreground font-medium">
+                      {exp.company === "Gentex" ? (
+                        <a 
+                          href="https://www.gentex.com/" 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className="hover:text-primary transition-colors"
+                        >
+                          {exp.company}
+                        </a>
+                      ) : exp.company === "Stryker" ? (
+                        <a 
+                          href="https://www.stryker.com/us/en/index.html" 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className="hover:text-primary transition-colors"
+                        >
+                          {exp.company}
+                        </a>
+                      ) : (
+                        exp.company
+                      )}
                     </p>
                   </div>
                   <div className="flex flex-col items-start sm:items-end mt-2 sm:mt-0">
@@ -82,7 +99,7 @@ const CareerSection = () => {
                   <ul className="space-y-1">
                     {exp.achievements.map((achievement, idx) => (
                       <li key={idx} className="text-sm text-muted-foreground flex items-start">
-                        <span className="w-2 h-2 bg-primary rounded-full mt-2 mr-3 flex-shrink-0" />
+                        <span className="w-2 h-2 bg-foreground rounded-full mt-2 mr-3 flex-shrink-0" />
                         {achievement}
                       </li>
                     ))}
