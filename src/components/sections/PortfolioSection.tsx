@@ -14,6 +14,7 @@ const PortfolioSection = () => {
   const [isAudioPlaying, setIsAudioPlaying] = useState(false);
   const [isPdfOpen, setIsPdfOpen] = useState(false);
   const [isBassBotPdfOpen, setIsBassBotPdfOpen] = useState(false);
+  const [isDemoOpen, setIsDemoOpen] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   const toggleAudio = () => {
@@ -193,7 +194,7 @@ const PortfolioSection = () => {
                       size="sm" 
                       variant="outline" 
                       className="flex-1"
-                      onClick={() => window.open(project.links.demo, '_blank')}
+                      onClick={() => project.isBassGuitar ? setIsDemoOpen(true) : window.open(project.links.demo, '_blank')}
                     >
                       <ExternalLink className="w-4 h-4 mr-1" />
                       Demo
@@ -245,6 +246,23 @@ const PortfolioSection = () => {
               src={bassBotPdf}
               className="w-full h-full border-0"
               title="BassBot Final Presentation PDF"
+            />
+          </div>
+        </DialogContent>
+      </Dialog>
+
+      {/* Demo Video Dialog - BassBot */}
+      <Dialog open={isDemoOpen} onOpenChange={setIsDemoOpen}>
+        <DialogContent className="max-w-4xl w-full h-[80vh] p-0">
+          <DialogHeader className="p-4 pb-2">
+            <DialogTitle>BassBot Demo Video</DialogTitle>
+          </DialogHeader>
+          <div className="flex-1 p-4">
+            <iframe
+              src="https://drive.google.com/file/d/1XTVOsowfazB2RvkpoZpZAnLUGEhnzxQw/preview"
+              className="w-full h-full border-0 rounded"
+              title="BassBot Demo Video"
+              allow="autoplay; fullscreen"
             />
           </div>
         </DialogContent>
