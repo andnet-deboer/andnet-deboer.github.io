@@ -8,8 +8,8 @@ const HeroSection = () => {
       <div className="container mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 items-center max-w-4xl mx-auto">
           <div className="text-center md:text-left order-2 md:order-1">
-            <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Hello, I'm Andnet DeBoer
+            <h1 className="text-3xl md:text-4xl font-semibold text-foreground mb-4 tracking-tight">
+              Andnet DeBoer
             </h1>
             
             <h2 className="text-base md:text-lg text-muted-foreground mb-4">
