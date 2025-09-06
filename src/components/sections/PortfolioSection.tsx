@@ -228,10 +228,13 @@ const PortfolioSection = () => {
       {/* PDF Viewer Dialog - Multi-robot */}
       <Dialog open={isPdfOpen} onOpenChange={setIsPdfOpen}>
         <DialogContent className="max-w-3xl w-full h-[90vh] p-0">
-          <div className="h-full">
+          <DialogHeader className="p-4 pb-2 border-b">
+            <DialogTitle>Internship Summary</DialogTitle>
+          </DialogHeader>
+          <div className="h-full overflow-auto">
             <iframe
               src={`${pelotonPdf}#view=FitH&zoom=100&scrollbar=1&toolbar=1&navpanes=0&scroll=0,0.6`}
-              className="w-full h-full border-0"
+              className="w-full h-full border-0 min-h-[600px]"
               title="Internship Summary PDF"
             />
           </div>
@@ -241,10 +244,13 @@ const PortfolioSection = () => {
       {/* PDF Viewer Dialog - BassBot */}
       <Dialog open={isBassBotPdfOpen} onOpenChange={setIsBassBotPdfOpen}>
         <DialogContent className="max-w-3xl w-full h-[90vh] p-0">
-          <div className="h-full">
+          <DialogHeader className="p-4 pb-2 border-b">
+            <DialogTitle>BassBot Final Presentation</DialogTitle>
+          </DialogHeader>
+          <div className="h-full overflow-auto">
             <iframe
               src={bassBotPdf}
-              className="w-full h-full border-0"
+              className="w-full h-full border-0 min-h-[600px]"
               title="BassBot Final Presentation PDF"
             />
           </div>
@@ -254,13 +260,13 @@ const PortfolioSection = () => {
       {/* Demo Video Dialog - BassBot */}
       <Dialog open={isDemoOpen} onOpenChange={setIsDemoOpen}>
         <DialogContent className="max-w-4xl w-full h-[80vh] p-0">
-          <DialogHeader className="p-4 pb-2">
+          <DialogHeader className="p-4 pb-2 border-b">
             <DialogTitle>BassBot Demo Video</DialogTitle>
           </DialogHeader>
-          <div className="flex-1 p-4">
+          <div className="flex-1 p-4 overflow-auto">
             <iframe
               src="https://drive.google.com/file/d/1XTVOsowfazB2RvkpoZpZAnLUGEhnzxQw/preview"
-              className="w-full h-full border-0 rounded"
+              className="w-full h-full border-0 rounded min-h-[400px]"
               title="BassBot Demo Video"
               allow="autoplay; fullscreen"
             />
