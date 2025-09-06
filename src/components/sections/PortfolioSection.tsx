@@ -108,7 +108,7 @@ const PortfolioSection = () => {
                                  src={project.image}
                                  alt={`${project.title} - Body View`}
                                  className="w-full h-full object-cover"
-                                 style={{ objectPosition: 'center 125%' }}
+                                 style={{ objectPosition: 'center 75%' }}
                                  loading="lazy"
                                />
                              <div className="absolute top-2 left-2">
