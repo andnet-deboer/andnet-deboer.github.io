@@ -20,7 +20,7 @@ const BlogSection = () => {
     {
       title: "BassBot Featured by Hope College",
       excerpt: "My autonomous bass guitar project was officially featured by Hope College on their social media, showcasing innovative robotics and music technology.",
-      date: "2025-01-15",
+      date: "2025-05-27",
       category: "Featured",
       readTime: "2 min read",
       featured: true,
