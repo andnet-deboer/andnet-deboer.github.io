@@ -2,9 +2,9 @@ name: Deploy Portfolio
 
 on:
   push:
-    branches: [ Portfolio-2.0 ]
+    branches: [ portfolio-2 ]
   pull_request:
-    branches: [ Portfolio-2.0 ]
+    branches: [ portfolio-2 ]
 
 jobs:
   build-and-deploy:
@@ -14,7 +14,7 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v4
       with:
-        ref: Portfolio-2.0
+        ref: portfolio-2
         lfs: true
     
     - name: Setup Node.js
@@ -31,7 +31,7 @@ jobs:
     
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
-      if: github.ref == 'refs/heads/Portfolio-2.0'
+      if: github.ref == 'refs/heads/portfolio-2'
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./dist
