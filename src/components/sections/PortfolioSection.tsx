@@ -69,7 +69,7 @@ const PortfolioSection = () => {
       {/* Hidden audio element */}
       <audio 
         ref={audioRef}
-        src="/bassbotaudio.mp3"
+        src="/pirates.mp3"
         onEnded={() => setIsAudioPlaying(false)}
         onError={() => setIsAudioPlaying(false)}
       />
