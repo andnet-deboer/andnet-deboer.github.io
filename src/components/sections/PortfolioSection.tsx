@@ -133,7 +133,7 @@ const PortfolioSection = () => {
                      </div>
                                        ) : project.isMultiRobot ? (
                       // Special tall view for multi-robot project
-                      <div className="aspect-[4/5] overflow-hidden">
+                      <div className="aspect-[3/4] overflow-hidden">
                         <img
                           src={project.image}
                           alt={project.title}
