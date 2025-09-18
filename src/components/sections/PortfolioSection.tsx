@@ -49,7 +49,7 @@ const PortfolioSection = () => {
       technologies: ["ROS", "Python", "Raspberry Pi"],
       links: {
         github: "https://github.com/andnet-deboer/ROS-Kobuki-Research-2022",
-        paper: "#"
+        paper: "https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=11103627"
       }
     },
     {
