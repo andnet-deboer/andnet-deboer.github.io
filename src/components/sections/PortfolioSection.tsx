@@ -211,11 +211,11 @@ const PortfolioSection = () => {
                         } else if (project.isBassGuitar) {
                           setIsBassBotPdfOpen(true);
                         } else {
-                          window.open(project.links.paper, '_blank');
+                          window.open(project.links.paper, 'https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=11103627');
                         }
                       }}
                     >
-                      {project.isBassGuitar ? "Presentation" : project.isMultiRobot ? "Internship Summary" : "Pending Publication"}
+                      {project.isBassGuitar ? "Presentation" : project.isMultiRobot ? "Internship Summary" : "Publication"}
                     </Button>
                   )}
                 </div>
