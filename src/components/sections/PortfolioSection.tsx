@@ -49,7 +49,7 @@ const PortfolioSection = () => {
       technologies: ["ROS", "Python", "Raspberry Pi"],
       links: {
         github: "https://github.com/andnet-deboer/ROS-Kobuki-Research-2022",
-        paper: "https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=11103627"
+        paper: "https://ieeexplore.ieee.org/document/11103627/"
       }
     },
     {
@@ -211,7 +211,7 @@ const PortfolioSection = () => {
                         } else if (project.isBassGuitar) {
                           setIsBassBotPdfOpen(true);
                         } else {
-                          window.open(project.links.paper, 'https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=11103627');
+                          window.open(project.links.paper, '_blank');
                         }
                       }}
                     >
