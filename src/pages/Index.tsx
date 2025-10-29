@@ -11,11 +11,11 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <Navigation />
       <main className="pt-16"> {/* Add padding-top to account for fixed navbar */}
-        <HeroSection />
         <PortfolioSection />
         <CareerSection />
         <EducationSection />
         <BlogSection />
+         <HeroSection />
         <ContactSection />
       </main>
       
