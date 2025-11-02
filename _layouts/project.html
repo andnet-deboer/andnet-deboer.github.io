@@ -1,0 +1,31 @@
+---
+layout: default
+---
+
+<article class="project-page">
+  <div class="project-container">
+    
+    <!-- Project Header -->
+    <header class="project-header">
+      <h1 class="project-title">{{ page.title }}</h1>
+      {% if page.tags %}
+      <div class="project-tags">
+        {% for tag in page.tags %}
+          <span class="tag">{{ tag }}</span>
+        {% endfor %}
+      </div>
+      {% endif %}
+    </header>
+
+    <!-- Project Content -->
+    <div class="project-content">
+      {{ content }}
+    </div>
+
+    <!-- Back to Projects Link -->
+    <div class="project-footer">
+      <a href="/#projects" class="back-link">← Back to Projects</a>
+    </div>
+
+  </div>
+</article>
