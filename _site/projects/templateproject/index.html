@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Andnet DeBoer Robotics Portfolio | Master’s Robotics Portfolio: GPU-Accelerated Autonomy and Safety-Critical Systems.</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="Andnet DeBoer Robotics Portfolio" />
+<meta name="author" content="Andnet DeBoer" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Master’s Robotics Portfolio: GPU-Accelerated Autonomy and Safety-Critical Systems." />
+<meta property="og:description" content="Master’s Robotics Portfolio: GPU-Accelerated Autonomy and Safety-Critical Systems." />
+<link rel="canonical" href="http://localhost:4000/projects/templateproject/" />
+<meta property="og:url" content="http://localhost:4000/projects/templateproject/" />
+<meta property="og:site_name" content="Andnet DeBoer Robotics Portfolio" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Andnet DeBoer Robotics Portfolio" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Andnet DeBoer"},"description":"Master’s Robotics Portfolio: GPU-Accelerated Autonomy and Safety-Critical Systems.","headline":"Andnet DeBoer Robotics Portfolio","url":"http://localhost:4000/projects/templateproject/"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/assets/css/style.css?v=">
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+  <body>
+    <div class="container-lg px-3 my-5 markdown-body">
+      
+      <h1><a href="http://localhost:4000/">Andnet DeBoer | Robotics Portfolio</a></h1>
+      
+
+      <p>layout: project # Use the custom project detail layout you created title: GPU-Accelerated Mobile Manipulation tags: [ROS 2, C++, CUDA, MANIPULATION, SAFETY] image: template.gif # This GIF will be used on the homepage tile permalink: /projects/gpu-safety-accelerated-control/</p>
+
+<p>🌟 Project Overview: GPU-Accelerated Failsafe Control</p>
+
+<p>This project focuses on building a highly reliable, safety-critical mobile manipulation system, addressing the challenge of maintaining control integrity on embedded hardware despite sensor failure.</p>
+
+<p>💻 Architecture &amp; Implementation</p>
+
+<p>We leveraged the NVIDIA Jetson Orin Nano for high-performance computation and a custom mobile base integrated with a 6-DOF arm.</p>
+
+<p>A. Core Innovation: GPU Acceleration</p>
+
+<p>Metric: Achieved a 10x reduction in latency for the Unscented Kalman Filter (UKF) by porting the critical matrix operations to CUDA/PyTorch kernels on the Jetson Orin.</p>
+
+<p>Result: Ensured the control loop maintained a stable 100 Hz frequency, even when processing high-bandwidth LiDAR and IMU data.</p>
+
+<p>B. Safety State Machine (C++)</p>
+
+<p>Developed a deterministic C++ failsafe layer that actively monitors the system state.</p>
+
+<p>Failsafe Mode: Upon simulated sensor failure (e.g., GPS signal loss), the system instantly forces the manipulator to retract and the mobile base to halt, preventing uncontrolled movement.</p>
+
+<p>📸 Project Demonstration</p>
+
+<p>The animation below showcases the final result: the mobile base and arm executing a complex coordinated maneuver, demonstrating robust state estimation and safety protocols.</p>
+
+<div class="text-center my-5">
+<!-- Image/GIF from assets/img/portfolio/ -->
+<a class="portfolio-box" href="/projects/project-name-repo-link" target="_blank" title="VIEW PROJECT">
+<img class="img-fluid" src="/assets/img/portfolio/" alt="Project Demo GIF" />
+<div class="portfolio-box-caption">
+<div class="project-category text-white">VIEW PROJECT</div>
+</div>
+</a>
+<p class="text-muted mt-2 small">
+Click the image to view the external project repository and video demo.
+</p>
+</div>
+
+<p>💡 Learnings &amp; Future Scope</p>
+
+<p>The primary challenge was managing the power draw of the 6-DOF arm while maintaining low-latency communication between the high-level Jetson and the low-level motor controllers. Future work involves integrating learned perception models (sim-to-real transfer) into the GPU pipeline.</p>
+
+
+      
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js" integrity="sha256-lZaRhKri35AyJSypXXs4o6OPFTbTmUoltBbDCbdzegg=" crossorigin="anonymous"></script>
+    <script>anchors.add();</script>
+  </body>
+</html>
