@@ -98,7 +98,7 @@ feed:
 social:
   name: Andnet DeBoer
   links:
-    - https://www.linkedin.com/in/andnet-deboer
+    - https://www.linkedin.com/in/andnetdeboer/
     - https://github.com/andnet-deboer
 
 # Twitter (optional)
@@ -145,10 +145,9 @@ navigation:
 
 # Contact information
 contact:
-  email: andnet@example.com  # Replace with your actual email
-  linkedin: https://www.linkedin.com/in/andnet-deboer  # Replace with your LinkedIn
-  github: https://github.com/andnet-deboer  # Replace with your GitHub
-
+  email: deboerandnet@gmail.com  
+  linkedin: https://www.linkedin.com/in/andnetdeboer/ 
+  github: https://github.com/andnet-deboer  #
 # About text (can be used in templates)
 about:
   short: "Robotics researcher focused on mobile manipulation, motion planning, and simulation"

@@ -1,8 +1,8 @@
 ---
 layout: project
-title: "BassBot: Self-Playing Bass Guitar"
-preview_gif: "/assets/images/projects/BassGuitar.gif"
-tags: ["Python", "CAD", "Embedded Systems"]
+title: "Path Optimization"
+preview_gif: "/assets/images/projects/CartUnload.png"
+tags: ["Rapid", "ABB", "Path Optimization"]
 date: 2025-05-04
 description: "Real-time safety verification for robotic systems using GPU acceleration"
 ---
@@ -11,7 +11,7 @@ description: "Real-time safety verification for robotic systems using GPU accele
 
 This project explores the intersection of robotics and live music.
 
-<!-- ![System Architecture](/assets/images/projects/project3/architecture.png) -->
+![System Architecture](/assets/images/projects/project3/architecture.png)
 
 ## Problem Statement
 
