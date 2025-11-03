@@ -1,4 +1,4 @@
-This portfolio is built with:
+This portfolio is built with :
 
 - Vite
 - TypeScript
