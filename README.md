@@ -149,7 +149,7 @@ This portfolio template is open source and available under the MIT License.
 ## 📧 Contact
 
 - **Email**: deboerandnet@gmail.com
-- **LinkedIn**: [linkedin.com/in/andnet-deboer](https://www.linkedin.com/in/andnet-deboer)
+- **LinkedIn**: [linkedin.com/in/andnet-deboer](https://www.linkedin.com/in/andnetdeboer/)
 - **GitHub**: [github.com/andnet-deboer](https://github.com/andnet-deboer)
 
 ---

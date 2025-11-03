@@ -21,20 +21,17 @@ permalink: /resume/
   /* Make page content full-width */
   .page-content {
     margin: 0;
-    padding: 0;
+    /* Added top padding to prevent the resume content from touching the header */
+    padding-top: 0.5rem;
   }
   
   /* Full-screen PDF viewer */
   .resume-container {
-    width: 100vw;
+    width: 50vw;
     height: calc(100vh - 80px); /* Account for navigation */
-    margin: 0;
-    padding: 0;
-    position: relative;
-    left: 50%;
-    right: 50%;
-    margin-left: -50vw;
-    margin-right: -50vw;
+   
+    margin-left: auto;
+    margin-right: auto;
   }
   
   .pdf-embed {
@@ -48,6 +45,7 @@ permalink: /resume/
   @media (max-width: 768px) {
     .resume-container {
       height: calc(100vh - 60px);
+      padding-top: 1rem; /* Adjust padding for smaller header height on mobile */
     }
   }
 </style>

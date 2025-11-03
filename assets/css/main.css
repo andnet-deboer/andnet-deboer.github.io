@@ -1,6 +1,6 @@
 /* ============================================
-   RESET & BASE STYLES
-   ============================================ */
+    RESET & BASE STYLES
+    ============================================ */
 
 * {
   margin: 0;
@@ -20,12 +20,13 @@ a:visited {
   text-decoration-color: transparent !important;
 }
 
-/* Specific reset for navigation */
+/* Specific reset for navigation: REMOVES THE BOTTOM LINE ISSUE */
 nav a,
 .site-nav a,
 .nav-link {
   text-decoration: none !important;
   text-decoration-line: none !important;
+  /* --- ESSENTIAL FIX: REMOVES ANY ACCIDENTAL BORDER/SHADOW --- */
   border-bottom: none !important;
   box-shadow: none !important;
 }
@@ -37,6 +38,7 @@ nav a,
   --color-gray-medium: #666666;
   --color-gray-dark: #333333;
   --color-gray-border: #cccccc;
+  --color-red-light: #f14c4c;
   --font-main: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
   --font-nav: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif;
   --transition-speed: 0.3s;
@@ -65,8 +67,8 @@ body {
 }
 
 /* ============================================
-   TYPOGRAPHY
-   ============================================ */
+    TYPOGRAPHY
+    ============================================ */
 
 h1, h2, h3, h4, h5, h6 {
   font-weight: 600;
@@ -112,8 +114,8 @@ a:visited {
 }
 
 /* ============================================
-   NAVIGATION
-   ============================================ */
+    NAVIGATION
+    ============================================ */
 
 .site-nav {
   position: fixed;
@@ -123,24 +125,44 @@ a:visited {
   background-color: var(--color-white);
   border-bottom: 1px solid var(--color-gray-border);
   z-index: 1000;
-  padding: 1.5rem 0;
+  /* --- ADJUSTED: REDUCED VERTICAL PADDING TO SHRINK HEADER HEIGHT --- */
+  padding: 0.9rem 0; 
 }
 
 .nav-container {
   max-width: var(--max-width);
   margin: 0 auto;
   padding: 0 2rem;
+  /* --- ESSENTIAL FLEXBOX FOR MAIN LAYOUT --- */
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  justify-content: space-between; /* Pushes name/subtitle left and links/icons right */
+  align-items: center; /* Vertically centers the two main groups */
 }
 
+/* Styles for the combined logo/name/subtitle group */
 .nav-logo a {
+  /* --- ESSENTIAL FLEXBOX FOR NAME/SUBTITLE ALIGNMENT --- */
+  display: flex;
+  align-items: center; /* Aligns items vertically */
   font-size: 1.25rem;
   font-weight: 700;
   letter-spacing: -0.03em;
   font-family: var(--font-nav);
   color: var(--color-black);
+}
+
+.nav-logo .nav-name {
+    /* Ensures the name is bold and primary */
+    font-weight: 700;
+    font-size: 1.5em; /* Make the name slightly larger than the container font-size */
+}
+
+/* New element for grouping the Resume link and icons */
+.nav-links-and-icons {
+    /* --- ESSENTIAL FLEXBOX FOR LINK AND ICON ROW ALIGNMENT --- */
+    display: flex;
+    align-items: center; /* Vertically centers the text link with the icons */
+    gap: 20px; /* Space between the 'Resume' link and the icons */
 }
 
 .nav-links {
@@ -163,10 +185,50 @@ a:visited {
   text-decoration: none !important;
 }
 
-/* ============================================
-   MAIN CONTENT
-   ============================================ */
+/* --- ISOLATED NAV BAR ICON STYLES --- */
+.nav-contact-icons {
+    /* Simple row for icons without any extra padding or borders */
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Tight spacing between icons */
+}
 
+.nav-icon-link {
+    /* Icon wrapper styles, inherited from the old look but with new class name */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    transition: all var(--transition-speed);
+    background-color: var(--color-gray-light);
+}
+
+.nav-icon-link:hover {
+    background-color: var(--color-black);
+    transform: translateY(-2px);
+    opacity: 1;
+}
+
+.nav-icon-link .nav-icon {
+    /* SVG icon styles */
+    width: 20px;
+    height: 20px;
+    color: var(--color-black);
+}
+
+.nav-icon-link:hover .nav-icon {
+    color: var(--color-white);
+}
+/* ----------------------------------- */
+
+/* ============================================
+    MAIN CONTENT
+    ============================================ */
+
+/* NOTE: Since the header height changed, the margin-top here might also need adjustment. 
+   I've left it at 80px for now, assuming the original site-nav padding resulted in a total height close to 80px. */
 .main-content {
   margin-top: 80px; /* Account for fixed nav */
   min-height: calc(100vh - 80px);
@@ -179,31 +241,31 @@ a:visited {
 }
 
 /* ============================================
-   HOME PAGE
-   ============================================ */
+    HOME PAGE
+    ============================================ */
 
 .home-page {
   width: 100%;
 }
 
 /* ============================================
-   PROJECTS SECTION
-   ============================================ */
+    PROJECTS SECTION
+    ============================================ */
 
 .projects-section {
-  padding: 3rem 0 var(--spacing-xl) 0;
+  padding: 0.5rem 0 var(--spacing-xl) 0; 
 }
 
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 3rem;
-  margin-top: 2rem;
+  gap: 1rem;
+  margin-top: 0rem;
 }
 
 /* ============================================
-   PROJECT CARDS
-   ============================================ */
+    PROJECT CARDS
+    ============================================ */
 
 .project-card {
   position: relative;
@@ -222,7 +284,7 @@ a:visited {
 .card-image-container {
   position: relative;
   width: 100%;
-  height: 450px;
+  height: 350px;
   overflow: hidden;
   background-color: var(--color-gray-light);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
@@ -261,11 +323,11 @@ a:visited {
 }
 
 .card-content {
-  padding: 1.5rem 0;
+  padding: 1.0rem 0;
 }
 
 .card-title {
-  font-size: 1.25rem;
+  font-size: 1.2rem;
   font-weight: 600;
   margin-bottom: 0.75rem;
   letter-spacing: -0.02em;
@@ -274,15 +336,15 @@ a:visited {
 .card-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
+  gap: 0.3rem;
 }
 
 .tag {
   display: inline-block;
   padding: 0.35rem 0.85rem;
-  font-size: 0.75rem;
-  font-weight: 400;
-  border: 1px solid var(--color-gray-border);
+  font-size: 0.7rem;
+  font-weight: 200;
+  border: 0.1px solid var(--color-gray-border);
   background-color: var(--color-white);
   border-radius: 999px;
   transition: all var(--transition-speed);
@@ -295,8 +357,8 @@ a:visited {
 }
 
 /* ============================================
-   ABOUT SECTION (includes contact)
-   ============================================ */
+    ABOUT SECTION (includes contact)
+    ============================================ */
 
 .about-section {
   padding: var(--spacing-xl) 0;
@@ -305,7 +367,7 @@ a:visited {
 
 .about-section h2 {
   margin-bottom: 3rem;
-  text-align: center;
+  text-align: left;
 }
 
 .about-content {
@@ -351,7 +413,7 @@ a:visited {
   margin-bottom: 2.5rem;
 }
 
-/* Contact info integrated into about */
+/* Contact info integrated into about (Original, untouched general styles) */
 .contact-info {
   display: flex;
   align-items: center;
@@ -445,12 +507,14 @@ a:visited {
 }
 
 /* ============================================
-   PROJECT PAGE
-   ============================================ */
+    PROJECT PAGE
+    ============================================ */
 
 .project-page {
   padding: var(--spacing-lg) 0;
-  width: 100%;
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .project-container {
@@ -577,15 +641,20 @@ a:visited {
 }
 
 .project-footer {
-  margin-top: 4rem;
-  padding-top: 2rem;
+  margin-top: 1rem;
+  padding-top: 1rem;
 }
 
 .back-link {
   display: inline-flex;
   align-items: center;
-  padding: 0.75rem 1.5rem;
-  border: 1px solid var(--color-black);
+  padding: 0.75rem 0.75rem;
+
+  border: 1px solid var(--color-gray-medium); 
+
+  border-bottom: 1px solid var(--color-gray-medium) !important; 
+  box-shadow: none !important;
+
   font-weight: 400;
   transition: all var(--transition-speed);
 }
@@ -597,8 +666,8 @@ a:visited {
 }
 
 /* ============================================
-   PAGE LAYOUT (Resume, etc.)
-   ============================================ */
+    PAGE LAYOUT (Resume, etc.)
+    ============================================ */
 
 .page {
   padding: 0; /* No padding for full-width pages */
@@ -607,12 +676,12 @@ a:visited {
 .page-container {
   max-width: 1000px;
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 0 0rem;
 }
 
 .page-header {
   margin-bottom: 2rem;
-  padding-bottom: 1rem;
+  padding-bottom: 0rem;
   border-bottom: 1px solid var(--color-gray-border);
 }
 
@@ -635,8 +704,8 @@ a:visited {
 }
 
 /* ============================================
-   FOOTER
-   ============================================ */
+    FOOTER
+    ============================================ */
 
 .site-footer {
   border-top: 0px solid var(--color-black);
@@ -658,8 +727,22 @@ a:visited {
 }
 
 /* ============================================
-   RESPONSIVE DESIGN
-   ============================================ */
+    RESPONSIVE DESIGN
+    ============================================ */
+.nav-logo .nav-subtitle {
+  font-family: var(--font-nav);
+
+  color: var(--color-gray-dark);
+
+  font-size: 1.2rem;
+
+  font-weight: 500;
+
+  border-left: 1px solid var(--color-gray-border);
+
+  padding-left: 0.75rem;
+  margin-left: 0.75rem;
+}
 
 /* Large Desktop (ultra-wide) */
 @media (min-width: 1600px) {
@@ -674,7 +757,7 @@ a:visited {
 
   .side-by-side {
     grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
-    gap: 3rem;
+    gap: 1rem;
   }
 }
 
@@ -697,6 +780,7 @@ a:visited {
     height: 180px;
   }
 
+  /* Original contact info is for the about section */
   .contact-info {
     gap: 1.25rem;
   }
@@ -724,10 +808,18 @@ a:visited {
     font-size: 1.25rem;
   }
 
-  /* Side by side adapts to smaller minmax */
+  /* Side by side adapts to smaller minmax
   .side-by-side {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 1.5rem;
+  } */
+
+  .side-by-side {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); 
+    gap: 2rem;
+    margin: 2rem 0;
+    width: 50%;
   }
 
   /* Tables scroll on tablet */
@@ -748,12 +840,53 @@ a:visited {
   }
 
   .nav-container {
-    padding: 0 1rem;
+    /* Reset main nav container to allow stacking on mobile if needed */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
   }
 
   .nav-logo a {
+    /* Keep name and subtitle aligned horizontally */
+    display: flex;
+    align-items: center;
     font-size: 1.1rem;
+    color: var(--color-black);
+    font-weight: 700;
   }
+
+  .nav-logo .nav-name {
+    font-weight: 700;
+    color: var(--color-black);
+  }
+
+  .nav-logo .nav-subtitle {
+    font-size: 0.9rem; /* Smaller subtitle on mobile */
+  }
+
+  /* --- ISOLATED NAV BAR ICON STYLES MOBILE --- */
+  .nav-links-and-icons {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Reduced gap for mobile */
+  }
+
+  .nav-contact-icons {
+    display: flex;
+    gap: 8px; /* Tighter gap for mobile icons */
+  }
+  
+  .nav-icon-link {
+    width: 32px; /* Smaller touch target size for mobile */
+    height: 32px;
+  }
+
+  .nav-icon-link .nav-icon {
+    width: 16px; /* Smaller SVG size for mobile */
+    height: 16px;
+  }
+  /* ------------------------------------------- */
 
   .nav-links {
     gap: 1rem;
@@ -769,7 +902,7 @@ a:visited {
 
   .projects-grid {
     grid-template-columns: 1fr;
-    gap: 2rem;
+    gap: 1rem;
   }
 
   .card-image-container {
@@ -883,9 +1016,12 @@ a:visited {
 
   /* Code blocks scroll horizontally */
   .project-content pre {
+    display: block;
+    overflow-x: auto;
     padding: 1rem;
     font-size: 0.85rem;
     border-radius: 4px;
+    -webkit-overflow-scrolling: touch;
   }
 
   /* Tables become scrollable */
@@ -973,8 +1109,8 @@ a:visited {
 }
 
 /* ============================================
-   UTILITY CLASSES
-   ============================================ */
+    UTILITY CLASSES
+    ============================================ */
 
 .text-center {
   text-align: center;
