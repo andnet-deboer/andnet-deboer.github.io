@@ -6,7 +6,7 @@ tags: ["Controls", "Java", "Labview"]
 date: 2021-08-15
 description: "Research and development of a multi-robot system using a stationary FANUC arm and a MIR autonomous mobile robot (AMR) to create a more efficient part restock process for assembly line stations at Peloton, Inc."
 ---
-
+<!-- 
 ## Overview
 
 This project involved the exploration for multi-robot collaboration to create a more efficient part restock system for assembly line stations during my internship at Peloton Inc. The system utilized a stationary test bench with a FANUC 200IC robot arm and a MIR trolley robot.
@@ -62,4 +62,4 @@ This work was part of an Internship at Peloton Inc., running from August 2020 to
 </div>
 
 
-*Video of the collaborative robot system in action*
+*Video of the collaborative robot system in action* -->
