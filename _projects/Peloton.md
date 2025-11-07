@@ -14,13 +14,17 @@ This project involved the exploration for multi-robot collaboration to create a 
 ![System Architecture](/assets/images/projects/peloton/Architecture.png)
 
 ---
-<div class="side-by-side">
-  <img src="/assets/images/projects/peloton/ElectricalDesign.png">
-  <img src="/assets/images/projects/peloton/Panel.png">
-</div>
----
 
-## System Components and Role
+
+  <div style="text-align: center;">
+    <img src="/assets/images/projects/peloton/image.png"
+         alt="After - Raspberry Pi setup"
+         class="no-border"
+         style="width: 100%; height: auto;">
+    <p style="margin-top: 0.75rem;"><em>Building & Wiring Panel</em></p>
+  </div>
+
+## System Components
 
 ### Robotics System
 The FANUC robot arm was responsible for restocking the trolley robot. The MIR trolley robot delivered the restock to the correct assembly station. Assembly station operators could wirelessly connect to the trolley robot to add a restock mission to its queue when parts ran low.
@@ -33,11 +37,11 @@ I worked with the electrical design team to design the electrical system for the
 ## Controls and Programming
 
 ### Controls Programming
-I used Rockwell Automations Studio 5000 software to program the Allen Bradley PLC and the Panel View HMI.
+Utilized Rockwell Automations Studio 5000 software to program the Allen Bradley PLC and the Panel View HMI.
 
 ### Communications and Mission Queue
 * I established communications between the HMI, PLC, and FANUC robot controller via direct wiring.
-* I then integrated wireless communications to the MIR trolley robot.
+* Integrated wireless communications to the MIR trolley robot.
 * Multiple PCs were connected to the trolley robot as a proof of concept to simulate assembly stations requesting and queuing missions.
 * Once the trolley queued a mission, it navigated to the test bench for restock.
 * The trolley would notify the FANUC robot of its arrival and the part requested via external IO bits.
@@ -45,9 +49,9 @@ I used Rockwell Automations Studio 5000 software to program the Allen Bradley PL
 
 ---
 
-## Internship Context
+## Internship Overview
 
-This work was part of an Internship at Peloton Inc., running from August 2020 to August 2021. I was invited to continue working over the summer after working half days throughout my senior year of high school as part of a co-op program. I had exposure to multiple teams, including build, electrical, design, and controls.
+This work was conducted as part of an Internship at Peloton Inc., running from August 2020 to August 2021. I was invited to continue working over the summer after working half days throughout my senior year of high school as part of a co-op program. I had exposure to multiple teams, including build, electrical, design, and controls.
 
 ### Video Spotlight
 
@@ -62,4 +66,4 @@ This work was part of an Internship at Peloton Inc., running from August 2020 to
 </div>
 
 
-*Video of the collaborative robot system in action*
+*Internship spotlight*
