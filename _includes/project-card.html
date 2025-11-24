@@ -2,8 +2,11 @@
   <a href="{{ project.url }}" class="card-link">
     <div class="card-content">
       <h3 class="card-title">{{ project.title }}</h3>
-             <div class="card-tags">
-        {% for tag in project.tags %}
+              <div class="project-overview">
+                   {{ content }}
+            </div>
+            <div class="card-tags">
+              {% for tag in project.tags %}
           <span class="tag">{{ tag }}</span>
         {% endfor %}
       </div>
