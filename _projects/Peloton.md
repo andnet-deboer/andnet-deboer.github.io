@@ -1,6 +1,6 @@
 ---
 layout: project
-title: "Collaborative Part Restocking"
+title: "Multi-Robot Collaborative Restocking"
 preview_gif: "/assets/images/projects/PelotonRobotVideo.gif"
 tags: ["FANUC", "MIR", "PLC", "HMI"]
 date: 2021-08-15
