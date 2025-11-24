@@ -1,1 +1,1 @@
-Custom Jekyll Project
+Custom Jekyll Project for portfolio
