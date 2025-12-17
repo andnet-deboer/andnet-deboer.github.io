@@ -5,6 +5,9 @@
               <div class="project-overview">
                    {{ content }}
             </div>
+              {% if project.subtitle %}
+              <p class="card-subtitle">{{ project.subtitle }}</p>
+              {% endif %}
             <div class="card-tags">
               {% for tag in project.tags %}
           <span class="tag">{{ tag }}</span>
