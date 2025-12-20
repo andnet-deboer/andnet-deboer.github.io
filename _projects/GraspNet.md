@@ -8,7 +8,7 @@ carousel_images:
   - /assets/images/projects/gpmars/cv.png
 carousel_height: 400px
 carousel_width: auto
-preview_gif: "/assets/images/projects/graspnet/graspnet.gif"
+preview_gif: "/assets/images/projects/graspnet/shoe.gif"
 # paper: "https://ieeexplore.ieee.org/document/11103627/"
 # code: "https://github.com/andnet-deboer/ROS-Kobuki-Research-2022"
 # data: "https://example.com/dataset"
@@ -56,7 +56,7 @@ While multi-unit robotic systems offer significant advantages over single-unit r
 
 ---
 
-## System Hardware
+<!-- ## System Hardware
 
 <div style="width: 600px; max-width: 100%; margin: 0rem auto;">
   <img src="/assets/images/projects/gpmars/hardware.png" 
@@ -116,13 +116,13 @@ Expiremental validation the system's ability to test different multi-agent algor
 * **Goal:** Demonstrate the individual robots' ability to **collaborate and manipulate objects to achieve a common goal**.
 * **Setup:** Each robot was equipped with two high-frequency ultrasonic sensors mounted at an angle to intentionally create a **blind spot** in the frontal field of view (Figure 4). The robots were placed in an enclosure with randomly scattered cube obstacles (Figure 5).
 * **Algorithm:** A randomized obstacle avoidance program utilized proximity data. Due to the blind spot, the robot would collide with and manipulate the cube until it was pushed up against another object (Figure 7).
-* **Result:** The multi-unit network successfully collaborated, with all cubes pushed against the walls of the enclosure or another cube, demonstrating cohesion and integration.
+* **Result:** The multi-unit network successfully collaborated, with all cubes pushed against the walls of the enclosure or another cube, demonstrating cohesion and integration. -->
 
 <!-- <div class="side-by-side">
    <img src="/assets/images/projects/project2/manipulation_result.png" alt="Final Environment After Algorithm Completion">
   <img src="/assets/images/projects/project2/kobuki_sensor_diagram.png" alt="Kobuki sensor blind spot diagram"> 
 </div> -->
-
+<!-- 
 *Left: Final state of the object manipulation experiment (Figure 7). Right: Kobuki sensor blind spot illustration (Figure 4).*
 
 
@@ -136,4 +136,4 @@ Expiremental validation the system's ability to test different multi-agent algor
 
 ## Acknowledgments
 
-This research was conducted for the Hope College Control Systems lab under Dr. Miguel Abrahantes.
+This research was conducted for the Hope College Control Systems lab under Dr. Miguel Abrahantes. -->
