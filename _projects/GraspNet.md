@@ -5,7 +5,7 @@ subtitle: "RGB-D 6D Pose Detection for Grasping Unknown Objects"
 
 carousel_images:
   - /assets/images/projects/graspnet/graspnet.gif
-  - /assets/images/projects/gpmars/cv.png
+  # - /assets/images/projects/gpmars/cv.png
 carousel_height: 400px
 carousel_width: auto
 preview_gif: "/assets/images/projects/graspnet/shoe.gif"
