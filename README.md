@@ -98,6 +98,17 @@ Wait 1-2 minutes for GitHub Pages to rebuild and deploy.
    description: "Short project description"
    ---
 
+3. **Add photos and videos**
+
+ffmpeg -i assets/images/projects/projectname/yourvideo.mp4 \
+  -c:v libx264 \
+  -crf 26 \
+  -preset slow \
+  -vf "scale=1280:-2" \
+  -movflags +faststart \
+  -an \
+  assets/images/project/projectname/yoursmallervideo.mp4
+
 ### Update Your Information
 
 Edit `_config.yml`:

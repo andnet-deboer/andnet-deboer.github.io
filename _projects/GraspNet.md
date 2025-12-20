@@ -4,11 +4,11 @@ title: "Grab-O-Matic"
 subtitle: "RGB-D 6D Pose Detection for Grasping Unknown Objects" 
 
 carousel_images:
-  - /assets/images/projects/mlsensing/graspnet.gif
+  - /assets/images/projects/graspnet/graspnet.gif
   - /assets/images/projects/gpmars/cv.png
 carousel_height: 400px
 carousel_width: auto
-preview_gif: "/assets/images/projects/mlsensing/graspnet.gif"
+preview_gif: "/assets/images/projects/graspnet/graspnet.gif"
 # paper: "https://ieeexplore.ieee.org/document/11103627/"
 # code: "https://github.com/andnet-deboer/ROS-Kobuki-Research-2022"
 # data: "https://example.com/dataset"
@@ -27,7 +27,7 @@ This project seeks to explore a pipeline for general manipulation. The goal of t
   <div style="text-align: center;">
 
   <div style="text-align: center;">
-    <img src="/assets/images/projects/mlsensing/stack.png" 
+    <img src="/assets/images/projects/graspnet/stack.png" 
          class="no-border"
          style="width: 100%; height: auto;">
   </div>
@@ -42,13 +42,13 @@ While multi-unit robotic systems offer significant advantages over single-unit r
 
 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; max-width: 1800px; margin: 2rem auto;">
   <div style="text-align: center;">
-    <img src="/assets/images/projects/mlsensing/data.png" 
+    <img src="/assets/images/projects/graspnet/data.png" 
          class="no-border"
          style="width: 100%; height: auto;">
   </div>
 
   <div style="text-align: center;">
-    <img src="/assets/images/projects/mlsensing/graspnet.png" 
+    <img src="/assets/images/projects/graspnet/graspnet.png" 
          class="no-border"
          style="width: 100%; height: auto;">
   </div>
