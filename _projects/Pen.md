@@ -2,14 +2,14 @@
 layout: project
 title: "Pen Thief | Perception To Action"
 
-carousel_images:
-  - /assets/images/projects/frankahw3/Franka.gif
-  - /assets/images/projects/gpmars/cv.png
-carousel_height: 400px
-carousel_width: auto
+# carousel_images:
+#   - /assets/images/projects/frankahw3/Franka.gif
+#   - /assets/images/projects/gpmars/cv.png
+# carousel_height: 400px
+# carousel_width: auto
 preview_gif: "/assets/images/projects/pen/penthief.gif"
-paper: "https://ieeexplore.ieee.org/document/11103627/"
-code: "https://github.com/andnet-deboer/ROS-Kobuki-Research-2022"
+# paper: "https://ieeexplore.ieee.org/document/11103627/"
+# code: "https://github.com/andnet-deboer/ROS-Kobuki-Research-2022"
 # data: "https://example.com/dataset"
 tags: ["ROS 2", "Python", "Franka Robot"]
 date: 2025-08-26
@@ -128,4 +128,4 @@ Expiremental validation the system's ability to test different multi-agent algor
 
 ## Acknowledgments
 
-This research was conducted for the Hope College Control Systems lab under Dr. Miguel Abrahantes. --> -->
+This research was conducted for the Hope College Control Systems lab under Dr. Miguel Abrahantes. -->
