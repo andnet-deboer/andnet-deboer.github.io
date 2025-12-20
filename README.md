@@ -59,8 +59,8 @@ Visit: [andnet-deboer.github.io](https://andnet-deboer.github.io)
    ```
 
 3. **Run local server**
-  ```
-   bundle exec jekyll serve   ```bash
+  ```bash
+   bundle exec jekyll serve 
 
    ```
 
