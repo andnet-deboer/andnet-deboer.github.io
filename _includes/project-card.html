@@ -5,6 +5,9 @@
               <div class="project-overview">
                    {{ content }}
             </div>
+              {% if project.subtitle %}
+              <p class="card-subtitle">{{ project.subtitle }}</p>
+              {% endif %}
             <div class="card-tags">
               {% for tag in project.tags %}
           <span class="tag">{{ tag }}</span>
@@ -13,7 +16,13 @@
     </div>
 
     <div class="card-image-container">
-      <img src="{{ project.preview_gif }}" alt="{{ project.title }}" class="card-gif">
+      {% if project.preview_gif contains '.mp4' or project.preview_gif contains '.webm' %}
+        <video autoplay loop muted playsinline class="card-gif">
+          <source src="{{ project.preview_gif }}" type="video/mp4">
+        </video>
+      {% else %}
+        <img src="{{ project.preview_gif }}" alt="{{ project.title }}" class="card-gif">
+      {% endif %}
       <div class="card-overlay">
         <span class="view-project-text">View Project</span>
       </div>

@@ -1,24 +1,37 @@
 ---
 layout: project
-title: "RGB-D 6D Grasp Pose Estimation"
+title: "Grab-O-Matic"
+subtitle: "RGB-D 6D Pose Detection for Grasping Unknown Objects" 
 
 carousel_images:
-  - /assets/images/projects/frankahw3/Franka.gif
+  - /assets/images/projects/mlsensing/graspnet.gif
   - /assets/images/projects/gpmars/cv.png
 carousel_height: 400px
 carousel_width: auto
 preview_gif: "/assets/images/projects/mlsensing/graspnet.gif"
-paper: "https://ieeexplore.ieee.org/document/11103627/"
-code: "https://github.com/andnet-deboer/ROS-Kobuki-Research-2022"
+# paper: "https://ieeexplore.ieee.org/document/11103627/"
+# code: "https://github.com/andnet-deboer/ROS-Kobuki-Research-2022"
 # data: "https://example.com/dataset"
-tags: ["ROS 2", "Python", "Franka Robot"]
+tags: ["SAM 2", "Foundation Models", "Grasp Net"]
 date: 2025-11-15
 description: "A versatile, distributed platform using ROS for testing and validating a wide variety of multi-agent control algorithms."
 ---
 
 ## Overview
 
-This project details the hardware and software implementation of a **General-Purpose Multi-Agent Robotics System (GP-MARS)**. The system is designed to provide a flexible and versatile platform for implementing and testing a wide variety of multi-agent algorithms by utilizing a distributed control architecture and the **Robot Operating System (ROS)**.
+This project seeks to explore a pipeline for general manipulation. The goal of this project is to provide a pipeline that enables a 6DOF robot with parallel end effector to grasp general objects as prompted by a user. To accomplish this we use a combination of prompt based **foundation models** and point cloud processing to generate optimal grasp poses. We use Grounding Dino for prompt based object bounding which is followed by SAM 2 for segmentation masking of the desired project and lastly we apply Nvidia Contact GraspNet for grasp pose generation.
+
+
+
+
+  <div style="text-align: center;">
+
+  <div style="text-align: center;">
+    <img src="/assets/images/projects/mlsensing/stack.png" 
+         class="no-border"
+         style="width: 100%; height: auto;">
+  </div>
+  </div>   
 
 ---
 
@@ -27,25 +40,19 @@ This project details the hardware and software implementation of a **General-Pur
 While multi-unit robotic systems offer significant advantages over single-unit robots, such as cooperative problem-solving and redundancy, building general-purpose test platforms is challenging. Previous multi-unit projects at Hope College used a centralized control model that was hardware-dependent. The need was to create a flexible, general-purpose system capable of testing multi-agent algorithms with a distributed control architecture, independent of specific hardware.
                             
 
-<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; max-width: 900px; margin: 2rem auto;">
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; max-width: 1800px; margin: 2rem auto;">
   <div style="text-align: center;">
-    <img src="/assets/images/projects/gpmars/before.png" 
-         alt="Before - Dell D610 laptops"
+    <img src="/assets/images/projects/mlsensing/data.png" 
          class="no-border"
          style="width: 100%; height: auto;">
-    <p style="margin-top: 0.75rem;"><strong>Before:</strong> Dell D610 Laptops</p>
   </div>
-  
+
   <div style="text-align: center;">
-    <img src="/assets/images/projects/gpmars/after.png" 
-         alt="After - Raspberry Pi setup"
+    <img src="/assets/images/projects/mlsensing/graspnet.png" 
          class="no-border"
          style="width: 100%; height: auto;">
-    <p style="margin-top: 0.75rem;"><strong>After:</strong> Raspberry Pi 3B</p>
   </div>
 </div>
-
-
 
 ---
 
@@ -55,8 +62,9 @@ While multi-unit robotic systems offer significant advantages over single-unit r
   <img src="/assets/images/projects/gpmars/hardware.png" 
        alt="Final Environment After Algorithm Completion"
        class="no-border"
-       style="width: 100%; height: auto;">
+       style="width: 100%; height: auto;">   
 </div>
+
 
 <p style="text-align: center;"><em>GP-MARS Platform with Raspberry Pi 3B microcontrollers.</em></p>
 

@@ -510,6 +510,37 @@ a:visited {
     PROJECT PAGE
     ============================================ */
 
+/* Project Links (Paper, Code, Data) */
+
+/* Project Header Centering */
+.project-header {
+  text-align: center;
+}
+
+
+.project-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.9rem;
+  color: var(--color-gray-dark);
+}
+
+.project-tags {
+  justify-content: center;
+}
+
+.project-links {
+  display: flex;
+  flex-direction: row;
+  justify-content: center; 
+  align-items: center;
+  gap: 2rem;
+  margin: 1rem 0;
+}
+
+
 .project-page {
   padding: var(--spacing-lg) 0;
   width: 70%;
@@ -850,17 +881,22 @@ a:visited {
     ============================================ */
 .nav-logo .nav-subtitle {
   font-family: var(--font-nav);
-
   color: var(--color-gray-dark);
-
   font-size: 1.2rem;
-
   font-weight: 500;
-
   border-left: 1px solid var(--color-gray-border);
-
   padding-left: 0.75rem;
   margin-left: 0.75rem;
+}
+
+/* Hide compact school name on desktop */
+.subtitle-school-compact {
+  display: none;
+}
+
+/* Show full school name on desktop */
+.subtitle-school-full {
+  display: inline;
 }
 
 /* Large Desktop (ultra-wide) */
@@ -982,25 +1018,38 @@ a:visited {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 20px;
+    padding: 10px 0.75rem;
   }
 
   .nav-logo a {
-    /* Keep name and subtitle aligned horizontally */
+    /* Stack name and subtitle vertically on mobile */
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    align-items: flex-start;
     font-size: 1.1rem;
     color: var(--color-black);
     font-weight: 700;
+    gap: 2px;
   }
 
   .nav-logo .nav-name {
     font-weight: 700;
     color: var(--color-black);
+    font-size: 1.15rem;
   }
 
   .nav-logo .nav-subtitle {
-    font-size: 0.9rem; /* Smaller subtitle on mobile */
+    font-size: 0.85rem;
+    border-left: none;
+    padding-left: 0;
+    margin-left: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .subtitle-degree {
+    display: block;
   }
 
   /* --- ISOLATED NAV BAR ICON STYLES MOBILE --- */
@@ -1035,7 +1084,7 @@ a:visited {
   }
 
   .container {
-    padding: 0 1rem;
+    padding: 0 0.75rem;
   }
 
   .projects-grid {
@@ -1236,13 +1285,36 @@ a:visited {
     font-size: 0.85rem;
   }
 
+  /* Show compact school name on small mobile */
+  .subtitle-school-full {
+    display: none;
+  }
+
+  .subtitle-school-compact {
+    display: inline;
+  }
+
+  .nav-logo .nav-subtitle {
+    font-size: 0.8rem;
+    flex-direction: row;
+    gap: 4px;
+  }
+
+  .container {
+    padding: 0 0.5rem;
+  }
+
+  .nav-container {
+    padding: 8px 0.5rem;
+  }
+
   .card-image-container {
     height: 300px;
   }
 
   /* Project page small mobile */
   .project-container {
-    padding: 0 0.75rem;
+    padding: 0 0.5rem;
   }
 
   .project-title {
