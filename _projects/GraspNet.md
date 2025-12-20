@@ -1,6 +1,6 @@
 ---
 layout: project
-title: "Grab-O-Matic"
+title: "Grasp-O-Matic"
 subtitle: "RGB-D 6D Pose Detection for Grasping Unknown Objects" 
 
 carousel_images:
