@@ -71,7 +71,7 @@ Visit: [andnet-deboer.github.io](https://andnet-deboer.github.io)
 
 ### Deployment
 
-If this project is clone to agithub profile name repository automatically deploys to GitHub Pages when you push to the `main` branch.
+Push your cloned version of this repo to your own repo which identically matches your github profile name to automatically deploy to GitHub Pages when you push to the `main` branch.
 
 ```bash
 git add .
@@ -97,9 +97,17 @@ Wait 1-2 minutes for GitHub Pages to rebuild and deploy.
    tags: ["Python", "ROS2", "AI"]
    date: 2024-11-02
    description: "Short project description"
+   carousel_images:
+   - /assets/images/projects/yourproject/yourimage.jpg
+   - /assets/images/projects/yourproject/yourimage.jpg
+   carousel_height: 400px
+   carousel_width: auto
+   paper: "https://linktoyourpaper"
+   code: "https://github.com/linktoyourrepo"
    ---
 
 3. **Add photos and videos**
+To compress your videos install ffmpeg 
 
 ffmpeg -i assets/images/projects/projectname/yourvideo.mp4 \
   -c:v libx264 \
