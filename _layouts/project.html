@@ -16,14 +16,14 @@ layout: default
       <div class="project-links">
         {% if page.paper %}
         <a href="{{ page.paper }}" class="project-link" target="_blank" rel="noopener noreferrer">
-          <img src="/assets/images/icons/paper.png" alt="Paper icon" class="link-icon" style="width: 24px; height: 24px;">
+          <img src="{{ '/assets/images/icons/paper.png' | relative_url }}" alt="Paper icon" class="link-icon" style="width: 24px; height: 24px;">
           <div>Paper</div>
         </a>
         {% endif %}
         
         {% if page.code %}
         <a href="{{ page.code }}" class="project-link" target="_blank" rel="noopener noreferrer">
-          <img src="/assets/images/icons/github.png" alt="GitHub icon" class="link-icon" style="width: 24px; height: 24px;">
+          <img src="{{ '/assets/images/icons/github.png' | relative_url }}" alt="GitHub icon" class="link-icon" style="width: 24px; height: 24px;">
           <div>&lt;/Code&gt;</div>
         </a>
         {% endif %}
@@ -52,7 +52,7 @@ layout: default
         <div class="carousel-inner" {% if page.carousel_height %}style="height: {{ page.carousel_height }};"{% endif %}>
           {% for image in page.carousel_images %}
           <div class="carousel-item {% if forloop.first %}active{% endif %}">
-            <img src="{{ image }}" alt="Project image {{ forloop.index }}">
+            <img src="{{ image | relative_url }}" alt="Project image {{ forloop.index }}">
           </div>
           {% endfor %}
           

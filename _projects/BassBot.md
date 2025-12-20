@@ -6,7 +6,7 @@ title: "BassBot: Self-Playing Bass Guitar"
 #   - /assets/images/projects/bassbot/BassBot.png
 # carousel_height: 500px
 # carousel_width: auto
-preview_gif: "/assets/images/projects/BassGuitar.gif"
+preview_gif: "/assets/images/projects/bassbot/BassGuitar.mp4"
 paper: "#"
 code: "https://github.com/andnet-deboer/bass-bot"
 tags: ["Python", "CAD", "Embedded Systems", "Robotics"]

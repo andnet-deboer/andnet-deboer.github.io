@@ -1,7 +1,7 @@
 ---
 layout: project
 title: "Multi-Robot Collaborative Restocking"
-preview_gif: "/assets/images/projects/PelotonRobotVideo.gif"
+preview_gif: "/assets/images/projects/PelotonRobotVideo.mp4"
 tags: ["FANUC", "MIR", "PLC", "HMI"]
 date: 2021-08-15
 description: "Research and development of a multi-robot system using a stationary FANUC arm and a MIR autonomous mobile robot (AMR) to create a more efficient part restock process for assembly line stations at Peloton, Inc."

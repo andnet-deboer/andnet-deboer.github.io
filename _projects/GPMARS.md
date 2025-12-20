@@ -2,11 +2,11 @@
 layout: project
 title: "Multi-Agent Robotic System Validation"
 carousel_images:
-  - /assets/images/projects/gpmars/MultiAgentResearch.gif
+  - /assets/images/projects/gpmars/MultiAgentResearch.mp4
   - /assets/images/projects/gpmars/cv.png
 carousel_height: 400px
 carousel_width: auto
-preview_gif: "/assets/images/projects/gpmars/MultiAgentResearch.gif"
+preview_gif: "/assets/images/projects/gpmars/MultiAgentResearch.mp4"
 paper: "https://ieeexplore.ieee.org/document/11103627/"
 code: "https://github.com/andnet-deboer/ROS-Kobuki-Research-2022"
 # data: "https://example.com/dataset"
