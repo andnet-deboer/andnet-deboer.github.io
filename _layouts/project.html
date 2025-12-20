@@ -45,14 +45,20 @@ layout: default
       {% endif %}
     </header>
     
-    <!-- Image Carousel -->
+    <!-- Image/Video Carousel -->
     {% if page.carousel_images %}
     <div class="project-carousel">
       <div class="carousel-wrapper">
         <div class="carousel-inner" {% if page.carousel_height %}style="height: {{ page.carousel_height }};"{% endif %}>
-          {% for image in page.carousel_images %}
+          {% for media in page.carousel_images %}
           <div class="carousel-item {% if forloop.first %}active{% endif %}">
-            <img src="{{ image | relative_url }}" alt="Project image {{ forloop.index }}">
+            {% if media contains '.mp4' or media contains '.webm' %}
+            <video autoplay loop muted playsinline>
+              <source src="{{ media | relative_url }}" type="video/mp4">
+            </video>
+            {% else %}
+            <img src="{{ media | relative_url }}" alt="Project image {{ forloop.index }}">
+            {% endif %}
           </div>
           {% endfor %}
           
@@ -71,7 +77,7 @@ layout: default
         
         <!-- Dots -->
         <div class="carousel-indicators">
-          {% for image in page.carousel_images %}
+          {% for media in page.carousel_images %}
           <button class="carousel-dot {% if forloop.first %}active{% endif %}" data-slide="{{ forloop.index0 }}"></button>
           {% endfor %}
         </div>
@@ -100,13 +106,22 @@ if (document.querySelector('.carousel-wrapper')) {
   const nextBtn = document.querySelector('.carousel-next');
 
   function showSlide(index) {
-    items.forEach(item => item.classList.remove('active'));
+    // Pause all videos
+    items.forEach(item => {
+      item.classList.remove('active');
+      const video = item.querySelector('video');
+      if (video) video.pause();
+    });
     dots.forEach(dot => dot.classList.remove('active'));
     
     currentIndex = (index + items.length) % items.length;
     
     items[currentIndex].classList.add('active');
     dots[currentIndex].classList.add('active');
+    
+    // Play video if current slide has one
+    const activeVideo = items[currentIndex].querySelector('video');
+    if (activeVideo) activeVideo.play();
   }
 
   if (prevBtn) {
