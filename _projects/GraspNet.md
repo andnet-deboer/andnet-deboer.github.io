@@ -19,7 +19,7 @@ description: "A versatile, distributed platform using ROS for testing and valida
 
 ## Overview
 
-This project seeks to explore a pipeline for general manipulation. The goal of this project is to provide a pipeline that enables a 6DOF robot with parallel end effector to grasp general objects as prompted by a user. To accomplish this we use a combination of prompt based **foundation models** and point cloud processing to generate optimal grasp poses. We use Grounding Dino for prompt based object bounding which is followed by SAM 2 for segmentation masking of the desired project and lastly we apply Nvidia Contact GraspNet for grasp pose generation.
+This project seeks to explore a pipeline for general manipulation. The goal of this project is to provide a pipeline that enables a 6DOF robot with parallel end effector to grasp general objects as prompted by a user. To accomplish this we use a combination of prompt based **foundation models** and point cloud processing to generate optimal grasp poses. We use Grounding Dino for prompt based object bounding which is followed by SAM 2 for segmentation masking of the desired object and lastly we apply NVIDIA Contact GraspNet for grasp pose generation.
 
 
 
@@ -37,8 +37,8 @@ This project seeks to explore a pipeline for general manipulation. The goal of t
 
 ## Problem Statement
 
-While multi-unit robotic systems offer significant advantages over single-unit robots, such as cooperative problem-solving and redundancy, building general-purpose test platforms is challenging. Previous multi-unit projects at Hope College used a centralized control model that was hardware-dependent. The need was to create a flexible, general-purpose system capable of testing multi-agent algorithms with a distributed control architecture, independent of specific hardware.
-                            
+<!-- While multi-unit robotic systems offer significant advantages over single-unit robots, such as cooperative problem-solving and redundancy, building general-purpose test platforms is challenging. Previous multi-unit projects at Hope College used a centralized control model that was hardware-dependent. The need was to create a flexible, general-purpose system capable of testing multi-agent algorithms with a distributed control architecture, independent of specific hardware.
+                             -->
 
 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; max-width: 1800px; margin: 2rem auto;">
   <div style="text-align: center;">
