@@ -7,15 +7,15 @@ carousel_images:
   - /assets/images/projects/gpmars/cv.png
 carousel_height: 400px
 carousel_width: auto
-preview_gif: "/assets/images/projects/jackinthebox/JackInTheBox.mp4"
-# paper: "https://ieeexplore.ieee.org/document/11103627/"
-# code: "https://github.com/andnet-deboer/ROS-Kobuki-Research-2022"
+preview_gif: "/assets/images/projects/jackinthebox/jackinbox.gif"
+paper: "https://ieeexplore.ieee.org/document/11103627/"
+code: "https://github.com/andnet-deboer/ROS-Kobuki-Research-2022"
 # data: "https://example.com/dataset"
-tags: ["Dynamics", "Python", "Simulation"]
+tags: ["ROS 2", "Python", "Franka Robot"]
 date: 2025-11-15
-description: "A 2D physics simulation"
+description: "A versatile, distributed platform using ROS for testing and validating a wide variety of multi-agent control algorithms."
 ---
-<!-- 
+
 ## Overview
 
 This project details the hardware and software implementation of a **General-Purpose Multi-Agent Robotics System (GP-MARS)**. The system is designed to provide a flexible and versatile platform for implementing and testing a wide variety of multi-agent algorithms by utilizing a distributed control architecture and the **Robot Operating System (ROS)**.
@@ -115,7 +115,7 @@ Expiremental validation the system's ability to test different multi-agent algor
   <img src="/assets/images/projects/project2/kobuki_sensor_diagram.png" alt="Kobuki sensor blind spot diagram"> 
 </div> -->
 
-<!-- *Left: Final state of the object manipulation experiment (Figure 7). Right: Kobuki sensor blind spot illustration (Figure 4).*
+*Left: Final state of the object manipulation experiment (Figure 7). Right: Kobuki sensor blind spot illustration (Figure 4).*
 
 
 ---
@@ -128,4 +128,4 @@ Expiremental validation the system's ability to test different multi-agent algor
 
 ## Acknowledgments
 
-This research was conducted for the Hope College Control Systems lab under Dr. Miguel Abrahantes. --> -->
+This research was conducted for the Hope College Control Systems lab under Dr. Miguel Abrahantes.
