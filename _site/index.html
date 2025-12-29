@@ -31,6 +31,17 @@
   
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="/assets/images/favicon.ico">
+
+    <!-- MathJax for LaTeX rendering -->
+  <script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']]
+    }
+  };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body>
   <header class="site-header">
@@ -86,33 +97,85 @@
         
         
           <div class="project-card">
-  <a href="/projects/JackInTheBox/" class="card-link">
+  <a href="/projects/FrankaProject/" class="card-link">
     <div class="card-content">
-      <h3 class="card-title">Impact Dynamcis 2D Dice Simulation</h3>
-              <div class="project-overview">
-                   <!-- This homepage uses the 'home' layout which includes:
+      <h3 class="card-title">Franka Fine Manipulation</h3>
+      <div class="project-overview">
+        <!-- This homepage uses the 'home' layout which includes:
      - Projects Section (project grid)
      - About Section (bio + photo)
      - Contact Section (social links + email)
      
      All content is defined in _layouts/home.html
      This file just triggers that layout -->
-            </div>
-              
-            <div class="card-tags">
-              
+      </div>
+      
+      <p class="card-subtitle">Fine Manipulation with model trains ±1mm</p>
+      
+      <div class="card-tags">
+        
           <span class="tag">ROS 2</span>
         
           <span class="tag">Python</span>
         
-          <span class="tag">Franka Robot</span>
+          <span class="tag">Franka</span>
         
       </div>
     </div>
 
     <div class="card-image-container">
       
-        <img src="/assets/images/projects/314finalproject/jackinbox.gif" alt="Impact Dynamcis 2D Dice Simulation" class="card-gif">
+        <!-- Standard single view -->
+        
+          <img src="/assets/images/projects/frankaproject/450_Final_Preview.gif" 
+               alt="Franka Fine Manipulation" 
+               class="card-gif"
+               style="object-position: left;">
+        
+      
+      <div class="card-overlay">
+        <span class="view-project-text">View Project</span>
+      </div>
+    </div>
+  </a>
+</div>
+        
+          <div class="project-card">
+  <a href="/projects/JackInTheBox/" class="card-link">
+    <div class="card-content">
+      <h3 class="card-title">Impact Dynamics 2D Dice Simulation</h3>
+      <div class="project-overview">
+        <!-- This homepage uses the 'home' layout which includes:
+     - Projects Section (project grid)
+     - About Section (bio + photo)
+     - Contact Section (social links + email)
+     
+     All content is defined in _layouts/home.html
+     This file just triggers that layout -->
+      </div>
+      
+      <p class="card-subtitle">Collision Simulation with Lagrangian Mechanics</p>
+      
+      <div class="card-tags">
+        
+          <span class="tag">Dynamics</span>
+        
+          <span class="tag">Python</span>
+        
+          <span class="tag">Simulation</span>
+        
+      </div>
+    </div>
+
+    <div class="card-image-container">
+      
+        <!-- Standard single view -->
+        
+          <video autoplay loop muted playsinline class="card-gif"
+                 style="object-position: center bottom;">
+            <source src="/assets/images/projects/jackinthebox/JackInTheBox.mp4" type="video/mp4">
+          </video>
+        
       
       <div class="card-overlay">
         <span class="view-project-text">View Project</span>
@@ -124,21 +187,21 @@
           <div class="project-card">
   <a href="/projects/GraspNet/" class="card-link">
     <div class="card-content">
-      <h3 class="card-title">Grab-O-Matic</h3>
-              <div class="project-overview">
-                   <!-- This homepage uses the 'home' layout which includes:
+      <h3 class="card-title">Grasp-O-Matic</h3>
+      <div class="project-overview">
+        <!-- This homepage uses the 'home' layout which includes:
      - Projects Section (project grid)
      - About Section (bio + photo)
      - Contact Section (social links + email)
      
      All content is defined in _layouts/home.html
      This file just triggers that layout -->
-            </div>
-              
-              <p class="card-subtitle">RGB-D 6D Pose Detection for Grasping Unknown Objects</p>
-              
-            <div class="card-tags">
-              
+      </div>
+      
+      <p class="card-subtitle">RGB-D 6D Grasp Pose for Unknown Objects</p>
+      
+      <div class="card-tags">
+        
           <span class="tag">SAM 2</span>
         
           <span class="tag">Foundation Models</span>
@@ -150,43 +213,13 @@
 
     <div class="card-image-container">
       
-        <img src="/assets/images/projects/mlsensing/graspnet.gif" alt="Grab-O-Matic" class="card-gif">
-      
-      <div class="card-overlay">
-        <span class="view-project-text">View Project</span>
-      </div>
-    </div>
-  </a>
-</div>
+        <!-- Standard single view -->
         
-          <div class="project-card">
-  <a href="/projects/FrankaProject/" class="card-link">
-    <div class="card-content">
-      <h3 class="card-title">Collision-free Object Manipulation</h3>
-              <div class="project-overview">
-                   <!-- This homepage uses the 'home' layout which includes:
-     - Projects Section (project grid)
-     - About Section (bio + photo)
-     - Contact Section (social links + email)
-     
-     All content is defined in _layouts/home.html
-     This file just triggers that layout -->
-            </div>
-              
-            <div class="card-tags">
-              
-          <span class="tag">ROS 2</span>
+          <img src="/assets/images/projects/graspnet/shoe.gif" 
+               alt="Grasp-O-Matic" 
+               class="card-gif"
+               style="object-position: center;">
         
-          <span class="tag">Python</span>
-        
-          <span class="tag">Franka Robot</span>
-        
-      </div>
-    </div>
-
-    <div class="card-image-container">
-      
-        <img src="/assets/images/projects/frankaproject/Franka.gif" alt="Collision-free Object Manipulation" class="card-gif">
       
       <div class="card-overlay">
         <span class="view-project-text">View Project</span>
@@ -199,18 +232,18 @@
   <a href="/projects/Pen/" class="card-link">
     <div class="card-content">
       <h3 class="card-title">Pen Thief | Perception To Action</h3>
-              <div class="project-overview">
-                   <!-- This homepage uses the 'home' layout which includes:
+      <div class="project-overview">
+        <!-- This homepage uses the 'home' layout which includes:
      - Projects Section (project grid)
      - About Section (bio + photo)
      - Contact Section (social links + email)
      
      All content is defined in _layouts/home.html
      This file just triggers that layout -->
-            </div>
-              
-            <div class="card-tags">
-              
+      </div>
+      
+      <div class="card-tags">
+        
           <span class="tag">ROS 2</span>
         
           <span class="tag">Python</span>
@@ -222,7 +255,13 @@
 
     <div class="card-image-container">
       
-        <img src="/assets/images/projects/pen/penthief.gif" alt="Pen Thief | Perception To Action" class="card-gif">
+        <!-- Standard single view -->
+        
+          <img src="/assets/images/projects/pen/penthief.gif" 
+               alt="Pen Thief | Perception To Action" 
+               class="card-gif"
+               style="object-position: center;">
+        
       
       <div class="card-overlay">
         <span class="view-project-text">View Project</span>
@@ -235,18 +274,18 @@
   <a href="/projects/RRT/" class="card-link">
     <div class="card-content">
       <h3 class="card-title">Rapidly Exploring Random Tree</h3>
-              <div class="project-overview">
-                   <!-- This homepage uses the 'home' layout which includes:
+      <div class="project-overview">
+        <!-- This homepage uses the 'home' layout which includes:
      - Projects Section (project grid)
      - About Section (bio + photo)
      - Contact Section (social links + email)
      
      All content is defined in _layouts/home.html
      This file just triggers that layout -->
-            </div>
-              
-            <div class="card-tags">
-              
+      </div>
+      
+      <div class="card-tags">
+        
           <span class="tag">ROS 2</span>
         
           <span class="tag">Python</span>
@@ -258,7 +297,13 @@
 
     <div class="card-image-container">
       
-        <img src="/assets/images/projects/rrt/rrt.gif" alt="Rapidly Exploring Random Tree" class="card-gif">
+        <!-- Standard single view -->
+        
+          <img src="/assets/images/projects/rrt/rrt.gif" 
+               alt="Rapidly Exploring Random Tree" 
+               class="card-gif"
+               style="object-position: center;">
+        
       
       <div class="card-overlay">
         <span class="view-project-text">View Project</span>
@@ -271,18 +316,18 @@
   <a href="/projects/BassBot/" class="card-link">
     <div class="card-content">
       <h3 class="card-title">BassBot: Self-Playing Bass Guitar</h3>
-              <div class="project-overview">
-                   <!-- This homepage uses the 'home' layout which includes:
+      <div class="project-overview">
+        <!-- This homepage uses the 'home' layout which includes:
      - Projects Section (project grid)
      - About Section (bio + photo)
      - Contact Section (social links + email)
      
      All content is defined in _layouts/home.html
      This file just triggers that layout -->
-            </div>
-              
-            <div class="card-tags">
-              
+      </div>
+      
+      <div class="card-tags">
+        
           <span class="tag">Python</span>
         
           <span class="tag">CAD</span>
@@ -296,7 +341,25 @@
 
     <div class="card-image-container">
       
-        <img src="/assets/images/projects/bassbot/BassGuitar.gif" alt="BassBot: Self-Playing Bass Guitar" class="card-gif">
+        <!-- Split view: same image shown twice with different focus -->
+        <div class="split-preview">
+          <div class="split-left">
+            
+              <video autoplay loop muted playsinline class="card-gif"
+                     style="object-position: center top;">
+                <source src="/assets/images/projects/bassbot/BassGuitar.mp4" type="video/mp4">
+              </video>
+            
+          </div>
+          <div class="split-right">
+            
+              <video autoplay loop muted playsinline class="card-gif"
+                     style="object-position: center bottom;">
+                <source src="/assets/images/projects/bassbot/BassGuitar.mp4" type="video/mp4">
+              </video>
+            
+          </div>
+        </div>
       
       <div class="card-overlay">
         <span class="view-project-text">View Project</span>
@@ -309,18 +372,18 @@
   <a href="/projects/GPMARS/" class="card-link">
     <div class="card-content">
       <h3 class="card-title">Multi-Agent Robotic System Validation</h3>
-              <div class="project-overview">
-                   <!-- This homepage uses the 'home' layout which includes:
+      <div class="project-overview">
+        <!-- This homepage uses the 'home' layout which includes:
      - Projects Section (project grid)
      - About Section (bio + photo)
      - Contact Section (social links + email)
      
      All content is defined in _layouts/home.html
      This file just triggers that layout -->
-            </div>
-              
-            <div class="card-tags">
-              
+      </div>
+      
+      <div class="card-tags">
+        
           <span class="tag">ROS</span>
         
           <span class="tag">Python/C++</span>
@@ -332,7 +395,13 @@
 
     <div class="card-image-container">
       
-        <img src="/assets/images/projects/gpmars/MultiAgentResearch.gif" alt="Multi-Agent Robotic System Validation" class="card-gif">
+        <!-- Standard single view -->
+        
+          <video autoplay loop muted playsinline class="card-gif"
+                 style="object-position: center;">
+            <source src="/assets/images/projects/gpmars/MultiAgentResearch.mp4" type="video/mp4">
+          </video>
+        
       
       <div class="card-overlay">
         <span class="view-project-text">View Project</span>
@@ -345,18 +414,18 @@
   <a href="/projects/Peloton/" class="card-link">
     <div class="card-content">
       <h3 class="card-title">Multi-Robot Collaborative Restocking</h3>
-              <div class="project-overview">
-                   <!-- This homepage uses the 'home' layout which includes:
+      <div class="project-overview">
+        <!-- This homepage uses the 'home' layout which includes:
      - Projects Section (project grid)
      - About Section (bio + photo)
      - Contact Section (social links + email)
      
      All content is defined in _layouts/home.html
      This file just triggers that layout -->
-            </div>
-              
-            <div class="card-tags">
-              
+      </div>
+      
+      <div class="card-tags">
+        
           <span class="tag">FANUC</span>
         
           <span class="tag">MIR</span>
@@ -370,7 +439,13 @@
 
     <div class="card-image-container">
       
-        <img src="/assets/images/projects/PelotonRobotVideo.gif" alt="Multi-Robot Collaborative Restocking" class="card-gif">
+        <!-- Standard single view -->
+        
+          <video autoplay loop muted playsinline class="card-gif"
+                 style="object-position: center;">
+            <source src="/assets/images/projects/peloton/PelotonRobotVideo.mp4" type="video/mp4">
+          </video>
+        
       
       <div class="card-overlay">
         <span class="view-project-text">View Project</span>
@@ -383,18 +458,18 @@
   <a href="/projects/FirstRobotics/" class="card-link">
     <div class="card-content">
       <h3 class="card-title">FIRST Robotics competition</h3>
-              <div class="project-overview">
-                   <!-- This homepage uses the 'home' layout which includes:
+      <div class="project-overview">
+        <!-- This homepage uses the 'home' layout which includes:
      - Projects Section (project grid)
      - About Section (bio + photo)
      - Contact Section (social links + email)
      
      All content is defined in _layouts/home.html
      This file just triggers that layout -->
-            </div>
-              
-            <div class="card-tags">
-              
+      </div>
+      
+      <div class="card-tags">
+        
           <span class="tag">Controls</span>
         
           <span class="tag">Java</span>
@@ -406,7 +481,13 @@
 
     <div class="card-image-container">
       
-        <img src="/assets/images/projects/firstrobotics/Swerve.gif" alt="FIRST Robotics competition" class="card-gif">
+        <!-- Standard single view -->
+        
+          <video autoplay loop muted playsinline class="card-gif"
+                 style="object-position: center;">
+            <source src="/assets/images/projects/firstrobotics/Swerve.mp4" type="video/mp4">
+          </video>
+        
       
       <div class="card-overlay">
         <span class="view-project-text">View Project</span>

@@ -356,6 +356,33 @@ a:visited {
   border-color: var(--color-gray-dark);
 }
 
+/* Split preview - force different positions */
+.split-preview {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  gap: 2px;
+}
+
+.split-left,
+.split-right {
+  flex: 1;
+  overflow: hidden;
+  position: relative;
+  height: 100%;
+}
+
+.split-left .card-gif {
+  width: 100%;
+  height: 200%; /* Key: make video taller than container */
+  object-fit: cover;
+}
+
+.split-right .card-gif {
+  width: 100%;
+  height: 200%; /* Key: make video taller than container */
+  object-fit: cover;
+}
 /* ============================================
     ABOUT SECTION (includes contact)
     ============================================ */

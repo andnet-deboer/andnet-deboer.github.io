@@ -1,7 +1,7 @@
 ---
 layout: project
 title: "Grasp-O-Matic"
-subtitle: "RGB-D 6D Pose Detection for Grasping Unknown Objects" 
+subtitle: "RGB-D 6D Grasp Pose for Unknown Objects" 
 
 carousel_images:
   - /assets/images/projects/graspnet/graspnet.gif

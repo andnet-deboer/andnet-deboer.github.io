@@ -7,6 +7,9 @@ title: "BassBot: Self-Playing Bass Guitar"
 # carousel_height: 500px
 # carousel_width: auto
 preview_gif: "/assets/images/projects/bassbot/BassGuitar.mp4"
+preview_split:
+  left: "center top"      # focuses on fretting hand
+  right: "center bottom"  # focuses on picking hand
 paper: "#"
 code: "https://github.com/andnet-deboer/bass-bot"
 tags: ["Python", "CAD", "Embedded Systems", "Robotics"]

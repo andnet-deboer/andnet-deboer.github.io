@@ -1,31 +1,53 @@
 ---
 layout: project
-title: "Collision-free Object Manipulation"
-
+title: "Franka Fine Manipulation"
+subtitle: "Fine Manipulation with model trains ±1mm"
 # carousel_images:
 #   - /assets/images/projects/frankahw3/Franka.gif
 #   - /assets/images/projects/gpmars/cv.png
 # carousel_height: 400px
-# carousel_width: auto
-preview_gif: "/assets/images/projects/frankaproject/Franka.gif"
+carousel_width: auto
+preview_gif: "/assets/images/projects/frankaproject/450_Final_Preview.gif"
+preview_position: "left"
 paper: "https://ieeexplore.ieee.org/document/11103627/"
 code: "https://github.com/andnet-deboer/ROS-Kobuki-Research-2022"
 # data: "https://example.com/dataset"
-tags: ["ROS 2", "Python", "Franka Robot"]
-date: 2025-11-15
+tags: ["ROS 2", "Python", "Franka"]
+date: 2025-12-15
 description: "A versatile, distributed platform using ROS for testing and validating a wide variety of multi-agent control algorithms."
+
+
 ---
-<!-- 
+<div style="max-width: 1200px; margin: 0 auto;">
+  <iframe
+    src="https://docs.google.com/presentation/d/e/2PACX-1vSFuI85KmZzVL5W8taVeDeE26AI5fXTTK8yVsk32j5e4Rc8MLCL-7RNXWUGw9qIOA6_LNu3TswxThsJ/pubembed?start=true&loop=true&delayms=3000&rm=minimal"
+    style="
+      width:100%;
+      aspect-ratio:16/9;
+      border:0;
+      outline:none;
+      box-shadow:none;
+      display:block;
+    "
+    allowfullscreen>
+  </iframe>
+</div>
+
+
+
 ## Overview
 
-This project details the hardware and software implementation of a **General-Purpose Multi-Agent Robotics System (GP-MARS)**. The system is designed to provide a flexible and versatile platform for implementing and testing a wide variety of multi-agent algorithms by utilizing a distributed control architecture and the **Robot Operating System (ROS)**.
+This project details the hardware and software implementation of a **General-Purpose Multi-Agent Robotics System (GP-MARS)**. The system is designed to provide a flexible and versatile platform for implementing and testing a wide variety of multi-agent algorithms by utilizing a distributed control architecture and the **Robot Operating System (ROS)**. -->
 
----
+
+
 
 ## Problem Statement
 
 While multi-unit robotic systems offer significant advantages over single-unit robots, such as cooperative problem-solving and redundancy, building general-purpose test platforms is challenging. Previous multi-unit projects at Hope College used a centralized control model that was hardware-dependent. The need was to create a flexible, general-purpose system capable of testing multi-agent algorithms with a distributed control architecture, independent of specific hardware.
-                            
+
+<!--
+
 
 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; max-width: 900px; margin: 2rem auto;">
   <div style="text-align: center;">
@@ -108,17 +130,14 @@ Expiremental validation the system's ability to test different multi-agent algor
 * **Goal:** Demonstrate the individual robots' ability to **collaborate and manipulate objects to achieve a common goal**.
 * **Setup:** Each robot was equipped with two high-frequency ultrasonic sensors mounted at an angle to intentionally create a **blind spot** in the frontal field of view (Figure 4). The robots were placed in an enclosure with randomly scattered cube obstacles (Figure 5).
 * **Algorithm:** A randomized obstacle avoidance program utilized proximity data. Due to the blind spot, the robot would collide with and manipulate the cube until it was pushed up against another object (Figure 7).
-* **Result:** The multi-unit network successfully collaborated, with all cubes pushed against the walls of the enclosure or another cube, demonstrating cohesion and integration.
+* **Result:** The multi-unit network successfully collaborated, with all cubes pushed against the walls of the enclosure or another cube, demonstrating cohesion and integration. -->
 
 <!-- <div class="side-by-side">
    <img src="/assets/images/projects/project2/manipulation_result.png" alt="Final Environment After Algorithm Completion">
   <img src="/assets/images/projects/project2/kobuki_sensor_diagram.png" alt="Kobuki sensor blind spot diagram"> 
-</div> -->
+</div> 
 
-<!-- *Left: Final state of the object manipulation experiment (Figure 7). Right: Kobuki sensor blind spot illustration (Figure 4).*
- -->
-
-<!-- ---
+ *Left: Final state of the object manipulation experiment (Figure 7). Right: Kobuki sensor blind spot illustration (Figure 4).*
 
 ## Future Work
 
@@ -128,4 +147,4 @@ Expiremental validation the system's ability to test different multi-agent algor
 
 ## Acknowledgments
 
-This research was conducted for the Hope College Control Systems lab under Dr. Miguel Abrahantes. --> 
+This research was conducted for the Hope College Control Systems lab under Dr. Miguel Abrahantes.  -->

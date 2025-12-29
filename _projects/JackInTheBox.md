@@ -1,8 +1,9 @@
 ---
 layout: project
 title: "Impact Dynamics 2D Dice Simulation"
-subtitle: "Rigid Body Collision Simulation with Lagrangian Mechanics"
+subtitle: "Collision Simulation with Lagrangian Mechanics"
 preview_gif: "/assets/images/projects/jackinthebox/JackInTheBox.mp4"
+preview_position: "center bottom"
 carousel_images:
   - /assets/images/projects/jackinthebox/JackInTheBox.mp4
 tags: ["Dynamics", "Python", "Simulation"]

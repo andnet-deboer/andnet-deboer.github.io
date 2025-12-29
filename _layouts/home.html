@@ -10,7 +10,7 @@ layout: default
       <div class="projects-grid">
         {% assign sorted_projects = site.projects | sort: 'date' | reverse %}
         {% for project in sorted_projects %}
-          {% include project-card.html project=project %}
+          {% include project-card.liquid project=project %}
         {% endfor %}
       </div>
     </div>
