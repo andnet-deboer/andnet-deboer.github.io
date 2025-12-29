@@ -16,14 +16,6 @@ This project involved the exploration for multi-robot collaboration to create a 
 ---
 
 
-  <div style="text-align: center;">
-    <img src="/assets/images/projects/peloton/image.png"
-         alt="After - Raspberry Pi setup"
-         class="no-border"
-         style="width: 100%; height: auto;">
-    <p style="margin-top: 0.75rem;"><em>Building & Wiring Panel</em></p>
-  </div>
-
 ## System Components
 
 ### Robotics System
@@ -31,6 +23,40 @@ The FANUC robot arm was responsible for restocking the trolley robot. The MIR tr
 
 ### Build and Electrical Design
 I worked with the electrical design team to design the electrical system for the FANUC robot test bench, learning AutoCAD electrical basics. I designed a safety circuit with safety IO and wired it on the test bench. I also designed, built, and wired the test bench control panel, establishing communications between all components.
+
+<div style="
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  max-width: 900px;
+  margin: 2rem auto;
+  align-items: start;
+">
+  <div style="text-align: center;">
+    <img src="/assets/images/projects/peloton/ElectricalDesign.png"
+         alt="Electrical Design"
+         class="no-border"
+         style="
+           width: 100%;
+           height: 350px;
+           object-fit: contain;
+         ">
+    <p style="margin-top: 0.75rem;">Design</p>
+  </div>
+
+  <div style="text-align: center;">
+    <img src="/assets/images/projects/peloton/Panel.png"
+         alt="Control Panel Build"
+         class="no-border"
+         style="
+           width: 100%;
+           height: 350px;
+           object-fit: contain;
+         ">
+    <p style="margin-top: 0.75rem;">Build</p>
+  </div>
+</div>
+
 
 ---
 
