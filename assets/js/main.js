@@ -393,3 +393,57 @@
   init();
 
 })();
+
+document.addEventListener('DOMContentLoaded', function() {
+  const nav = document.querySelector('.site-nav');
+  const header = document.querySelector('.site-header');
+  
+  // Detect if we're on a project page
+  const isProjectPage = document.querySelector('article.project-page') !== null || 
+                        window.location.pathname.includes('/projects/');
+  
+  // Create hover zone
+  const hoverZone = document.createElement('div');
+  hoverZone.className = 'nav-hover-zone';
+  header.insertBefore(hoverZone, nav);
+  
+  const scrollThreshold = 50;
+  
+  // Hide nav immediately on project pages
+  if (isProjectPage) {
+    nav.classList.add('nav-hidden');
+  }
+  
+  window.addEventListener('scroll', function() {
+    const currentScroll = window.pageYOffset;
+    
+    if (isProjectPage) {
+      // Project pages: always hidden unless hovering
+      nav.classList.add('nav-hidden');
+    } else {
+      // Home/other pages: show at top, hide when scrolled
+      if (currentScroll <= scrollThreshold) {
+        nav.classList.remove('nav-hidden');
+      } else {
+        nav.classList.add('nav-hidden');
+      }
+    }
+  });
+  
+  // Show nav when hovering near top
+  hoverZone.addEventListener('mouseenter', function() {
+    nav.classList.remove('nav-hidden');
+  });
+  
+  // Keep nav visible while hovering it
+  nav.addEventListener('mouseenter', function() {
+    nav.classList.remove('nav-hidden');
+  });
+  
+  // Hide nav when mouse leaves
+  nav.addEventListener('mouseleave', function() {
+    if (isProjectPage || window.pageYOffset > scrollThreshold) {
+      nav.classList.add('nav-hidden');
+    }
+  });
+});

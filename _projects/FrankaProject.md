@@ -18,23 +18,18 @@ description: "A versatile, distributed platform using ROS for testing and valida
 
 
 ---
-<div style="max-width: 1200px; margin: 0 auto;">
-  <iframe
-    src="https://docs.google.com/presentation/d/e/2PACX-1vSFuI85KmZzVL5W8taVeDeE26AI5fXTTK8yVsk32j5e4Rc8MLCL-7RNXWUGw9qIOA6_LNu3TswxThsJ/pubembed?start=true&loop=true&delayms=3000&rm=minimal"
-    style="
-      width:100%;
-      aspect-ratio:16/9;
-      border:0;
-      outline:none;
-      box-shadow:none;
-      display:block;
-    "
-    allowfullscreen>
-  </iframe>
+<div style="max-width: 1200px; margin: 0 auto; overflow: hidden; border-radius: 8px;">
+  <div style="margin: -8px; overflow: hidden;">
+    <iframe
+      src="https://docs.google.com/presentation/d/e/2PACX-1vSFuI85KmZzVL5W8taVeDeE26AI5fXTTK8yVsk32j5e4Rc8MLCL-7RNXWUGw9qIOA6_LNu3TswxThsJ/pubembed?start=true&loop=true&delayms=3000&rm=minimal"
+      style="width: calc(100% + 8px); aspect-ratio: 16/9; display: block; margin: -8px;"
+      frameborder="0"
+      allowfullscreen>
+    </iframe>
+  </div>
 </div>
 
 
----
 
 ## Overview
 

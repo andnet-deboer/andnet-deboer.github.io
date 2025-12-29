@@ -26,7 +26,7 @@ nav a,
 .nav-link {
   text-decoration: none !important;
   text-decoration-line: none !important;
-  /* --- ESSENTIAL FIX: REMOVES ANY ACCIDENTAL BORDER/SHADOW --- */
+
   border-bottom: none !important;
   box-shadow: none !important;
 }
@@ -123,17 +123,31 @@ a:visited {
   left: 0;
   right: 0;
   background-color: var(--color-white);
-  border-bottom: 1px solid var(--color-gray-border);
+  border-bottom: none;
   z-index: 1000;
-  /* --- ADJUSTED: REDUCED VERTICAL PADDING TO SHRINK HEADER HEIGHT --- */
-  padding: 0.9rem 0; 
+  padding: 0.9rem 0;
+  box-shadow: 0 0.5px 0 rgba(0, 0, 0, 0.08), 0 4px 12px rgba(0, 0, 0, 0.03);
+}
+
+/* Hidden state  */
+.site-nav.nav-hidden {
+  transform: translateY(-100%);
+}
+
+/* Hover zone at top of page */
+.nav-hover-zone {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 20px;
+  z-index: 999;
 }
 
 .nav-container {
   max-width: var(--max-width);
   margin: 0 auto;
   padding: 0 2rem;
-  /* --- ESSENTIAL FLEXBOX FOR MAIN LAYOUT --- */
   display: flex;
   justify-content: space-between; /* Pushes name/subtitle left and links/icons right */
   align-items: center; /* Vertically centers the two main groups */
@@ -383,6 +397,15 @@ a:visited {
   height: 200%; /* Key: make video taller than container */
   object-fit: cover;
 }
+
+.project-content iframe,
+iframe.no-border {
+  border: 0 !important;
+  border-width: 0 !important;
+  border-style: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
 /* ============================================
     ABOUT SECTION (includes contact)
     ============================================ */
@@ -585,7 +608,6 @@ a:visited {
 .project-header {
   margin-bottom: 3rem;
   padding-bottom: 2rem;
-  border-bottom: 1px solid var(--color-gray-border);
 }
 
 .project-title {
