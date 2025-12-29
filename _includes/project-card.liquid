@@ -3,43 +3,54 @@
     <!-- IMAGE FIRST -->
     <div class="card-image-container">
       {% if project.preview_split %}
-        <!-- Split view: same image shown twice with different focus -->
+        <!-- Split view: full left, top/bottom right -->
         <div class="split-preview">
           <div class="split-left">
             {% if project.preview_gif contains '.mp4' %}
-              <video autoplay loop muted playsinline class="card-gif"
-                     style="object-position: {{ project.preview_split.left | default: 'left' }}; transform: scale({{ project.preview_zoom | default: 1 }});">
+              <video autoplay loop muted playsinline class="card-gif">
                 <source src="{{ project.preview_gif | relative_url }}" type="video/mp4">
               </video>
             {% elsif project.preview_gif contains '.webm' %}
-              <video autoplay loop muted playsinline class="card-gif"
-                     style="object-position: {{ project.preview_split.left | default: 'left' }}; transform: scale({{ project.preview_zoom | default: 1 }});">
+              <video autoplay loop muted playsinline class="card-gif">
                 <source src="{{ project.preview_gif | relative_url }}" type="video/webm">
               </video>
             {% else %}
               <img src="{{ project.preview_gif | relative_url }}" 
-                   alt="{{ project.title }} - left view" 
-                   class="card-gif"
-                   style="object-position: {{ project.preview_split.left | default: 'left' }}; transform: scale({{ project.preview_zoom | default: 1 }});">
+                   alt="{{ project.title }}" 
+                   class="card-gif">
             {% endif %}
           </div>
           <div class="split-right">
-            {% if project.preview_gif contains '.mp4' %}
-              <video autoplay loop muted playsinline class="card-gif"
-                     style="object-position: {{ project.preview_split.right | default: 'right' }}; transform: scale({{ project.preview_zoom | default: 1 }});">
-                <source src="{{ project.preview_gif | relative_url }}" type="video/mp4">
-              </video>
-            {% elsif project.preview_gif contains '.webm' %}
-              <video autoplay loop muted playsinline class="card-gif"
-                     style="object-position: {{ project.preview_split.right | default: 'right' }}; transform: scale({{ project.preview_zoom | default: 1 }});">
-                <source src="{{ project.preview_gif | relative_url }}" type="video/webm">
-              </video>
-            {% else %}
-              <img src="{{ project.preview_gif | relative_url }}" 
-                   alt="{{ project.title }} - right view" 
-                   class="card-gif"
-                   style="object-position: {{ project.preview_split.right | default: 'right' }}; transform: scale({{ project.preview_zoom | default: 1 }});">
-            {% endif %}
+            <div class="split-right-top">
+              {% if project.preview_gif contains '.mp4' %}
+                <video autoplay loop muted playsinline class="card-gif">
+                  <source src="{{ project.preview_gif | relative_url }}" type="video/mp4">
+                </video>
+              {% elsif project.preview_gif contains '.webm' %}
+                <video autoplay loop muted playsinline class="card-gif">
+                  <source src="{{ project.preview_gif | relative_url }}" type="video/webm">
+                </video>
+              {% else %}
+                <img src="{{ project.preview_gif | relative_url }}" 
+                     alt="{{ project.title }} - top" 
+                     class="card-gif">
+              {% endif %}
+            </div>
+            <div class="split-right-bottom">
+              {% if project.preview_gif contains '.mp4' %}
+                <video autoplay loop muted playsinline class="card-gif">
+                  <source src="{{ project.preview_gif | relative_url }}" type="video/mp4">
+                </video>
+              {% elsif project.preview_gif contains '.webm' %}
+                <video autoplay loop muted playsinline class="card-gif">
+                  <source src="{{ project.preview_gif | relative_url }}" type="video/webm">
+                </video>
+              {% else %}
+                <img src="{{ project.preview_gif | relative_url }}" 
+                     alt="{{ project.title }} - bottom" 
+                     class="card-gif">
+              {% endif %}
+            </div>
           </div>
         </div>
       {% else %}

@@ -88,7 +88,7 @@
 
   
   <main class="main-content">
-    <div class="home-page">
+    <div class="home-page">`
   
   <!-- Projects Section -->
   <section id="projects" class="projects-section">
@@ -282,23 +282,30 @@
     <!-- IMAGE FIRST -->
     <div class="card-image-container">
       
-        <!-- Split view: same image shown twice with different focus -->
+        <!-- Split view: full left, top/bottom right -->
         <div class="split-preview">
           <div class="split-left">
             
-              <video autoplay loop muted playsinline class="card-gif"
-                     style="object-position: center top; transform: scale(1);">
+              <video autoplay loop muted playsinline class="card-gif">
                 <source src="/assets/images/projects/bassbot/BassGuitar.mp4" type="video/mp4">
               </video>
             
           </div>
           <div class="split-right">
-            
-              <video autoplay loop muted playsinline class="card-gif"
-                     style="object-position: center bottom; transform: scale(1);">
-                <source src="/assets/images/projects/bassbot/BassGuitar.mp4" type="video/mp4">
-              </video>
-            
+            <div class="split-right-top">
+              
+                <video autoplay loop muted playsinline class="card-gif">
+                  <source src="/assets/images/projects/bassbot/BassGuitar.mp4" type="video/mp4">
+                </video>
+              
+            </div>
+            <div class="split-right-bottom">
+              
+                <video autoplay loop muted playsinline class="card-gif">
+                  <source src="/assets/images/projects/bassbot/BassGuitar.mp4" type="video/mp4">
+                </video>
+              
+            </div>
           </div>
         </div>
       
