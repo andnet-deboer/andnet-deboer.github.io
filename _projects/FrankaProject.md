@@ -34,117 +34,234 @@ description: "A versatile, distributed platform using ROS for testing and valida
 </div>
 
 
+---
 
 ## Overview
 
-This project details the hardware and software implementation of a **General-Purpose Multi-Agent Robotics System (GP-MARS)**. The system is designed to provide a flexible and versatile platform for implementing and testing a wide variety of multi-agent algorithms by utilizing a distributed control architecture and the **Robot Operating System (ROS)**. -->
+This project demonstrates **precision fine manipulation** using a Franka Emika robot arm to manipulate HO-scale model train cars with **±1mm accuracy**. The system integrates a robust computer vision pipeline with MoveIt2 motion planning to solve a challenging alignment task: positioning free-spinning train bogies (wheel assemblies that rotate like caster wheels) onto model railroad tracks.
 
+The project also establishes a **zero-shot data distillation pipeline** for training custom object detection models, using the robot itself to autonomously collect and generate training data.
 
-
+---
 
 ## Problem Statement
 
-While multi-unit robotic systems offer significant advantages over single-unit robots, such as cooperative problem-solving and redundancy, building general-purpose test platforms is challenging. Previous multi-unit projects at Hope College used a centralized control model that was hardware-dependent. The need was to create a flexible, general-purpose system capable of testing multi-agent algorithms with a distributed control architecture, independent of specific hardware.
+Aligning model train cars onto tracks requires sub-millimeter precision due to the unconstrained rotation of the bogies—the wheel assemblies can spin freely in any direction when the train is lifted, similar to caster wheels. Traditional pick-and-place approaches fail because:
 
-<!--
-
-
-<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; max-width: 900px; margin: 2rem auto;">
-  <div style="text-align: center;">
-    <img src="/assets/images/projects/gpmars/before.png" 
-         alt="Before - Dell D610 laptops"
-         class="no-border"
-         style="width: 100%; height: auto;">
-    <p style="margin-top: 0.75rem;"><strong>Before:</strong> Dell D610 Laptops</p>
-  </div>
-  
-  <div style="text-align: center;">
-    <img src="/assets/images/projects/gpmars/after.png" 
-         alt="After - Raspberry Pi setup"
-         class="no-border"
-         style="width: 100%; height: auto;">
-    <p style="margin-top: 0.75rem;"><strong>After:</strong> Raspberry Pi 3B</p>
-  </div>
-</div>
-
-
+1. **Bogie orientation is unknown** when the gripper approaches the train
+2. **Track orientation varies** across the layout and must be detected in real-time
+3. **Class similarity from top-down view** makes distinguishing trains from tracks challenging for vision systems
 
 ---
 
-## System Hardware
+## Solution
 
-<div style="width: 600px; max-width: 100%; margin: 0rem auto;">
-  <img src="/assets/images/projects/gpmars/hardware.png" 
-       alt="Final Environment After Algorithm Completion"
-       class="no-border"
-       style="width: 100%; height: auto;">
-</div>
+### Mechanical Approach
 
-<p style="text-align: center;"><em>GP-MARS Platform with Raspberry Pi 3B microcontrollers.</em></p>
+Our solution uses a **custom end effector** to physically constrain the bogie to a known rotation, combined with a robust OpenCV pipeline to detect track orientation. The gripper then aligns the constrained wheel assembly with the detected track angle before placement.
 
+### System Architecture
 
-The final GP-MARS system utilizes three Yujin Kobuki turtlebots as the mobile base units. To improve versatility, reduce mass, and lower the electrical load, the initial Dell D610 laptops used for processing were replaced with Raspberry Pi's. This embedded setup allows for easy integration of various sensors like Lidar, stereo cameras, or proximity sensors.
-
-
-### Software Architecture
-
-<div style="width: 500px; max-width: 100%; margin: 0rem auto;">
-  <img src="/assets/images/projects/gpmars/software.png" 
-       alt="Final Environment After Algorithm Completion"
-       class="no-border"
-       style="width: 100%; height: auto;">
-</div>
-
-
-1.  **Foundational Layer (OS):** Ubuntu Linux (or Xubuntu on the memory-restricted Raspberry Pi 3B microcontrollers).
-2.  **Middleware (ROS):** Provides hardware abstraction through its publish-subscribe communication model
-3.  **High-Level Control:** High-level commands were programmed using Python
-
+```
+┌─────────────┐     ┌─────────────────┐     ┌──────────────────┐
+│  RealSense  │────▶│  Vision System  │────▶│  Conductor Node  │
+│  Camera     │     │  (Track + Car)  │     │                  │
+└─────────────┘     └─────────────────┘     └────────┬─────────┘
+                                                     │
+                           Target Poses + Gripper States
+                                                     ▼
+┌─────────────┐     ┌─────────────────┐     ┌──────────────────┐
+│  Franka Arm │◀────│  MoveIt2 API    │◀────│       Railer     │
+│             │     │                 │     │                  │
+└─────────────┘     └─────────────────┘     └──────────────────┘
+```
 
 ---
 
-## System Validation
+## Computer Vision Pipeline
 
-Expiremental validation the system's ability to test different multi-agent algorithms:
+### Track Detection
 
-<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; max-width: 900px; margin: 2rem auto;">
-  <div style="text-align: center;">
-    <img src="/assets/images/projects/gpmars/blindspot.png" 
-         alt="Before - Dell D610 laptops"
+A multi-stage OpenCV pipeline processes RGB images from the RealSense camera to detect track orientation:
+
+1. **Preprocessing**: Brightness, contrast, and white balance adjustment
+2. **Edge Detection**: Canny edge detection on enhanced images
+3. **Morphological Operations**: Dilation and skeletonization to extract rail centerlines
+4. **Line Detection**: Hough transform to identify track segments
+5. **Pose Estimation**: Convert 2D track orientation to 3D transforms using depth data
+
+
+<div style="display: flex; justify-content: center; align-items: center; gap: 2rem; max-width: 900px; margin: 2rem auto;">
+  <div style="flex: 1; display: flex; align-items: center; justify-content: center;">
+    <img src="/assets/images/projects/frankaproject/railcv.png" 
+         alt="OpenCV Pipeline stages"
          class="no-border"
-         style="width: 100%; height: auto;">
-    <p style="margin-top: 0.75rem;"><em>Kobuki sensor blind spot illustration</em></p>
+         style="width: 100%; height: 250px; object-fit: contain;">
   </div>
   
-  <div style="text-align: center;">
-    <img src="/assets/images/projects/gpmars/results.png" 
-         alt="After - Raspberry Pi setup"
+  <div style="flex: 1; display: flex; align-items: center; justify-content: center;">
+    <img src="/assets/images/projects/frankaproject/railcenter.png" 
+         alt="Rail centerline detection result"
          class="no-border"
-         style="width: 100%; height: auto;">
-    <p style="margin-top: 0.75rem;"><em>Final state of the object manipulation experiment</em></p>
+         style="width: 100%; height: 250px; object-fit: contain;">
   </div>
 </div>
+<p style="text-align: center; font-style: italic; color: #666; margin-top: 0.5rem;">
+  OpenCV Pipeline for Rail CenterLine Detections.
+</p>
 
-### Cooperative Object Manipulation (Distributed Control)
+### Train Detection & Classification
 
-* **Goal:** Demonstrate the individual robots' ability to **collaborate and manipulate objects to achieve a common goal**.
-* **Setup:** Each robot was equipped with two high-frequency ultrasonic sensors mounted at an angle to intentionally create a **blind spot** in the frontal field of view (Figure 4). The robots were placed in an enclosure with randomly scattered cube obstacles (Figure 5).
-* **Algorithm:** A randomized obstacle avoidance program utilized proximity data. Due to the blind spot, the robot would collide with and manipulate the cube until it was pushed up against another object (Figure 7).
-* **Result:** The multi-unit network successfully collaborated, with all cubes pushed against the walls of the enclosure or another cube, demonstrating cohesion and integration. -->
+#### Zero-Shot Data Distillation Pipeline
 
-<!-- <div class="side-by-side">
-   <img src="/assets/images/projects/project2/manipulation_result.png" alt="Final Environment After Algorithm Completion">
-  <img src="/assets/images/projects/project2/kobuki_sensor_diagram.png" alt="Kobuki sensor blind spot diagram"> 
-</div> 
+We developed an automated training data pipeline using the robot itself:
 
- *Left: Final state of the object manipulation experiment (Figure 7). Right: Kobuki sensor blind spot illustration (Figure 4).*
+| Stage | Method | Output |
+|-------|--------|--------|
+| **Data Collection** | Franka conical scans of each train car → ROS bags | RGB-D sequences |
+| **Frame Extraction** | Every 10th frame sampled | ~30,000 images |
+| **Auto-Labeling** | Grounding DINO + SAM2 | Bounding boxes (~70% accurate) |
+| **Manual Refinement** | Human correction | Clean training labels |
+| **Model Training** | YOLOv8-OBB | Oriented bounding box detection |
 
-## Future Work
+#### Training Challenges
 
-* **Research Applications:** Implementing and testing modern path planning and cooperative behavior algorithms
-* **Potential Improvements:** Integrating additional sensing platforms, such as Lidar and stereo camera arrays
-* **Educational Applications:** Suitable for undergraduate robotics courses on distributed systems and multi-agent coordination
+The vision system required **adversarial training** to handle edge cases:
 
-## Acknowledgments
+- Tracks misclassified as trains (similar dark, elongated shapes)
+- Trains misclassified as tracks (especially from top-down view)
+- Significant visual similarity between classes when viewed from above
 
-This research was conducted for the Hope College Control Systems lab under Dr. Miguel Abrahantes.  -->
+#### Model Architecture
+
+```python
+model = YOLO('yolov8n-obb.pt')
+
+results = model.train(
+    data='dataset.yaml',
+    epochs=60,
+    imgsz=640,
+    batch=16,
+    device=0,
+    name='augmented_model',
+    mosaic=1.0,
+    copy_paste=0.4,
+    degrees=10,
+    translate=0.1,
+    scale=0.5,
+    shear=2,
+)
+```
+
+#### Results
+
+- **mAP50**: 0.95+
+- **mAP50-95**: 0.85+
+- **Precision**: 0.92+
+- **Recall**: 0.90+
+
+---
+
+## Train Car Classes
+
+The system recognizes 14 distinct train car types:
+
+| Class | Description |
+|-------|-------------|
+| 2 Bay Hopper | Brown hopper train car |
+| 3 Axle Tank Car | Black tank train car |
+| 40ft Box Car | Brown box train car |
+| 40ft Reefer | Purple refrigerated train car |
+| 50ft Box Car | Orange box train car |
+| 50ft T Boxcar | Orange box train car |
+| Covered Hopper | Grey covered hopper train car |
+| DB Class 191 | Green electric locomotive |
+| Hydrogen Gas Car | Rainbow colored tank train car |
+| NYC Caboose | Red caboose train car |
+| Three Bay Hopper | Red hopper train car |
+| Two Axle Low Wall Gondola | Grey flat train car |
+| Control Knob | Calibration marker |
+
+---
+
+## Key Features
+
+### Oriented Bounding Boxes (OBB)
+
+Standard axis-aligned bounding boxes are insufficient for rotated objects. We use **oriented bounding boxes** that include rotation angle, enabling:
+
+- More accurate object localization
+- Direct extraction of train orientation for gripper alignment
+- Better handling of diagonal track sections
+
+```python
+# Extract OBB from detection
+center, (width, height), angle = cv2.minAreaRect(contour)
+```
+
+### Rail Rejection
+
+To prevent false positives where track sections are detected as trains:
+
+- Aspect ratio filtering (trains have characteristic length/width ratios)
+- Context-aware rejection (objects on tracks vs. beside tracks)
+- Multi-frame temporal consistency
+
+### Train Centering
+
+Precise centroid calculation using SAM2 segmentation masks:
+
+1. Generate instance segmentation mask
+2. Calculate mask centroid
+3. Project to 3D using depth alignment
+4. Publish as TF transform for motion planning
+
+---
+
+## Hardware
+
+- **Robot**: Franka Emika Panda 7-DOF arm
+- **Camera**: Intel RealSense D435 (RGB + Depth)
+- **End Effector**: Custom 3D-printed gripper with bogie constraint mechanism
+- **Trains**: HO-scale (1:87) model railroad cars
+
+---
+
+## Software Stack
+
+- **ROS 2 Kilted**
+- **MoveIt2** - Motion planning
+- **OpenCV** - Image processing
+- **PyTorch** - Deep learning inference
+- **Ultralytics YOLOv8** - Object detection
+- **Grounding DINO** - Open-vocabulary detection
+- **SAM2** - Instance segmentation
+
+<!-- --- -->
+<!-- 
+## Results
+
+| Metric | Value |
+|--------|-------|
+| Placement Accuracy | ±1mm |
+| Detection Accuracy | 95%+ |
+| Cycle Time | ~15 seconds/train |
+| Success Rate | 92% | -->
+
+<!-- --- -->
+
+<!-- ## Future Work
+
+- [ ] Extend to multi-train manipulation sequences
+- [ ] Implement train coupling/uncoupling
+- [ ] Add locomotive detection and powered movement
+- [ ] Real-time track layout mapping -->
+
+---
+
+## References
+
+- [Grounding DINO](https://github.com/IDEA-Research/GroundingDINO)
+- [SAM2](https://github.com/facebookresearch/segment-anything-2)
+- [Ultralytics YOLOv8](https://github.com/ultralytics/ultralytics)
+- [MoveIt2](https://moveit.ros.org/)
