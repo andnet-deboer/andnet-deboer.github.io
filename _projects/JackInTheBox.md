@@ -4,6 +4,7 @@ title: "Impact Dynamics 2D Dice Simulation"
 subtitle: "Collision Simulation with Lagrangian Mechanics"
 preview_gif: "/assets/images/projects/jackinthebox/JackInTheBox.mp4"
 preview_position: "center bottom"
+preview_zoom: 1.5
 carousel_images:
   - /assets/images/projects/jackinthebox/JackInTheBox.mp4
 tags: ["Dynamics", "Python", "Simulation"]

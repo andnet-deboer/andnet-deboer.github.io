@@ -8,6 +8,7 @@ title: "Rapidly Exploring Random Tree"
 # carousel_height: 400px
 # carousel_width: auto
 preview_gif: "/assets/images/projects/rrt/rrt.gif"
+preview_position: "50% 40%"
 # paper: "https://ieeexplore.ieee.org/document/11103627/"
 # code: "https://github.com/andnet-deboer/ROS-Kobuki-Research-2022"
 # data: "https://example.com/dataset"
