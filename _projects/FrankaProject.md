@@ -9,8 +9,8 @@ subtitle: "Fine Manipulation with model trains ±1mm"
 carousel_width: auto
 preview_gif: "/assets/images/projects/frankaproject/450_Final_Preview.gif"
 preview_position: "left"
-paper: "https://ieeexplore.ieee.org/document/11103627/"
-code: "https://github.com/andnet-deboer/ROS-Kobuki-Research-2022"
+# paper: "https://ieeexplore.ieee.org/document/11103627/"
+code: "https://github.com/ME495-EmbeddedSystems/final-project-north-western-northwestern"
 # data: "https://example.com/dataset"
 tags: ["ROS 2", "Python", "Franka"]
 date: 2025-12-15
@@ -57,21 +57,21 @@ Our solution uses a **custom end effector** to physically constrain the bogie to
 
 ### System Architecture
 
-```
-┌─────────────┐     ┌─────────────────┐     ┌──────────────────┐
-│  RealSense  │────▶│  Vision System  │────▶│  Conductor Node  │
-│  Camera     │     │  (Track + Car)  │     │                  │
-└─────────────┘     └─────────────────┘     └────────┬─────────┘
-                                                     │
-                           Target Poses + Gripper States
-                                                     ▼
-┌─────────────┐     ┌─────────────────┐     ┌──────────────────┐
-│  Franka Arm │◀────│  MoveIt2 API    │◀────│       Railer     │
-│             │     │                 │     │                  │
-└─────────────┘     └─────────────────┘     └──────────────────┘
-```
+                            
+                            ┌─────────────┐     ┌─────────────────┐     ┌──────────────────┐
+                            │  RealSense  │────▶│  Vision System  │────▶│  Conductor Node  │
+                            │  Camera     │     │  (Track + Car)  │     │                  │
+                            └─────────────┘     └─────────────────┘     └────────┬─────────┘
+                                                                                │
+                                                      Target Poses + Gripper States
+                                                                                ▼
+                            ┌─────────────┐     ┌─────────────────┐     ┌──────────────────┐
+                            │  Franka Arm │◀────│  MoveIt2 API    │◀────│       Railer     │
+                            │             │     │                 │     │                  │
+                            └─────────────┘     └─────────────────┘     └──────────────────┘
+                           
 
----
+               
 
 ## Computer Vision Pipeline
 
@@ -125,7 +125,10 @@ The vision system required **adversarial training** to handle edge cases:
 
 - Tracks misclassified as trains (similar dark, elongated shapes)
 - Trains misclassified as tracks (especially from top-down view)
-- Significant visual similarity between classes when viewed from above
+- Significant visual similarity between classes when viewed from above 
+   
+
+
 
 #### Model Architecture
 
@@ -159,8 +162,8 @@ results = model.train(
 
 ## Train Car Classes
 
-The system recognizes 14 distinct train car types:
-
+The system can recognize 12 distinct train car types and 2 switches
+<!-- 
 | Class | Description |
 |-------|-------------|
 | 2 Bay Hopper | Brown hopper train car |
@@ -175,7 +178,18 @@ The system recognizes 14 distinct train car types:
 | NYC Caboose | Red caboose train car |
 | Three Bay Hopper | Red hopper train car |
 | Two Axle Low Wall Gondola | Grey flat train car |
-| Control Knob | Calibration marker |
+| Control Knob | Calibration marker | -->
+
+<div style="max-width: 1200px; margin: 0 auto; overflow: hidden; border-radius: 8px;">
+  <div style="margin: -8px; overflow: hidden;">
+    <iframe
+      src="https://docs.google.com/presentation/d/e/2PACX-1vQT3rM89BiVtixZoEvMkTRN-wOTxzW0eZGtqp0xGNBvM-oEo4oEZY0G2Hg6BTd6WTYhpgjpljak53-2/pubembed?start=true&loop=true&delayms=3000&rm=minimal"
+      style="width: calc(100% + 8px); aspect-ratio: 16/9; display: block; margin: -8px;"
+      frameborder="0"
+      allowfullscreen>
+    </iframe>
+  </div>
+</div>
 
 ---
 

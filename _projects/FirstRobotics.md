@@ -1,65 +1,72 @@
 ---
 layout: project
-title: "FIRST Robotics competition"
+title: "FIRST Robotics Competition"
+subtitle: "Lead Programmer | Team 5152 | 4 Years"
 preview_gif: "/assets/images/projects/firstrobotics/Swerve.mp4"
-tags: ["Controls", "Java", "Labview"]
+tags: ["Controls", "Java", "LabVIEW"]
 date: 2021-08-15
-description: "Research and development of a multi-robot system using a stationary FANUC arm and a MIR autonomous mobile robot (AMR) to create a more efficient part restock process for assembly line stations at Peloton, Inc."
+description: "Four years developing control systems, PID controllers, and autonomous navigation for competitive robotics."
 ---
-<!-- 
+
 ## Overview
 
-This project involved the exploration for multi-robot collaboration to create a more efficient part restock system for assembly line stations during my internship at Peloton Inc. The system utilized a stationary test bench with a FANUC 200IC robot arm and a MIR trolley robot.
+I was the lead programmer for 4 years as part of the 5152 FIRST Robotics team. I worked on 4 custom robots across the years for each competition, learning both open and closed loop feedback controls. Utilizing a wide array of sensors and actuators including DIO, analog, and PWM signals, I programmed PID controllers for applications such as vision tracking and odometry.
 
-![System Architecture](/assets/images/projects/peloton/Architecture.png)
-
----
-<div class="side-by-side">
-  <img src="/assets/images/projects/peloton/ElectricalDesign.png">
-  <img src="/assets/images/projects/peloton/Panel.png">
+<div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; max-width: 900px; margin: 2rem auto; overflow: hidden; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+  <img src="/assets/images/projects/firstrobotics/cannon.gif" alt="Prototype" style="width: 100%; height: 200px; object-fit: cover;">
+  <img src="/assets/images/projects/firstrobotics/finalcannon.gif" alt="Final" style="width: 100%; height: 200px; object-fit: cover;">
+  <img src="/assets/images/projects/firstrobotics/2019_2.png" alt="2019 Robot" style="width: 100%; height: 200px; object-fit: cover;">
 </div>
----
-
-## System Components and Role
-
-### Robotics System
-The FANUC robot arm was responsible for restocking the trolley robot. The MIR trolley robot delivered the restock to the correct assembly station. Assembly station operators could wirelessly connect to the trolley robot to add a restock mission to its queue when parts ran low.
-
-### Build and Electrical Design
-I worked with the electrical design team to design the electrical system for the FANUC robot test bench, learning AutoCAD electrical basics. I designed a safety circuit with safety IO and wired it on the test bench. I also designed, built, and wired the test bench control panel, establishing communications between all components.
+<p style="text-align: center; font-style: italic; color: #666; margin-top: 0.5rem;">
+  Prototype to competition: ball launcher development and 2019 robot
+</p>
 
 ---
 
-## Controls and Programming
+## System Development
+### Swerve Drive
 
-### Controls Programming
-I used Rockwell Automations Studio 5000 software to program the Allen Bradley PLC and the Panel View HMI.
-
-### Communications and Mission Queue
-* I established communications between the HMI, PLC, and FANUC robot controller via direct wiring.
-* I then integrated wireless communications to the MIR trolley robot.
-* Multiple PCs were connected to the trolley robot as a proof of concept to simulate assembly stations requesting and queuing missions.
-* Once the trolley queued a mission, it navigated to the test bench for restock.
-* The trolley would notify the FANUC robot of its arrival and the part requested via external IO bits.
-* The FANUC would run the program for the requested part and notify the trolley when finished, which would then navigate to the requesting station to complete the mission.
-
----
-
-## Internship Context
-
-This work was part of an Internship at Peloton Inc., running from August 2020 to August 2021. I was invited to continue working over the summer after working half days throughout my senior year of high school as part of a co-op program. I had exposure to multiple teams, including build, electrical, design, and controls.
-
-### Video Spotlight
-
-<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-  <iframe src="https://www.youtube.com/embed/M4Wlef-v40I"
-          title="YouTube video player"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
-          style="position: absolute; top:0; left:0; width:100%; height:100%;">
-  </iframe>
+<div style="display: flex; flex-wrap: wrap; gap: 2rem; align-items: flex-start; margin: 2rem 0;">
+  
+<div style="flex: 0 0 350px; aspect-ratio: 1; border-radius: 6px; overflow: hidden; background: #000;">
+  <video autoplay loop muted playsinline style="width: 100%; height: 120%; object-fit: cover; display: block;">
+    <source src="/assets/images/projects/firstrobotics/swerve.mp4" type="video/mp4">
+  </video>
 </div>
 
+  <div style="flex: 1; min-width: 300px;">
+    <p style="margin-bottom: 1rem; font-size: 1.05rem; line-height: 1.6;">
+      Developed a holonomic swerve drive system allowing omnidirectional movement with independent rotation control. Unlike traditional tank drives, swerve enables the robot to strafe in any direction while simultaneously rotating.
+    </p>
 
-*Video of the collaborative robot system in action* -->
+    <p style="margin-bottom: 0.5rem; font-size: 1.05rem;">The implementation required:</p>
+
+    <ul style="padding-left: 1.2rem; font-size: 1rem; line-height: 1.6;">
+      <li style="margin-bottom: 0.5rem;">Inverse kinematics to convert joystick inputs to wheel vectors</li>
+      <li style="margin-bottom: 0.5rem;">PID control loops for each steering motor</li>
+      <li style="margin-bottom: 0.5rem;">Odometry fusion combining encoders with IMU data</li>
+      <li>Field-relative control for intuitive driver operation</li>
+    </ul>
+  </div>
+
+</div>
+
+### Controls Architecture
+
+Each robot utilized a layered control architecture with the following components:
+
+- **Motion Control**: PID loops for drivetrain velocity, arm positioning, and shooter RPM
+- **State Machines**: Managed complex sequences like autonomous routines and intake cycles  
+- **Vision Processing**: Limelight camera integration for target tracking and alignment
+- **Communications**: CAN bus networking between roboRIO, motor controllers, and sensors
+
+---
+
+## Technical Skills
+
+| Category | Technologies |
+|----------|-------------|
+| **Languages** | Java, LabVIEW, Python |
+| **Control Systems** | PID, Motion Profiling, State Machines |
+| **Sensors** | Encoders, Gyros, Lidar, Limelight |
+| **Hardware** | roboRIO, Talon SRX, Spark MAX, CAN Bus |

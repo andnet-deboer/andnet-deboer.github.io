@@ -106,6 +106,12 @@ Wait 1-2 minutes for GitHub Pages to rebuild and deploy.
    code: "https://github.com/linktoyourrepo"
    ---
 
+Learning Markdown Syntax
+```
+https://www.markdownguide.org/basic-syntax/
+```
+
+
 3. **Add photos and videos**
 To compress your videos install ffmpeg 
 
