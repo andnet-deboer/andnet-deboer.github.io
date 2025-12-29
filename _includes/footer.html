@@ -2,7 +2,11 @@
   <div class="footer-content">
     <p>&copy; {{ 'now' | date: "%Y" }} Andnet DeBoer. All rights reserved.</p>
     <p style="margin-top: 0.5rem;">
-      Site design inspired by <a href="https://www.matthewtancik.com/nerf" target="_blank" rel="noopener noreferrer">NeRF</a>
+      {% if site.url contains 'andnet-deboer.github.io' or site.url contains 'andnetdeboer.com' or site.url contains 'localhost' %}
+        Site design inspired by <a href="https://www.matthewtancik.com/nerf" target="_blank" rel="noopener noreferrer">NeRF</a>
+      {% else %}
+        Website template from <a href="https://andnet-deboer.github.io/" target="_blank" rel="noopener noreferrer">Andnet DeBoer</a>
+      {% endif %}
     </p>
   </div>
 </footer>
