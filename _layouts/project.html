@@ -11,6 +11,24 @@ layout: default
       {% if page.subtitle %}
       <p class="project-subtitle">{{ page.subtitle }}</p>
       {% endif %}
+
+      <!-- Contributors -->
+      {% if page.contributors %}
+      <p class="project-contributors">
+        {% for contributor in page.contributors %}
+          {% if contributor.url %}
+            <a href="{{ contributor.url }}" target="_blank">{{ contributor.name }}</a>{% unless forloop.last %}, {% endunless %}
+          {% else %}
+            {{ contributor.name }}{% unless forloop.last %}, {% endunless %}
+          {% endif %}
+        {% endfor %}
+      </p>
+      {% endif %}
+
+      <!-- Affiliation -->
+      {% if page.affiliation %}
+      <p class="project-affiliation">{{ page.affiliation }}</p>
+      {% endif %}
       
       <!-- Resource Links -->
       <div class="project-links">
@@ -106,7 +124,6 @@ if (document.querySelector('.carousel-wrapper')) {
   const nextBtn = document.querySelector('.carousel-next');
 
   function showSlide(index) {
-    // Pause all videos
     items.forEach(item => {
       item.classList.remove('active');
       const video = item.querySelector('video');
@@ -119,7 +136,6 @@ if (document.querySelector('.carousel-wrapper')) {
     items[currentIndex].classList.add('active');
     dots[currentIndex].classList.add('active');
     
-    // Play video if current slide has one
     const activeVideo = items[currentIndex].querySelector('video');
     if (activeVideo) activeVideo.play();
   }
@@ -155,7 +171,6 @@ function adjustMainContentMargin() {
   }
 }
 
-// Run on load and resize
 window.addEventListener('load', adjustMainContentMargin);
 window.addEventListener('resize', adjustMainContentMargin);
 </script>
