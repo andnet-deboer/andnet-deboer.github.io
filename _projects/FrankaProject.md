@@ -295,7 +295,6 @@ Precise centroid calculation using SAM2 segmentation masks:
 - **ROS 2 Kilted**
 - **MoveIt2** - Motion planning
 - **OpenCV** - Image processing
-- **PyTorch** - Deep learning inference
 - **Ultralytics YOLOv8** - Object detection
 - **Grounding DINO** - Open-vocabulary detection
 - **SAM2** - Instance segmentation
