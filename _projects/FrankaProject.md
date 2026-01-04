@@ -169,7 +169,7 @@ A multi-stage OpenCV pipeline processes RGB images from the RealSense camera to 
   </div>
   <div style="flex: 1; display: flex;">
     <video autoplay loop muted playsinline style="width: 100%; height: 89%; object-fit: cover; border-radius: 3px; box-shadow: 0 0px 0px rgba(0,0,0,0.15);">
-      <source src="/assets/images/projects/frankaproject/FrankaExpress_compressed.mp4 type="video/mp4">
+      <source src="/assets/images/projects/frankaproject/FrankaExpress.mp4" type="video/mp4">
     </video>
   </div>
 </div>
@@ -216,7 +216,7 @@ results = model.train(
 
 ## Train Car Classes
 
-The system can recognize 12 distinct train car types and 2 switches
+The system is capable of recognizing 12 distinct train car types and 2 switches
 <!-- 
 | Class | Description |
 |-------|-------------|
