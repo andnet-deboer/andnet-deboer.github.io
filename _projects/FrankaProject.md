@@ -128,16 +128,51 @@ A multi-stage OpenCV pipeline processes RGB images from the RealSense camera to 
   </a>
 </div>
 
-We developed an automated training data pipeline using the robot to automate data collection using the end effector camera:
-
-| Stage | Method | Output |
-|-------|--------|--------|
-| **Data Collection** | Franka conical scans of each train car → ROS bags | RGB-D sequences |
-| **Frame Extraction** | Every 10th frame sampled | ~30,000 images |
-| **Auto-Labeling** | Grounding DINO + SAM2 | Bounding boxes (~70% accurate) |
-| **Manual Refinement** | Human correction | Clean training labels |
-| **Model Training** | YOLOv8-OBB | Oriented bounding box detection |
-
+<div style="display: flex; gap: 2rem; align-items: stretch; margin: 2rem 0;">
+  <div style="flex: 0 0 60%;">
+    <table style="height: 100%; width: 100%;">
+      <thead>
+        <tr>
+          <th>Stage</th>
+          <th>Method</th>
+          <th>Output</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Data Collection</strong></td>
+          <td>Franka conical scans of each train car → ROS bags</td>
+          <td>30,000 RGB-D sequences</td>
+        </tr>
+        <tr>
+          <td><strong>Frame Extraction</strong></td>
+          <td>Every 10th frame sampled</td>
+          <td>~3,000 images</td>
+        </tr>
+        <tr>
+          <td><strong>Auto-Labeling</strong></td>
+          <td>Grounding DINO + SAM2</td>
+          <td>Bounding boxes (~70% accurate)</td>
+        </tr>
+        <tr>
+          <td><strong>Manual Refinement</strong></td>
+          <td>Human correction</td>
+          <td>Clean training labels</td>
+        </tr>
+        <tr>
+          <td><strong>Model Training</strong></td>
+          <td>YOLOv8-OBB</td>
+          <td>Oriented bounding box detection</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div style="flex: 1; display: flex;">
+    <video autoplay loop muted playsinline style="width: 100%; height: 89%; object-fit: cover; border-radius: 3px; box-shadow: 0 0px 0px rgba(0,0,0,0.15);">
+      <source src="/assets/images/projects/frankaproject/FrankaExpress_compressed.mp4 type="video/mp4">
+    </video>
+  </div>
+</div>
 #### Training Challenges
 
 The vision system required **adversarial training** to handle edge cases:
