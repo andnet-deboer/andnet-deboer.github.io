@@ -5,13 +5,22 @@ subtitle: "Collision Simulation with Lagrangian Mechanics"
 preview_gif: "/assets/images/projects/jackinthebox/JackInTheBox.mp4"
 preview_position: "center bottom"
 preview_zoom: 1.5
-carousel_images:
-  - /assets/images/projects/jackinthebox/JackInTheBox.mp4
 tags: ["Dynamics", "Python", "Simulation"]
 date: 2025-12-11
 paper: "/assets/images/jackinthebox/FinalReport.pdf"
 code: "https://colab.research.google.com/drive/1Ot235OrBuuW-fHEiRZJqJcHw2wYeYxUw"
 ---
+
+<div style="max-width: 1200px; margin: 0 auto; overflow: hidden; border-radius: 8px;">
+  <div style="margin: -8px; overflow: hidden;">
+    <iframe
+      src="https://docs.google.com/presentation/d/e/2PACX-1vRI0fXVOPoWTY0TZ3fJdfFXQR85cDGHtEnkP8wRFTnfwS3IBhrLxT1iJUT12FRYjajsiv8BvpxAz9DE/pubembed?start=false&loop=false&delayms=3000&rm=minimal"
+      style="width: calc(100% + 8px); aspect-ratio: 16/9; display: block; margin: -8px;"
+      frameborder="0"
+      allowfullscreen>
+    </iframe>
+  </div>
+</div>
 
 ## Overview
 

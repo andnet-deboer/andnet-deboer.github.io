@@ -1,6 +1,6 @@
 ---
 layout: project
-title: "Franka Express: Vision-Guided Fine Manipulation"
+title: "Franka Vision-Guided Fine Manipulation"
 subtitle: "Unconstrained sub-millimeter Bogie Alignment "
 # carousel_images:
 #   - /assets/images/projects/frankahw3/Franka.gif
@@ -173,6 +173,7 @@ A multi-stage OpenCV pipeline processes RGB images from the RealSense camera to 
     </video>
   </div>
 </div>
+
 #### Training Challenges
 
 The vision system required **adversarial training** to handle edge cases:
@@ -299,25 +300,6 @@ Precise centroid calculation using SAM2 segmentation masks:
 - **Grounding DINO** - Open-vocabulary detection
 - **SAM2** - Instance segmentation
 
-<!-- --- -->
-<!-- 
-## Results
-
-| Metric | Value |
-|--------|-------|
-| Placement Accuracy | ±1mm |
-| Detection Accuracy | 95%+ |
-| Cycle Time | ~15 seconds/train |
-| Success Rate | 92% | -->
-
-<!-- --- -->
-
-<!-- ## Future Work
-
-- [ ] Extend to multi-train manipulation sequences
-- [ ] Implement train coupling/uncoupling
-- [ ] Add locomotive detection and powered movement
-- [ ] Real-time track layout mapping -->
 
 ---
 
