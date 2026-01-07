@@ -7,9 +7,9 @@ subtitle: "Imitation learning for home assistance tasks"
 #   - /assets/images/projects/gpmars/cv.png
 # carousel_height: 400px
 carousel_width: auto
-preview_gif: "/assets/images/projects/vtam/overview.png"
+preview_gif: "/assets/images/projects/vtam/VTAM.mp4"
 preview_position: "center"
-preview_zoom: 1.3
+preview_zoom: 1.0
 # paper: "https://ieeexplore.ieee.org/document/11103627/"
 code: "https://github.com/andnet-deboer/VTAM"
 # data: "https://example.com/dataset"
@@ -32,6 +32,7 @@ affiliation: "Northwestern University"
     </iframe>
   </div>
 </div>
+
 
 ## Overview
 
