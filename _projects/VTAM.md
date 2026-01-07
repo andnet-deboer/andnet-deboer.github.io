@@ -2,20 +2,13 @@
 layout: project
 title: "Visuo-Tactile Assistive Manipulation"
 subtitle: "Imitation learning for home assistance tasks"
-# carousel_images:
-#   - /assets/images/projects/frankahw3/Franka.gif
-#   - /assets/images/projects/gpmars/cv.png
-# carousel_height: 400px
 carousel_width: auto
-preview_gif: "/assets/images/projects/vtam/VTAM.mp4"
+preview_gif: "/assets/images/projects/vtam/overview.png"
 preview_position: "center"
 preview_zoom: 1.0
-# paper: "https://ieeexplore.ieee.org/document/11103627/"
 code: "https://github.com/andnet-deboer/VTAM"
-# data: "https://example.com/dataset"
 tags: ["Imitation Learning", "VLM", "Diffusion Policy"]
 date: 2026-1-6
-# description: "A versatile, distributed platform using ROS for testing and validating a wide variety of multi-agent control algorithms."
 contributors:
   - name: "Andnet DeBoer"
     url: "https://www.linkedin.com/in/andnetdeboer/"
