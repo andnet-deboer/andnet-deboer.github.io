@@ -49,7 +49,7 @@ This is an independent 10-week project as part of the <a href="https://www.mccor
 ## Project Updates
 
 ### Week 1
-**Project kickoff, hardware setup, CAD, ordered components**
+**Project kickoff, hardware setup, CAD**
 
 <div style="max-width: 1200px; margin: 0 auto; overflow: hidden; border-radius: 8px;">
   <div style="margin: -8px; overflow: hidden;">

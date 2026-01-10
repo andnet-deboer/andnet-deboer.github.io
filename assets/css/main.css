@@ -625,15 +625,16 @@ iframe.no-border {
 
 .project-page {
   padding: var(--spacing-lg) 0;
-  width: 100%;
-  margin-left: auto;
-  margin-right: auto;
+  width: 100%; /* Ensures the wrapper fills the screen width */
+  display: flex;     
+  justify-content: center; /* helps ensure child content is centered */
 }
 
 .project-container {
-  max-width: 100%; /* Much wider - uses almost full screen on large displays */
-  width: 100%; /* 95% of viewport width */
-  padding: 0 1rem;
+  width: 100%;       /* Fill the space... */
+  max-width: 90%;    /* ...but stops at 90% of the screen width */
+  margin: 0 auto;    /* This calculates the remaining 10% and puts 5% on each side */
+  padding: 0 1rem;   /* Keeps a some padding */
 }
 
 .project-header {
