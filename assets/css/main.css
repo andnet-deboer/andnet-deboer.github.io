@@ -625,16 +625,15 @@ iframe.no-border {
 
 .project-page {
   padding: var(--spacing-lg) 0;
-  width: 70%;
+  width: 100%;
   margin-left: auto;
   margin-right: auto;
 }
 
 .project-container {
-  max-width: 1400px; /* Much wider - uses almost full screen on large displays */
-  width: 95%; /* 95% of viewport width */
-  margin: 0 auto;
-  padding: 0 2rem;
+  max-width: 100%; /* Much wider - uses almost full screen on large displays */
+  width: 100%; /* 95% of viewport width */
+  padding: 0 1rem;
 }
 
 .project-header {
