@@ -632,9 +632,9 @@ iframe.no-border {
 
 .project-container {
   width: 100%;       /* Fill the space... */
-  max-width: 90%;    /* ...but stops at 90% of the screen width */
+  max-width: 100%;    /* ...but stops at 90% of the screen width */
   margin: 0 auto;    /* This calculates the remaining 10% and puts 5% on each side */
-  padding: 0 1rem;   /* Keeps a some padding */
+  padding: 0 4rem;   /* Keeps a some padding */
 }
 
 .project-header {
