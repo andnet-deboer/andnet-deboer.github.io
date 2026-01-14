@@ -48,20 +48,6 @@ This is an independent 10-week project as part of the <a href="https://www.mccor
 
 ## Project Updates
 
-### Week 1
-**Project kickoff, robot setup, order components, research VLM's**
-
-<div style="max-width: 1200px; margin: 0 auto; overflow: hidden; border-radius: 1px;">
-  <div style="margin: -8px; overflow: hidden;">
-    <iframe
-      src="https://docs.google.com/presentation/d/e/2PACX-1vRCKszOeiJTQwfWI-3lEOVttNCDrTc-axLYzKnj-t1BBtVP86YqvLEmycRFW6undiipvCDwWf9vFgVj/pubembed?start=true&loop=true&delayms=3000&rm=minimal"
-      style="width: calc(100% + 8px); aspect-ratio: 16/9; display: block; margin: -8px;"
-      frameborder="0"
-      allowfullscreen>
-    </iframe>
-  </div>
-</div>
-
 ### Week 2
 **Built version 1 of the eFlesh sensor, setup ros project & infastructure, started data collection pipeline**
 
@@ -90,3 +76,18 @@ This is an independent 10-week project as part of the <a href="https://www.mccor
     ></video>
   </div>
 </div>
+
+### Week 1
+**Project kickoff, robot setup, order components, research VLM's**
+
+<div style="max-width: 1200px; margin: 0 auto; overflow: hidden; border-radius: 1px;">
+  <div style="margin: -8px; overflow: hidden;">
+    <iframe
+      src="https://docs.google.com/presentation/d/e/2PACX-1vRCKszOeiJTQwfWI-3lEOVttNCDrTc-axLYzKnj-t1BBtVP86YqvLEmycRFW6undiipvCDwWf9vFgVj/pubembed?start=true&loop=true&delayms=3000&rm=minimal"
+      style="width: calc(100% + 8px); aspect-ratio: 16/9; display: block; margin: -8px;"
+      frameborder="0"
+      allowfullscreen>
+    </iframe>
+  </div>
+</div>
+
