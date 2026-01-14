@@ -65,7 +65,7 @@ This is an independent 10-week project as part of the <a href="https://www.mccor
 ### Week 2
 **Built version 1 of the Flesh sensor, setup ros project & infastructure, started data collection pipeline**
 
-<div style="max-width: 1200px; margin: 0 auto; overflow: hidden; border-radius: 1px;">
+<!-- <div style="max-width: 1200px; margin: 0 auto; overflow: hidden; border-radius: 1px;">
   <div style="margin: -8px; overflow: hidden;">
     <iframe
       src="https://docs.google.com/presentation/d/e/2PACX-1vQUXEI81iRg8zXstNsK-kzP77ORppanyx130eYgZSN22xt4afV45CUjZL6x24ICvjPv6mHvjqvjBQ7C/pubembed?start=true&loop=true&delayms=3000&rm=minimal"
@@ -73,5 +73,20 @@ This is an independent 10-week project as part of the <a href="https://www.mccor
       frameborder="0"
       allowfullscreen>
     </iframe>
+  </div>
+</div>
+  - /assets/images/projects/vtam/Winter Project_wk2_v1.mp4 -->
+
+  <div style="max-width: 1200px; margin: 0 auto; overflow: hidden; border-radius: 1px;">
+  <div style="margin: -8px; overflow: hidden;">
+    <video 
+      src="/assets/images/projects/vtam/Winter Project_wk2_v1.mp4"
+      style="width: calc(100% + 8px); aspect-ratio: 16/9; display: block; margin: -8px;"
+      autoplay
+      loop
+      muted
+      playsinline
+      controls
+    ></video>
   </div>
 </div>
