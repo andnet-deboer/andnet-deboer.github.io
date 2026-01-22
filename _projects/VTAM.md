@@ -48,6 +48,20 @@ This is an independent 10-week project as part of the <a href="https://www.mccor
 
 ## Project Updates
 
+### Week 3
+**Integrated Custom sensors with robot, publish to ROS, teleoperate robot**
+
+<div style="max-width: 1200px; margin: 0 auto; overflow: hidden; border-radius: 1px;">
+  <div style="margin: -8px; overflow: hidden;">
+    <iframe
+      src=" https://docs.google.com/presentation/d/e/2PACX-1vQFLWR-0Yoyh2l5r4rkgyFy707rudZvgIPBhinP_88vV2dFAJjxDfuxUzw7m-XKUfolQhS-hEEa92Em/pubembed?start=true&loop=true&delayms=3000&rm=minimal"
+      style="width: calc(100% + 8px); aspect-ratio: 16/9; display: block; margin: -8px;"
+      frameborder="0"
+      allowfullscreen>
+    </iframe>
+  </div>
+</div>
+
 ### Week 2
 **Built version 1 of the eFlesh sensor, setup ros project & infastructure, started data collection pipeline**
 
