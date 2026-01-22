@@ -51,6 +51,20 @@ This is an independent 10-week project as part of the <a href="https://www.mccor
 ### Week 3
 **Integrated Custom sensors with robot, publish to ROS, teleoperate robot**
 
+  <div style="max-width: 1200px; margin: 0 auto; overflow: hidden; border-radius: 1px;">
+  <div style="margin: -8px; overflow: hidden;">
+    <video 
+      src="/assets/images/projects/vtam/Fully Integrated eFlesh Sensors.mp4"
+      style="width: calc(100% + 8px); aspect-ratio: 16/9; display: block; margin: -8px;"
+      autoplay
+      loop
+      muted
+      playsinline
+      controls
+    ></video>
+  </div>
+</div>
+
 <div style="max-width: 1200px; margin: 0 auto; overflow: hidden; border-radius: 1px;">
   <div style="margin: -8px; overflow: hidden;">
     <iframe
