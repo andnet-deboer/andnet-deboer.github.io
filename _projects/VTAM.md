@@ -3,7 +3,7 @@ layout: project
 title: "Visuo-Tactile Assistive Manipulation"
 subtitle: "Imitation learning for home assistance tasks"
 carousel_width: auto
-preview_gif: "/assets/images/projects/vtam/overview.png"
+preview_gif: "/assets/images/projects/vtam/DexUMI_V1_Full.mp4"
 preview_position: "center"
 preview_zoom: 1.0
 code: "https://github.com/andnet-deboer/VTAM"
@@ -54,7 +54,7 @@ This is an independent 10-week project as part of the <a href="https://www.mccor
   <div style="max-width: 1200px; margin: 0 auto; overflow: hidden; border-radius: 1px;">
   <div style="margin: -8px; overflow: hidden;">
     <video 
-      src="/assets/images/projects/vtam/DexUMI_V1_Full.mp4"
+      src="/assets/images/projects/vtam/DexUMI_V1.mp4"
       style="width: calc(100% + 8px); aspect-ratio: 16/9; display: block; margin: -8px;"
       autoplay
       loop
@@ -64,6 +64,18 @@ This is an independent 10-week project as part of the <a href="https://www.mccor
     ></video>
   </div>
 </div>
+
+<div style="max-width: 1200px; margin: 0 auto; overflow: hidden; border-radius: 1px;">
+  <div style="margin: -8px; overflow: hidden;">
+    <iframe
+      src=" https://docs.google.com/presentation/d/e/2PACX-1vR5y7db2mTUOvOkNGJr7s3HySgjuo8zDVMIEO5A1Grtwz4DmBv9CV-GMBeM_XEG9TtYSgYg7ahzkJgF/pubembed?start=true&loop=true&delayms=3000&rm=minimal"
+      style="width: calc(100% + 8px); aspect-ratio: 16/9; display: block; margin: -8px;"
+      frameborder="0"
+      allowfullscreen>
+    </iframe>
+  </div>
+</div>
+
 
 
 ### Week 3
