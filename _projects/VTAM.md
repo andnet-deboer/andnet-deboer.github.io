@@ -48,6 +48,24 @@ This is an independent 10-week project as part of the <a href="https://www.mccor
 
 ## Project Updates
 
+### Week 4 
+**Designed DexUMI, integrated eFlesh Control, Head Camera Tracking**
+
+  <div style="max-width: 1200px; margin: 0 auto; overflow: hidden; border-radius: 1px;">
+  <div style="margin: -8px; overflow: hidden;">
+    <video 
+      src="/assets/images/projects/vtam/DexUMI_V1_Full.mp4"
+      style="width: calc(100% + 8px); aspect-ratio: 16/9; display: block; margin: -8px;"
+      autoplay
+      loop
+      muted
+      playsinline
+      controls
+    ></video>
+  </div>
+</div>
+
+
 ### Week 3
 **Integrated Custom sensors with robot, publish to ROS, teleoperate robot**
 
