@@ -150,15 +150,14 @@ a:visited {
   margin: 0 auto;
   padding: 0 2rem;
   display: flex;
-  justify-content: space-between; /* Pushes name/subtitle left and links/icons right */
-  align-items: center; /* Vertically centers the two main groups */
+  justify-content: space-between;
+  align-items: center;
 }
 
 /* Styles for the combined logo/name/subtitle group */
 .nav-logo a {
-  /* --- ESSENTIAL FLEXBOX FOR NAME/SUBTITLE ALIGNMENT --- */
   display: flex;
-  align-items: center; /* Aligns items vertically */
+  align-items: center;
   font-size: 1.25rem;
   font-weight: 700;
   letter-spacing: -0.03em;
@@ -167,17 +166,15 @@ a:visited {
 }
 
 .nav-logo .nav-name {
-    /* Ensures the name is bold and primary */
     font-weight: 700;
-    font-size: 1.5em; /* Make the name slightly larger than the container font-size */
+    font-size: 1.5em;
 }
 
 /* New element for grouping the Resume link and icons */
 .nav-links-and-icons {
-    /* --- ESSENTIAL FLEXBOX FOR LINK AND ICON ROW ALIGNMENT --- */
     display: flex;
-    align-items: center; /* Vertically centers the text link with the icons */
-    gap: 20px; /* Space between the 'Resume' link and the icons */
+    align-items: center;
+    gap: 20px;
 }
 
 .nav-links {
@@ -202,14 +199,12 @@ a:visited {
 
 /* --- ISOLATED NAV BAR ICON STYLES --- */
 .nav-contact-icons {
-    /* Simple row for icons without any extra padding or borders */
     display: flex;
     align-items: center;
-    gap: 10px; /* Tight spacing between icons */
+    gap: 10px;
 }
 
 .nav-icon-link {
-    /* Icon wrapper styles, inherited from the old look but with new class name */
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -227,7 +222,6 @@ a:visited {
 }
 
 .nav-icon-link .nav-icon {
-    /* SVG icon styles */
     width: 20px;
     height: 20px;
     color: var(--color-black);
@@ -236,16 +230,13 @@ a:visited {
 .nav-icon-link:hover .nav-icon {
     color: var(--color-white);
 }
-/* ----------------------------------- */
 
 /* ============================================
     MAIN CONTENT
     ============================================ */
 
-/* NOTE: Since the header height changed, the margin-top here might also need adjustment. 
-   I've left it at 80px for now, assuming the original site-nav padding resulted in a total height close to 80px. */
 .main-content {
-  margin-top: 80px; /* Account for fixed nav */
+  margin-top: 80px;
   min-height: calc(100vh - 80px);
 }
 
@@ -438,6 +429,7 @@ iframe.no-border {
   box-shadow: none !important;
   outline: none !important;
 }
+
 /* ============================================
     ABOUT SECTION (includes contact)
     ============================================ */
@@ -495,7 +487,7 @@ iframe.no-border {
   margin-bottom: 2.5rem;
 }
 
-/* Contact info integrated into about (Original, untouched general styles) */
+/* Contact info integrated into about */
 .contact-info {
   display: flex;
   align-items: center;
@@ -625,16 +617,16 @@ iframe.no-border {
 
 .project-page {
   padding: var(--spacing-lg) 0;
-  width: 100%; /* Ensures the wrapper fills the screen width */
+  width: 100%;
   display: flex;     
-  justify-content: center; /* helps ensure child content is centered */
+  justify-content: center;
 }
 
 .project-container {
-  width: 100%;       /* Fill the space... */
-  max-width: 100%;    /* ...but stops at 90% of the screen width */
-  margin: 0 auto;    /* This calculates the remaining 10% and puts 5% on each side */
-  padding: 0 4rem;   /* Keeps a some padding */
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 4rem;
 }
 
 .project-header {
@@ -660,7 +652,7 @@ iframe.no-border {
 .project-content {
   font-size: 1.05rem;
   line-height: 1.8;
-  max-width: 100%; /* Use full container width */
+  max-width: 100%;
 }
 
 .project-content h2 {
@@ -689,15 +681,107 @@ iframe.no-border {
   border: 1px solid var(--color-gray-border);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
-/* Videos take full width */
+
+/* ============================================
+    FIX: VIDEOS WITH PROPER SPACING
+    ============================================ */
+
 .project-content video {
   max-width: 100%;
   width: 100%;
   height: auto;
   display: block;
-  margin: 2rem 0;
+  margin: 2.5rem 0;
   border: 1px solid var(--color-gray-border);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+/* Video wrapper for consistent spacing */
+.video-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  margin: 2.5rem auto;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.video-wrapper video {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0;
+  border: 1px solid var(--color-gray-border);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* ============================================
+    FIX: IFRAME WRAPPER FOR GOOGLE SLIDES
+    Provides consistent vertical spacing
+    ============================================ */
+
+.iframe-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  margin: 2.5rem auto;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.iframe-wrapper iframe {
+  width: 100%;
+  aspect-ratio: 16/9;
+  display: block;
+  border: 0 !important;
+}
+
+/* Fix for inline-styled iframe containers */
+.project-content > div[style*="max-width"] {
+  margin: 2.5rem auto !important;
+}
+
+.project-content > div[style*="max-width"] > div {
+  margin: 0 !important;
+}
+
+/* ============================================
+    FIX: MARKDOWN TABLE BORDERS
+    ============================================ */
+
+.project-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2rem 0;
+  border: 1px solid var(--color-gray-border);
+  display: table; /* FIXED: was 'block' which breaks table layout */
+}
+
+.project-content table th,
+.project-content table td {
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--color-gray-border);
+  text-align: left;
+}
+
+.project-content table th {
+  background-color: var(--color-gray-light);
+  font-weight: 600;
+  border-bottom: 2px solid var(--color-gray-medium);
+}
+
+/* Table wrapper for horizontal scroll */
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin: 2rem 0;
+}
+
+.table-wrapper table {
+  margin: 0;
+  min-width: 500px;
 }
 
 /* Carousel Styles */
@@ -850,27 +934,6 @@ iframe.no-border {
   font-size: 0.9em;
 }
 
-/* Tables are responsive and full-width */
-.project-content table {
-  width: 100%;
-  border-collapse: collapse;
-  margin: 2rem 0;
-  overflow-x: auto;
-  display: block;
-}
-
-.project-content table th,
-.project-content table td {
-  padding: 0.75rem 1rem;
-  border: 1px solid var(--color-gray-border);
-  text-align: left;
-}
-
-.project-content table th {
-  background-color: var(--color-gray-light);
-  font-weight: 600;
-}
-
 .project-content blockquote {
   border-left: 3px solid var(--color-secondary);
   padding-left: 1.5rem;
@@ -930,13 +993,13 @@ iframe.no-border {
     ============================================ */
 
 .page {
-  padding: 0; /* No padding for full-width pages */
+  padding: 0;
 }
 
 .page-container {
   max-width: 1000px;
   margin: 0 auto;
-  padding: 0 0rem;
+  padding: 0;
 }
 
 .page-header {
@@ -952,15 +1015,19 @@ iframe.no-border {
 }
 
 .page-content {
-  margin-top: 0; /* Remove top margin for full-width content */
+  margin-top: 0;
 }
 
-/* PDF Embed */
+/* ============================================
+    FIX: PDF EMBED - RESPONSIVE
+    ============================================ */
+
 .pdf-embed {
   width: 100%;
   height: 85vh;
-  border: 1px solid var(--color-black);
+  border: 1px solid var(--color-gray-border);
   margin-top: 2rem;
+  display: block;
 }
 
 /* ============================================
@@ -1045,7 +1112,6 @@ iframe.no-border {
     height: 180px;
   }
 
-  /* Original contact info is for the about section */
   .contact-info {
     gap: 1.25rem;
   }
@@ -1073,12 +1139,6 @@ iframe.no-border {
     font-size: 1.25rem;
   }
 
-  /* Side by side adapts to smaller minmax
-  .side-by-side {
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1.5rem;
-  } */
-
   .side-by-side {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); 
@@ -1087,11 +1147,13 @@ iframe.no-border {
     width: 50%;
   }
 
-  /* Tables scroll on tablet */
+  /* FIX: Tables on tablet - scrollable with borders */
   .project-content table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
     font-size: 0.95rem;
   }
-
 
   /* Carousel tablet adjustments */
   .carousel-inner {
@@ -1111,7 +1173,37 @@ iframe.no-border {
     right: 15px;
   }
 
+  /* FIX: Iframe spacing on tablet */
+  .iframe-wrapper {
+    margin: 2rem auto;
+  }
+  
+  .project-content > div[style*="max-width"] {
+    margin: 2rem auto !important;
+  }
+
+  .video-wrapper {
+    margin: 2rem auto;
+  }
+
+  .project-content video {
+    margin: 2rem 0;
+  }
+
+  /* FIX: Resume page - full width on tablet */
+  .page-container {
+    max-width: 100%;
+    padding: 0 1rem;
+  }
+
+  .pdf-embed {
+    width: 100%;
+    height: 80vh;
+    border: none;
+    margin-top: 0.5rem;
+  }
 }
+
 /* Mobile (1 column) */
 @media (max-width: 768px) {
   :root {
@@ -1124,7 +1216,6 @@ iframe.no-border {
   }
 
   .nav-container {
-    /* Reset main nav container to allow stacking on mobile if needed */
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -1132,7 +1223,6 @@ iframe.no-border {
   }
 
   .nav-logo a {
-    /* Stack name and subtitle vertically on mobile */
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -1166,24 +1256,23 @@ iframe.no-border {
   .nav-links-and-icons {
     display: flex;
     align-items: center;
-    gap: 10px; /* Reduced gap for mobile */
+    gap: 10px;
   }
 
   .nav-contact-icons {
     display: flex;
-    gap: 8px; /* Tighter gap for mobile icons */
+    gap: 8px;
   }
   
   .nav-icon-link {
-    width: 32px; /* Smaller touch target size for mobile */
+    width: 32px;
     height: 32px;
   }
 
   .nav-icon-link .nav-icon {
-    width: 16px; /* Smaller SVG size for mobile */
+    width: 16px;
     height: 16px;
   }
-  /* ------------------------------------------- */
 
   .nav-links {
     gap: 1rem;
@@ -1326,18 +1415,22 @@ iframe.no-border {
     -webkit-overflow-scrolling: touch;
   }
 
-  /* Tables become scrollable */
+  /* FIX: Tables on mobile - horizontal scroll with proper borders */
   .project-content table {
     display: block;
     overflow-x: auto;
     white-space: nowrap;
     font-size: 0.85rem;
     -webkit-overflow-scrolling: touch;
+    margin: 1.5rem 0;
+    border: 1px solid var(--color-gray-border);
   }
 
   .project-content table th,
   .project-content table td {
     padding: 0.5rem 0.75rem;
+    min-width: 100px;
+    border: 1px solid var(--color-gray-border);
   }
 
   /* Footer spacing */
@@ -1351,7 +1444,7 @@ iframe.no-border {
     font-size: 0.95rem;
   }
 
-    /* Carousel mobile adjustments */
+  /* Carousel mobile adjustments */
   .carousel-inner {
     height: 400px;
   }
@@ -1382,6 +1475,61 @@ iframe.no-border {
   .carousel-dot.active {
     width: 12px;
     height: 12px;
+  }
+
+  /* FIX: Iframe vertical spacing on mobile */
+  .iframe-wrapper {
+    margin: 1.5rem auto;
+    border-radius: 4px;
+  }
+
+  .project-content > div[style*="max-width"] {
+    margin: 1.5rem auto !important;
+  }
+
+  .video-wrapper {
+    margin: 1.5rem auto;
+    border-radius: 4px;
+  }
+
+  .project-content video {
+    margin: 1.5rem 0;
+  }
+
+  /* ============================================
+      FIX: RESUME PAGE - FULL WIDTH ON MOBILE
+      ============================================ */
+
+  .page {
+    padding: 0;
+    margin: 0;
+  }
+
+  .page-container {
+    max-width: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+
+  .page-header {
+    padding: 0 1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .page-title {
+    font-size: 1.75rem;
+  }
+
+  .pdf-embed {
+    width: 100vw;
+    height: calc(100vh - 120px);
+    min-height: 500px;
+    border: none;
+    margin: 0;
+    /* Break out of container to full screen width */
+    margin-left: calc(-50vw + 50%);
+    display: block;
   }
 }
 
@@ -1465,8 +1613,7 @@ iframe.no-border {
     text-align: center;
   }
 
-
-    /* Carousel small mobile adjustments */
+  /* Carousel small mobile adjustments */
   .carousel-inner {
     height: 300px;
   }
@@ -1487,6 +1634,52 @@ iframe.no-border {
 
   .carousel-next {
     right: 8px;
+  }
+
+  /* FIX: Tables on small mobile */
+  .project-content table {
+    font-size: 0.8rem;
+    margin: 1rem 0;
+  }
+
+  .project-content table th,
+  .project-content table td {
+    padding: 0.4rem 0.5rem;
+    min-width: 80px;
+  }
+
+  /* FIX: Tighter iframe spacing on small mobile */
+  .iframe-wrapper {
+    margin: 1rem auto;
+    border-radius: 0;
+  }
+
+  .project-content > div[style*="max-width"] {
+    margin: 1rem auto !important;
+  }
+
+  .video-wrapper {
+    margin: 1rem auto;
+  }
+
+  .project-content video {
+    margin: 1rem 0;
+  }
+
+  /* FIX: Resume page - absolute full width */
+  .page-container {
+    padding: 0;
+  }
+
+  .page-header {
+    padding: 0 0.5rem;
+  }
+
+  .pdf-embed {
+    width: 100vw;
+    height: calc(100vh - 100px);
+    margin-left: calc(-50vw + 50%);
+    border: none;
   }
 }
 

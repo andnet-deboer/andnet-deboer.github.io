@@ -4,7 +4,7 @@ title: "Visuo-Tactile Assistive Manipulation"
 subtitle: "Imitation learning for home assistance tasks"
 carousel_width: auto
 preview_gif: "/assets/images/projects/vtam/DexUMI_V1_Full.mp4"
-preview_position: "center"
+preview_position: "center-right"
 preview_zoom: 1.0
 code: "https://github.com/andnet-deboer/VTAM"
 tags: ["Imitation Learning", "VLM", "Diffusion Policy"]
