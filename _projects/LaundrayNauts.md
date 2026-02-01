@@ -29,8 +29,7 @@ affiliation: "Northwestern University"
 
 ### Overview
 
-This project develops a generalizable policy for robotic garment folding as part of the **LeHome Challenge 2026** at ICRA. Our approach combines **Vision-Language-Action models (VLAs)** with keypoint-conditioned diffusion policies to enable bimanual manipulation of diverse clothing items. We leverage the LeRobot framework for policy learning and IsaacLab simulation for training and evaluation.
-
+Deformable object manipulation remains an open challenge in robotics. This project addresses robotic garment folding as part of the LeHome Challenge 2026 at ICRA, aiming to develop policies that generalize across diverse clothing types using limited training data and simulation-based evaluation.
 
 ---
 
