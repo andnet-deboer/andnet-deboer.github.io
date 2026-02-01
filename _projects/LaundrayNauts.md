@@ -14,7 +14,17 @@ preview_gif: "/assets/images/projects/laundarynauts/LeHomeChallengeVideo.mp4"
 # data: "https://example.com/dataset"
 tags: ["LeRobot", "VLA", "Bimanual Manipulation"]
 date: 2026-1-1
-description: "A versatile, distributed platform using ROS for testing and validating a wide variety of multi-agent control algorithms."
+description: "A generalizable policy to fold clothes"
+contributors:
+  - name: "Andnet DeBoer"
+    url: "https://www.linkedin.com/in/andnetdeboer/"
+  - name: "Conor Hayes"
+    url: "https://www.linkedin.com/in/cwoodhayes/"
+  - name: "Robert Zhu"
+    url: "https://www.linkedin.com/in/robert-zhu1/"
+  - name: "Praneeth Reddy Mallupalli"
+    url: "https://www.linkedin.com/in/praneethreddym/"
+affiliation: "Northwestern University"
 ---
 
 ### Overview
