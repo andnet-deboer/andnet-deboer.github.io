@@ -50,9 +50,9 @@ Garment manipulation remains a fundamental challenge in robotics due to the high
 
 Our pipeline consists of three key components:
 
-1. **Perception**: Point cloud processing with keypoint detection
-2. **Policy**: Flow-matching VLA with action chunking for smooth bimanual coordination  
-3. **Training**: Domain randomization and curriculum learning to improve generalization
+1. **Perception**
+2. **Policy** 
+3. **Training**
 
 ---
 
