@@ -715,6 +715,25 @@ iframe.no-border {
   border: 1px solid var(--color-gray-border);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
+/* ============================================
+    STATUS: IN PROGRESS
+    ============================================ */
+
+.status-banner {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(185, 185, 185, 1.0);
+  color: #fffcfc;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 0.1rem 0;
+  z-index: 10;
+}
 
 /* ============================================
     FIX: IFRAME WRAPPER FOR GOOGLE SLIDES
@@ -740,8 +759,13 @@ iframe.no-border {
 /* Fix for inline-styled iframe containers */
 .project-content > div[style*="max-width"] {
   margin: 2.5rem auto !important;
+  overflow: hidden !important;
 }
 
+.project-content > div[style*="max-width"] iframe {
+  width: calc(100% + 20px) !important;
+  margin-right: -20px !important;
+}
 .project-content > div[style*="max-width"] > div {
   margin: 0 !important;
 }

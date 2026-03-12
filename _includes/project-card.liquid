@@ -72,6 +72,9 @@
                style="object-position: {{ project.preview_position | default: 'center' }}; transform: scale({{ project.preview_zoom | default: 1 }});">
         {% endif %}
       {% endif %}
+      {% if project.status %}
+      <div class="status-banner">{{ project.status }}</div>
+      {% endif %}
       <div class="card-overlay">
         <span class="view-project-text">View Project</span>
       </div>

@@ -15,6 +15,7 @@ preview_gif: "/assets/images/projects/laundarynauts/LeHomeChallengeVideo.mp4"
 tags: ["LeRobot", "VLA", "Bimanual Manipulation"]
 date: 2026-1-1
 description: "A generalizable policy to fold clothes"
+status: "In Progress"
 contributors:
   - name: "Andnet DeBoer"
     url: "https://www.linkedin.com/in/andnetdeboer/"
@@ -26,6 +27,18 @@ contributors:
     url: "https://www.linkedin.com/in/praneethreddym/"
 affiliation: "Northwestern University"
 ---
+
+<div style="max-width: 1200px; margin: 0 auto;">
+  <video 
+    src="/assets/images/projects/laundarynauts/LeHomeDataVids.mp4"
+    style="width: 100%; clip-path: inset(28% 0 28% 0);"
+    autoplay
+    loop
+    muted
+    playsinline
+    controls
+  ></video>
+</div>
 
 ### Overview
 
