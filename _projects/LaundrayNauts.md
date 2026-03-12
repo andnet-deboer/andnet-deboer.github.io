@@ -1,6 +1,6 @@
 ---
 layout: project
-title: "LaundryNaut"
+title: "Deformable Object Manipulation"
 subtitle: "A generalizable policy to fold clothes" 
 preview_zoom: 1.2
 carousel_images:
@@ -8,7 +8,7 @@ carousel_images:
   # - /assets/images/projects/gpmars/cv.png
 carousel_height: 400px
 carousel_width: auto
-preview_gif: "/assets/images/projects/laundarynauts/LeHomeChallengeVideo.mp4"
+preview_gif: "/assets/images/projects/laundarynauts/SmolVLA.mp4"
 # paper: "https://ieeexplore.ieee.org/document/11103627/"
 # code: "https://github.com/andnet-deboer/ROS-Kobuki-Research-2022"
 # data: "https://example.com/dataset"
