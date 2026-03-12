@@ -1,7 +1,7 @@
 ---
 layout: project
 title: "Franka Vision-Guided Fine Manipulation"
-subtitle: "Unconstrained sub-millimeter Bogie Alignment "
+subtitle: "Unconstrained millimeter Bogie Alignment "
 # carousel_images:
 #   - /assets/images/projects/frankahw3/Franka.gif
 #   - /assets/images/projects/gpmars/cv.png
