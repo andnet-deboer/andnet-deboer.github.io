@@ -41,7 +41,7 @@ affiliation: "Northwestern University"
 
 ## Overview
 
-This project demonstrates **precise fine manipulation** using a Franka Emika robot arm to manipulate HO-scale model train cars with **±0.5mm accuracy**. The system integrates a robust computer vision pipeline with MoveIt2 motion planning to solve a challenging alignment task: positioning free-spinning train bogies onto model railroad tracks.
+This project demonstrates **precise fine manipulation** using a Franka Emika robot arm to manipulate HO-scale model train cars with **±1mm accuracy**. The system integrates a robust computer vision pipeline with MoveIt2 motion planning to solve a challenging alignment task: positioning free-spinning train bogies onto model railroad tracks.
 
 The project also establishes a **zero-shot data distillation pipeline** for training custom object detection models, using the robot itself to autonomously collect and generate training data.
 

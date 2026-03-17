@@ -1,13 +1,15 @@
 ---
 layout: project
-title: "Visuo-Tactile Assistive Manipulation"
+title: "DexUMI: Visuo-Tactile Manipulation"
 subtitle: "Imitation learning for home assistance tasks"
 carousel_width: auto
-preview_gif: "/assets/images/projects/vtam/DexUMI_V1_Full.mp4"
+preview_gif: "/assets/images/projects/vtam/DemoVideo.mp4"
 preview_position: "center-right"
 preview_zoom: 1.0
 code: "https://github.com/andnet-deboer/VTAM"
-tags: ["Imitation Learning", "VLM", "Diffusion Policy"]
+hardware: "/projects/vtam/hardware/"
+journal: "/projects/vtam/journal/"
+tags: ["Imitation Learning", "ACT", "Diffusion Policy"]
 date: 2026-1-6
 status: "In Progress"
 contributors:
@@ -16,46 +18,27 @@ contributors:
 affiliation: "Northwestern University"
 ---
 
-<div style="max-width: 1200px; margin: 0 auto; overflow: hidden; border-radius: 8px;">
-  <div style="margin: -8px; overflow: hidden;">
-    <iframe
-      src="https://docs.google.com/presentation/d/e/2PACX-1vRpvHAMKP4fpgmVmO4f1NYTKKt6sb1xugXfYDe7PCGTnLlVn0XG7QPtMHd7R_Pt8zI2KAWjr3RNl968/pubembed?start=true&loop=true&delayms=3000&rm=minimal"
-      style="width: calc(100% + 8px); aspect-ratio: 16/9; display: block; margin: -8px;"
-      frameborder="0"
-      allowfullscreen>
-    </iframe>
-  </div>
+<!-- PLACEHOLDER: Main demo video — robot executing a learned task autonomously -->
+<div style="max-width: 1200px; margin: 0 auto; overflow: hidden; border-radius: 8px; border: 2px dashed #aaa; padding: 1rem; text-align: center; color: #888;">
+  <p><strong>[PLACEHOLDER]</strong> Main demo video — robot executing a learned task autonomously</p>
 </div>
-
-
-## Overview
-
-The goal of this project is to develop a visuo-tactile manipulation system for the Hello Robot
-Stretch 3 that enables fine-grained home assistance tasks requiring tactile feedback. The
-core hardware contribution is a custom touch sensing and a custom handheld teleoperator
-device with geometrically-matched tactile sensors (eFlesh) and camera placement, enabling
-high-fidelity demonstration collection. The system will integrate vision-language model
-(VLM) understanding to interpret natural language commands (e.g., "Make me a coffee") and execute multi-step manipulation sequences. The final
-demonstration video will show the robot receiving voice commands, selecting appropriate
-objects from multiple options, and performing tactile critical tasks including tasks such as
-appliance plug insertion, K-cup insertion, lid closure, button actuation, and mug retrieval,
-selected tasks will be where vision-only approaches demonstrably fail due to occlusion and
-force-sensitivity requirements.
 
 ---
 
+## Overview
+
+This project develops a visuo-tactile imitation learning system for the Hello Robot Stretch 3, enabling non-expert users to teach manipulation tasks through teleoperation. The core insight is that by designing the teleoperator to be **geometrically matched to the robot's own gripper**, the cross-embodiment challenge is eliminated — demonstrations transfer directly without remapping. The system captures synchronized vision, proprioception, and tactile feedback, then trains policies using ACT and Diffusion Policy.
 
 This is an independent 10-week project as part of the <a href="https://www.mccormick.northwestern.edu/robotics/" style="color: blue;">Master of Science in Robotics (MSR) program at Northwestern University</a>.
 
-## Project Updates
+---
 
-### Week 4 
-**Designed DexUMI, integrated eFlesh Control, Head Camera Tracking**
+## Cross-Embodiment via DexUMI
 
-  <div style="max-width: 1200px; margin: 0 auto; overflow: hidden; border-radius: 1px;">
+<div style="max-width: 1200px; margin: 0 auto; overflow: hidden; border-radius: 8px;">
   <div style="margin: -8px; overflow: hidden;">
-    <video 
-      src="/assets/images/projects/vtam/DexUMI_2.mp4"
+    <video
+      src="/assets/images/projects/vtam/DexUMI_V1_Full.mp4"
       style="width: calc(100% + 8px); aspect-ratio: 16/9; display: block; margin: -8px;"
       autoplay
       loop
@@ -66,25 +49,23 @@ This is an independent 10-week project as part of the <a href="https://www.mccor
   </div>
 </div>
 
-<div style="max-width: 1200px; margin: 0 auto; overflow: hidden; border-radius: 1px;">
-  <div style="margin: -8px; overflow: hidden;">
-    <iframe
-      src=" https://docs.google.com/presentation/d/e/2PACX-1vR5y7db2mTUOvOkNGJr7s3HySgjuo8zDVMIEO5A1Grtwz4DmBv9CV-GMBeM_XEG9TtYSgYg7ahzkJgF/pubembed?start=true&loop=true&delayms=3000&rm=minimal"
-      style="width: calc(100% + 8px); aspect-ratio: 16/9; display: block; margin: -8px;"
-      frameborder="0"
-      allowfullscreen>
-    </iframe>
-  </div>
+A central challenge in robot learning from demonstration is the **embodiment gap** — human hands and robot grippers have different kinematics, so translating demonstrations requires complex retargeting that introduces error. DexUMI sidesteps this entirely.
+
+DexUMI is a custom handheld teleoperator built around the **same parallel gripper used on the Stretch 3**. Because the operator and robot share identical gripper geometry, opening and closing in the human's hand maps one-to-one to the robot. Tactile sensors are mounted in geometrically matched positions on both devices, so the force signals recorded during demonstration directly correspond to what the robot will sense during deployment.
+
+<!-- PLACEHOLDER: Side-by-side image — DexUMI device next to Stretch 3 gripper showing geometric match -->
+<div style="max-width: 900px; margin: 2rem auto; border: 2px dashed #aaa; padding: 1rem; text-align: center; color: #888; border-radius: 8px;">
+  <p><strong>[PLACEHOLDER]</strong> Side-by-side — DexUMI device next to Stretch 3 gripper showing geometric correspondence</p>
 </div>
 
+---
 
+## Tactile Sensing — eFlesh Integration
 
-### Week 3
-**Integrated Custom sensors with robot, publish to ROS, teleoperate robot**
-
-  <div style="max-width: 1200px; margin: 0 auto; overflow: hidden; border-radius: 1px;">
+<!-- PLACEHOLDER: Video of eFlesh sensors activating during a grasp -->
+<div style="max-width: 1200px; margin: 0 auto; overflow: hidden; border-radius: 8px;">
   <div style="margin: -8px; overflow: hidden;">
-    <video 
+    <video
       src="/assets/images/projects/vtam/Fully Integrated eFlesh Sensors.mp4"
       style="width: calc(100% + 8px); aspect-ratio: 16/9; display: block; margin: -8px;"
       autoplay
@@ -96,57 +77,119 @@ This is an independent 10-week project as part of the <a href="https://www.mccor
   </div>
 </div>
 
-<div style="max-width: 1200px; margin: 0 auto; overflow: hidden; border-radius: 1px;">
-  <div style="margin: -8px; overflow: hidden;">
-    <iframe
-      src=" https://docs.google.com/presentation/d/e/2PACX-1vQFLWR-0Yoyh2l5r4rkgyFy707rudZvgIPBhinP_88vV2dFAJjxDfuxUzw7m-XKUfolQhS-hEEa92Em/pubembed?start=true&loop=true&delayms=3000&rm=minimal"
-      style="width: calc(100% + 8px); aspect-ratio: 16/9; display: block; margin: -8px;"
-      frameborder="0"
-      allowfullscreen>
-    </iframe>
-  </div>
+Many manipulation tasks fail when vision alone is insufficient — inserting a K-cup, closing a lid, plugging in a cable. Contact forces are occluded from any camera. eFlesh addresses this with soft magnetic tactile sensors: each fingertip embeds **5 MLX90393 3-axis magnetometers**, yielding a 15-dimensional tactile signal per finger that captures contact location and force direction.
+
+Each sensor array is read by a QT Py microcontroller over USB serial. A custom **ROS 2 node** aggregates and time-stamps the tactile stream alongside joint encoder and camera data, publishing all modalities in sync for recording and policy inference.
+
+<!-- PLACEHOLDER: Image or diagram of eFlesh sensor layout on fingertip — 5 magnetometer positions -->
+<div style="max-width: 600px; margin: 2rem auto; border: 2px dashed #aaa; padding: 1rem; text-align: center; color: #888; border-radius: 8px;">
+  <p><strong>[PLACEHOLDER]</strong> eFlesh sensor layout — 5 MLX90393 magnetometer positions per fingertip</p>
 </div>
 
-### Week 2
-**Built version 1 of the eFlesh sensor, setup ros project & infastructure, started data collection pipeline**
+---
 
-<!-- <div style="max-width: 1200px; margin: 0 auto; overflow: hidden; border-radius: 1px;">
-  <div style="margin: -8px; overflow: hidden;">
-    <iframe
-      src="https://docs.google.com/presentation/d/e/2PACX-1vQUXEI81iRg8zXstNsK-kzP77ORppanyx130eYgZSN22xt4afV45CUjZL6x24ICvjPv6mHvjqvjBQ7C/pubembed?start=true&loop=true&delayms=3000&rm=minimal"
-      style="width: calc(100% + 8px); aspect-ratio: 16/9; display: block; margin: -8px;"
-      frameborder="0"
-      allowfullscreen>
-    </iframe>
-  </div>
-</div>
-  - /assets/images/projects/vtam/Winter Project_wk2_v1.mp4 -->
+## Retargeting
 
-  <div style="max-width: 1200px; margin: 0 auto; overflow: hidden; border-radius: 1px;">
-  <div style="margin: -8px; overflow: hidden;">
-    <video 
-      src="/assets/images/projects/vtam/Winter Project_wk2_v1.mp4"
-      style="width: calc(100% + 8px); aspect-ratio: 16/9; display: block; margin: -8px;"
-      autoplay
-      loop
-      muted
-      playsinline
-      controls
-    ></video>
-  </div>
+Human arm motion during teleoperation is captured via the DexUMI device and retargeted to the Stretch 3's joint space in real time. The retargeting uses a **Jacobian-based damped least-squares IK** that maps end-effector pose commands into lift, arm, and wrist joint velocities. Relative joint actions (Δq) are used rather than absolute positions, which improves generalization across demonstrations that start from slightly different configurations.
+
+<!-- PLACEHOLDER: Short clip showing teleoperation retargeting in real time — operator moving DexUMI, robot following -->
+<div style="max-width: 1200px; margin: 0 auto; border: 2px dashed #aaa; padding: 1rem; text-align: center; color: #888; border-radius: 8px;">
+  <p><strong>[PLACEHOLDER]</strong> Teleoperation retargeting clip — operator moves DexUMI, Stretch 3 follows in real time</p>
 </div>
 
-### Week 1
-**Project kickoff, robot setup, order components, research VLM's**
+---
 
-<div style="max-width: 1200px; margin: 0 auto; overflow: hidden; border-radius: 1px;">
-  <div style="margin: -8px; overflow: hidden;">
-    <iframe
-      src="https://docs.google.com/presentation/d/e/2PACX-1vRCKszOeiJTQwfWI-3lEOVttNCDrTc-axLYzKnj-t1BBtVP86YqvLEmycRFW6undiipvCDwWf9vFgVj/pubembed?start=true&loop=true&delayms=3000&rm=minimal"
-      style="width: calc(100% + 8px); aspect-ratio: 16/9; display: block; margin: -8px;"
-      frameborder="0"
-      allowfullscreen>
-    </iframe>
-  </div>
+## Recording Pipeline
+
+<!-- PLACEHOLDER: System diagram image — sensor modalities flowing into recording node -->
+<div style="max-width: 600px; margin: 2rem auto; border: 2px dashed #aaa; padding: 1rem; text-align: center; color: #888; border-radius: 8px;">
+  <p><strong>[PLACEHOLDER]</strong> System diagram — RGB camera, joint encoders, eFlesh → ROS 2 → ZMQ → dataset</p>
 </div>
 
+Demonstrations are recorded as synchronized streams of three modalities:
+
+- **Vision** — 640×480 RGB from the gripper-mounted camera, JPEG-compressed and transmitted over ZMQ
+- **Proprioception** — joint states from lift, arm, wrist yaw/pitch/roll, and gripper
+- **Tactile** — 15-dimensional eFlesh signal per finger at full sensor rate
+
+Raw rosbags are processed through a chunking and conversion pipeline into HuggingFace-compatible datasets at 10 fps, then uploaded for training. ArUco markers on the gripper provide end-effector pose ground truth for each frame.
+
+---
+
+## Policy Learning
+
+<!-- PLACEHOLDER: Training curve image from W&B — loss curves for ACT on coffee task -->
+<div style="max-width: 900px; margin: 2rem auto; border: 2px dashed #aaa; padding: 1rem; text-align: center; color: #888; border-radius: 8px;">
+  <p><strong>[PLACEHOLDER]</strong> W&B training curves — ACT on "place coffee cup" task</p>
+</div>
+
+Policies are trained via the HuggingFace **LeRobot** framework (stretch-act branch) using two architectures:
+
+**ACT (Action Chunking with Transformers)** [[2]](#references) predicts chunks of future actions from a single observation, reducing compounding errors from per-step prediction. Currently training on "place coffee cup" and "setup cup" tasks.
+
+**Diffusion Policy** [[3]](#references) formulates action generation as iterative denoising, handling the multimodal action distributions that arise in contact-rich tasks.
+
+Training runs on a remote GPU workstation over ZMQ, with Weights & Biases logging.
+
+<!-- PLACEHOLDER: Deployment video — robot executing ACT policy autonomously (replace once tonight's run completes) -->
+<div style="max-width: 1200px; margin: 0 auto; border: 2px dashed #aaa; padding: 1rem; text-align: center; color: #888; border-radius: 8px;">
+  <p><strong>[PLACEHOLDER]</strong> Deployment video — robot executing trained ACT policy autonomously</p>
+</div>
+
+---
+
+## Project Journal
+
+Weekly progress updates including videos and slide decks from each stage of development.
+
+<a href="/projects/vtam/journal/" style="display: inline-block; margin-top: 0.5rem; padding: 0.6rem 1.2rem; background: transparent; border: 1px solid currentColor; border-radius: 6px; text-decoration: none; color: inherit; font-size: 0.95rem;">View Weekly Updates →</a>
+
+---
+
+## BibTeX
+
+<div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.75rem;">
+
+<div style="display: flex; flex-direction: column;">
+<p style="font-weight: 600; font-size: 0.8rem; margin-bottom: 0.25rem; color: #000;">eFlesh</p>
+<pre style="font-size: 0.65rem; line-height: 1.5; padding: 0.75rem; margin: 0; overflow-x: auto; background: #f6f8fa; border-radius: 6px; flex: 1; white-space: pre;">@article{pattabiraman2025eflesh,
+  title={eFlesh: Highly customizable Magnetic Touch Sensing using Cut-Cell Microstructures},
+  author={Pattabiraman, Venkatesh and Huang, Zizhou and Panozzo, Daniele and Zorin, Denis and Pinto, Lerrel and Bhirangi, Raunaq},
+  year={2025},
+  eprint={2506.09994},
+  archivePrefix={arXiv},
+  primaryClass={cs.RO}
+}</pre>
+</div>
+
+<div style="display: flex; flex-direction: column;">
+<p style="font-weight: 600; font-size: 0.8rem; margin-bottom: 0.25rem; color: #000;">UMI</p>
+<pre style="font-size: 0.65rem; line-height: 1.5; padding: 0.75rem; margin: 0; overflow-x: auto; background: #f6f8fa; border-radius: 6px; flex: 1; white-space: pre;">@inproceedings{chi2024universal,
+  title={Universal Manipulation Interface: In-The-Wild Robot Teaching Without In-The-Wild Robots},
+  author={Chi, Cheng and Xu, Zhenjia and Pan, Chuer and Cousineau, Eric and Burchfiel, Benjamin and Feng, Siyuan and Tedrake, Russ and Song, Shuran},
+  booktitle={Robotics: Science and Systems},
+  year={2024}
+}</pre>
+</div>
+
+<div style="display: flex; flex-direction: column;">
+<p style="font-weight: 600; font-size: 0.8rem; margin-bottom: 0.25rem; color: #000;">ACT</p>
+<pre style="font-size: 0.65rem; line-height: 1.5; padding: 0.75rem; margin: 0; overflow-x: auto; background: #f6f8fa; border-radius: 6px; flex: 1; white-space: pre;">@article{zhao2023learning,
+  title={Learning Fine-Grained Bimanual Manipulation with Low-Cost Hardware},
+  author={Zhao, Tony Z and Kumar, Vikash and Levine, Sergey and Finn, Chelsea},
+  journal={arXiv preprint arXiv:2304.13705},
+  year={2023}
+}</pre>
+</div>
+
+<div style="display: flex; flex-direction: column;">
+<p style="font-weight: 600; font-size: 0.8rem; margin-bottom: 0.25rem; color: #000;">Diffusion Policy</p>
+<pre style="font-size: 0.65rem; line-height: 1.5; padding: 0.75rem; margin: 0; overflow-x: auto; background: #f6f8fa; border-radius: 6px; flex: 1; white-space: pre;">@article{chi2023diffusion,
+  title={Diffusion Policy: Visuomotor Policy Learning via Action Diffusion},
+  author={Chi, Cheng and Feng, Siyuan and Du, Yilun and Xu, Zhenjia and Cousineau, Eric and Burchfiel, Benjamin and Song, Shuran},
+  journal={arXiv preprint arXiv:2303.04137},
+  year={2023}
+}</pre>
+</div>
+
+</div>

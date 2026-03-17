@@ -1,6 +1,6 @@
 ---
 layout: project
-title: "DexUMI: Enabling Visuo-Tactile Manipulation"
+title: "Visuo-Tactile Assistive Manipulation"
 subtitle: "Imitation learning for home assistance tasks"
 carousel_width: auto
 preview_gif: "/assets/images/projects/vtam/DexUMI_V1_Full.mp4"
@@ -31,15 +31,21 @@ affiliation: "Northwestern University"
 ## Overview
 
 The goal of this project is to develop a visuo-tactile manipulation system for the Hello Robot
-Stretch 3 that enables a user to teach the Stretch 3 robot using imitation learning.
-
-The core hardware contribution is a custom touch sensing and a custom handheld teleoperator
-device with geometrically-matched tactile sensors eFlesh[1]
+Stretch 3 that enables fine-grained home assistance tasks requiring tactile feedback. The
+core hardware contribution is a custom touch sensing and a custom handheld teleoperator
+device with geometrically-matched tactile sensors (eFlesh) and camera placement, enabling
+high-fidelity demonstration collection. The system will integrate vision-language model
+(VLM) understanding to interpret natural language commands (e.g., "Make me a coffee") and execute multi-step manipulation sequences. The final
+demonstration video will show the robot receiving voice commands, selecting appropriate
+objects from multiple options, and performing tactile critical tasks including tasks such as
+appliance plug insertion, K-cup insertion, lid closure, button actuation, and mug retrieval,
+selected tasks will be where vision-only approaches demonstrably fail due to occlusion and
+force-sensitivity requirements.
 
 ---
 
-<!-- 
-This is an independent 10-week project as part of the <a href="https://www.mccormick.northwestern.edu/robotics/" style="color: blue;">Master of Science in Robotics (MSR) program at Northwestern University</a>. -->
+
+This is an independent 10-week project as part of the <a href="https://www.mccormick.northwestern.edu/robotics/" style="color: blue;">Master of Science in Robotics (MSR) program at Northwestern University</a>.
 
 ## Project Updates
 

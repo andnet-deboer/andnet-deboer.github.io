@@ -1372,18 +1372,39 @@ iframe.no-border {
 
   .project-container,
   .page-container {
-    padding: 0 1rem;
+    padding: 0 0.25rem;
   }
 
   /* Project page mobile optimization */
   .project-container {
     width: 100%;
     max-width: 100%;
-    padding: 0 1rem;
+    padding: 0 0.25rem;
   }
 
   .project-page {
     padding: 2rem 0;
+  }
+
+  /* Force inline flex layouts in project content to wrap on mobile */
+  .project-content div[style*="display: flex"],
+  .project-content div[style*="display:flex"] {
+    flex-wrap: wrap !important;
+  }
+
+  /* Make fixed-width flex children go full-width on mobile */
+  .project-content div[style*="flex: 0"],
+  .project-content div[style*="flex:0"] {
+    flex: 1 1 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+  }
+
+  /* Center all top-level divs in project content */
+  .project-content > div {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    max-width: 100% !important;
   }
 
   .project-header {
@@ -1596,7 +1617,7 @@ iframe.no-border {
 
   /* Project page small mobile */
   .project-container {
-    padding: 0 0.5rem;
+    padding: 0;
   }
 
   .project-title {
