@@ -145,7 +145,7 @@ Raw rosbags are processed through a chunking and conversion pipeline into Huggin
 
 <div style="max-width: 800px; margin: 0 auto; border-radius: 6px; overflow: hidden;">
   <video autoplay loop muted playsinline controls style="width: 100%; display: block;">
-    <source src="/assets/images/projects/vtam/DataCollections.mp4" type="video/mp4">
+    <source src="/assets/images/projects/vtam/DataCollection.mp4" type="video/mp4">
   </video>
 </div>
 
@@ -183,13 +183,13 @@ Weekly progress updates including videos and slide decks from each stage of deve
     <p>This project has succefully built a pipline to take human demonstrations and turn them into a deployable policy that executes on the robot. However, the final stages of the project are in progrees to refine the pipleine to achieve more desirable resutls. To fix the current issue with  noisy wrist rotation data expressed in the policy an IMU is being intetgraed into the DexUMI.</p>
     <p style="margin-top:1rem;">The video shows a representative rollout: the robot attempts to pick up the cup but executes an out-of-distribution wrist rotation, knocking it over instead.</p>
     <ul style="margin-top:1rem;">
-      <li><strong>Add 9-axis IMU</strong> to DexUMI for stable absolute orientation via sensor fusion</li>
+      <li><strong>Add 9-axis IMU</strong> to DexUMI for stable ground truth orientation via sensor fusion</li>
       <li>Re-collect demonstrations with corrected rotation data and retrain</li>
       <li>Evaluate rollout on the "make coffee" task</li>
     </ul>
   </div>
   <div style="flex:0 0 320px;">
-    <p style="font-size:0.75rem;color:#999;margin-top:0.25rem;text-align:center;">ACT rollout</p>
+    <p style="font-size:0.75rem;color:#999;margin-top:0.25rem;text-align:center;">ACT rollout2</p>
     <div style="border-radius:8px;overflow:hidden;">
       <video autoplay loop muted playsinline controls style="width:100%;display:block;object-fit:cover;">
         <source src="/assets/images/projects/vtam/act_knock_cup.mp4" type="video/mp4">
