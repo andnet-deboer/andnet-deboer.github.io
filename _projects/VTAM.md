@@ -11,7 +11,7 @@ code: "https://github.com/andnet-deboer/VTAM"
 # journal: "/projects/vtam/journal/"
 tags: ["Imitation Learning", "ACT", "Diffusion Policy"]
 date: 2026-1-6
-status: "In Progress"
+# status: "In Progress"
 contributors:
   - name: "Andnet DeBoer"
     url: "https://www.linkedin.com/in/andnetdeboer/"
