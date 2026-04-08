@@ -13,7 +13,7 @@ preview_gif: "/assets/images/projects/laundarynauts/SmolVLA.mp4"
 # code: "https://github.com/andnet-deboer/ROS-Kobuki-Research-2022"
 # data: "https://example.com/dataset"
 tags: ["LeRobot", "VLA", "Bimanual Manipulation"]
-date: 2026-1-1
+date: 2026-3-1
 description: "A generalizable policy to fold clothes"
 status: "In Progress"
 contributors:
