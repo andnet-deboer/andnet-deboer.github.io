@@ -1,7 +1,7 @@
 ---
 layout: project
 title: "DexUMI: Visuo-Tactile Manipulation"
-subtitle: "Imitation learning for home assistance tasks"
+subtitle: "Learning from human demonstration"
 carousel_width: auto
 preview_gif: "/assets/images/projects/vtam/DemoVideo.mp4"
 preview_position: "center-right"
@@ -9,7 +9,7 @@ preview_zoom: 1.0
 code: "https://github.com/andnet-deboer/VTAM"
 # hardware: "/projects/vtam/hardware/"
 # journal: "/projects/vtam/journal/"
-tags: ["Imitation Learning", "ACT", "Diffusion Policy"]
+tags: ["Imitation Learning"]
 date: 2026-1-6
 # status: "In Progress"
 contributors:
@@ -18,33 +18,31 @@ contributors:
 affiliation: "Northwestern University"
 ---
 
-<!-- <div style="max-width: 800px; margin: 0 auto; overflow: hidden; border-radius: 8px;">
-  <div style="margin: -8px; overflow: hidden;">
-    <video
-      src="/assets/images/projects/vtam/DexUMI_V1_Full.mp4"
-      style="width: calc(100% + 8px); aspect-ratio: 16/9; display: block; margin: -8px;"
-      autoplay
-      loop
-      muted
-      playsinline
-      controls
-    ></video>
-  </div>
-</div> -->
+<div style="max-width: 800px; margin: 2rem auto;">
+  <video
+    src="/assets/images/projects/vtam/Overview.mp4"
+    style="width: 100%; height: auto; display: block; border: none; box-shadow: none; border-radius: 0;"
+    autoplay
+    loop
+    muted
+    playsinline
+    controls
+  ></video>
+</div>
 
 ---
 
 ## Overview
 
 
-This project develops a visuo-tactile imitation learning system for the Hello Robot Stretch 3, enabling users to teach manipulation tasks through human demonstration. The core insight is that by designing the UMI(Universal Manipulation Interface) to be **geometrically matched to the robot's own gripper**, the cross-embodiment challenge can be reduced. The system captures synchronized vision, proprioception, and tactile feedback, then prepares the data to hugging face to be loaded to train ACT and Diffusion policies using the LeRobot framework.
+This project develops a visuo-tactile imitation learning system for the Hello Robot Stretch 3, enabling users to teach manipulation tasks through human demonstration. The Dex-UMI(Universal Manipulation Interface) captures synchronized vision, proprioception, and tactile feedback. The generated data is saved to hugging face and loaded to train ACT and Diffusion policies using the LeRobot framework.
 
 ---
 
 ## Cross-Embodiment
 
 <!-- video placeholder -->
-<div style="max-width: 1200px; margin: 0 auto; overflow: hidden;">
+<!-- <div style="max-width: 1200px; margin: 0 auto; overflow: hidden;">
   <div style="position: relative; width: 100%; padding-bottom: 56.25%; overflow: hidden;">
     <iframe
       src="https://docs.google.com/presentation/d/e/2PACX-1vRaRd_1ZeKTqqjbM7Xo9vf8cRnTwj-hkpRshVEBJJYONYji1UyZgWbCIW73yPzjAD6jJPLnkQzJObSG/pubembed?start=true&loop=true&delayms=3000&rm=minimal"
@@ -54,14 +52,19 @@ This project develops a visuo-tactile imitation learning system for the Hello Ro
       allowfullscreen>
     </iframe>
   </div>
+</div> -->
+<div style="max-width: 1000px; margin: 2rem auto; text-align: center; ">
+  <img src="/assets/images/projects/vtam/DexUMI.png" alt="Recording overview" style="max-width:100%; height:auto; display:block; margin:0 auto; border:none; box-shadow:none;">
 </div>
+
+
 
 A central challenge in robot learning from demonstration is the **embodiment gap** - human hands and robot grippers have different kinematics, so translating demonstrations requires retargeting that introduces error. DexUMI approaches this challenge by using the existing DexWrist3 gripper and dettaching it collect demonstrations.
 
-DexUMI is a custom handheld teleoperator built around the **same parallel gripper used on the Stretch 3**. Because the operator and robot share identical gripper geometry, opening and closing in the human's hand maps one-to-one to the robot. The D405 camera and eFlesh tactile sensors geomtric setup is 1:1 identical since the gripper is simply attached as part of the UMI during demonstratoin. This enables the Visuo-Tactile signals recorded during demonstration directly correspond to what the robot will sense during deployment.
+<!-- DexUMI is a custom handheld teleoperator built around the **same parallel gripper used on the Stretch 3**. Because the operator and robot share identical gripper geometry, opening and closing in the human's hand maps one-to-one to the robot. The D405 camera and eFlesh tactile sensors geomtric setup is 1:1 identical since the gripper is simply attached as part of the UMI during demonstratoin. This enables the Visuo-Tactile signals recorded during demonstration directly correspond to what the robot will sense during deployment. -->
 
 <!-- PLACEHOLDER: Side-by-side image — DexUMI device next to Stretch 3 gripper showing geometric match -->
-<div style="max-width: 1200px; margin: 0 auto; overflow: hidden;">
+<!-- <div style="max-width: 1200px; margin: 0 auto; overflow: hidden;">
   <div style="position: relative; width: 100%; padding-bottom: 56.25%; overflow: hidden;">
     <iframe
       src="https://docs.google.com/presentation/d/e/2PACX-1vSOTUtDmkFbgAE93FVMFxg7H7NGkZLx7joBW_mHLE9FY_L5srcpzm4R-PwjULly_plrIA7E6CIRuDej/pubembed?start=true&loop=true&delayms=3000&rm=minimal"
@@ -71,6 +74,10 @@ DexUMI is a custom handheld teleoperator built around the **same parallel grippe
       allowfullscreen>
     </iframe>
   </div>
+</div> -->
+
+<div style="max-width: 1000px; margin: 2rem auto; text-align: center; ">
+  <img src="/assets/images/projects/vtam/CrossEmbodiment.png" alt="Recording overview" style="max-width:100%; height:auto; display:block; margin:0 auto; border:none; box-shadow:none;">
 </div>
 ---
 
@@ -111,34 +118,21 @@ Each sensor array is read by a QT Py microcontroller over USB serial. A custom *
 
 
 
+<!-- ---
+
+## Controlling the Gripper -->
+
 ---
 
 ## Retargeting
 
 Human arm motion during demonstrations is captured via the DexUMI device and retargeted during inference to the Stretch 3's joint space in real time. The retargeting uses a Jacobian-based damped least-squares IK that maps end-effector pose commands into lift, arm, and wrist joint velocities. This project applies episode relative relative joint actions (Δq) rather than absolute positions, to improve generalization across demonstrations that start from slightly different configurations.
 
-<div style="max-width: 800px; margin: 2rem auto; border: 2px dashed #aaa; padding: 1rem; text-align: center; color: #888; border-radius: 8px;">
-  <img src="/assets/images/projects/vtam/Retargeting.png" alt="Recording overview" style="max-width:100%; height:auto; display:block; margin:0 auto;">
+<div style="max-width: 800px; margin: 2rem auto; border:  text-align: center;">
+  <img src="/assets/images/projects/vtam/Retargeting.png" alt="Recording overview" style="max-width:100%; height:auto; display:block; margin:0 auto; border:none; box-shadow:none;">
 </div>
-
 
 ---
-
-## Recording Pipeline
-
-<!-- PLACEHOLDER: System diagram image — sensor modalities flowing into recording node -->
-<div style="max-width: 1200px; margin: 2rem auto; border: 2px dashed #aaa; padding: 1rem; text-align: center; color: #888; border-radius: 8px;">
-  <img src="/assets/images/projects/vtam/RecordingOverview.png" alt="Recording overview" style="max-width:100%; height:auto; display:block; margin:0 auto;">
-</div>
-
-Demonstrations are recorded as synchronized streams of three modalities:
-
-- **Vision** —640×480 RGB resized to 320x320 from the gripper-mounted camera, transmitted over ZMQ
-- **Proprioception** — joint states from lift, arm, wrist yaw/pitch/roll, and gripper 7DoF
-- **Tactile** — 15-dimensional eFlesh signal per finger at full sensor rate
-
-Raw rosbags are processed through a chunking and conversion pipeline into HuggingFace-compatible datasets at 10 fps, then uploaded for training. ArUco markers on the gripper provide end-effector pose ground truth for each frame.
-
 
 
 ### Demonstrations
@@ -151,6 +145,23 @@ Raw rosbags are processed through a chunking and conversion pipeline into Huggin
 
 
 ---
+
+## Recording Pipeline
+
+<!-- System diagram image — sensor modalities flowing into recording node -->
+<div style="max-width: 1200px; margin: 2rem auto; text-align: center; ">
+  <img src="/assets/images/projects/vtam/RecordingOverview.png" alt="Recording overview" style="max-width:100%; height:auto; display:block; margin:0 auto; border:none; box-shadow:none;">
+</div>
+
+Demonstrations are recorded as synchronized streams of three modalities:
+
+- **Vision** —640×480 RGB resized to 320x320 from the gripper-mounted camera, transmitted over ZMQ
+- **Proprioception** — joint states from lift, arm, wrist yaw/pitch/roll, and gripper 7DoF
+- **Tactile** — 15-dimensional eFlesh signal per finger at full sensor rate
+
+Raw rosbags are processed through a chunking and conversion pipeline into HuggingFace-compatible datasets at 10 fps, then uploaded for training. ArUco markers on the gripper provide end-effector pose ground truth for each frame.
+
+
 
 ## Policy Learning
 
