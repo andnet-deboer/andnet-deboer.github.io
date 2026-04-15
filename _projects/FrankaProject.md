@@ -10,7 +10,7 @@ carousel_width: auto
 preview_gif: "/assets/images/projects/frankaproject/450_Final_Preview.gif"
 preview_position: "left"
 # paper: "https://ieeexplore.ieee.org/document/11103627/"
-code: "https://github.com/ME495-EmbeddedSystems/final-project-north-western-northwestern"
+code: "https://github.com/andnet-deboer/FrankaExpress"
 # data: "https://example.com/dataset"
 tags: ["ROS 2", "Python", "Franka"]
 date: 2025-12-15
