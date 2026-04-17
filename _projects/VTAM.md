@@ -20,7 +20,7 @@ affiliation: "Northwestern University"
 
 <div style="max-width: 800px; margin: 2rem auto;">
   <video
-    src="/assets/images/projects/vtam/Overview.mp4"
+    src="/assets/images/projects/vtam/Overview2.mp4"
     style="width: 100%; height: auto; display: block; border: none; box-shadow: none; border-radius: 0;"
     autoplay
     loop
@@ -125,6 +125,11 @@ Each sensor array is read by a QT Py microcontroller over USB serial. A custom *
 ---
 
 ## Retargeting
+
+<div style="max-width: 1000px; margin: 2rem auto; text-align: center; ">
+  <img src="/assets/images/projects/vtam/retarget.jpg" alt="Recording overview" style="max-width:100%; height:auto; display:block; margin:0 auto; border:none; box-shadow:none;">
+</div>
+
 
 Human arm motion during demonstrations is captured via the DexUMI device and retargeted during inference to the Stretch 3's joint space in real time. The retargeting uses a Jacobian-based damped least-squares IK that maps end-effector pose commands into lift, arm, and wrist joint velocities. This project applies episode relative relative joint actions (Δq) rather than absolute positions, to improve generalization across demonstrations that start from slightly different configurations.
 

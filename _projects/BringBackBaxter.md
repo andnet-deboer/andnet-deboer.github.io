@@ -33,10 +33,10 @@ Pioneering the era of collaborative robotics, Baxter was engineered with Series 
 Bridged the legacy SDK via a ROS 1 Docker container, establishing ROS 1 communication and live joint control.
 
 <div style="max-width: 900px; margin: 2rem auto; display: flex; gap: 1.5rem; align-items: center;">
-  <img src="/assets/images/projects/bringbackbaxter/ros1_diagram.png" alt="ROS 1 Docker setup diagram" style="width:40%; height:auto; border:none; box-shadow:none;">
+  <img src="/assets/images/projects/bringbackbaxter/ros1_diagram.png" alt="ROS 1 Docker setup diagram" style="width:50%; height:auto; border:none; box-shadow:none;">
 <video 
   src="/assets/images/projects/bringbackbaxter/Puppet.mp4"
-  style="width:60%; height:auto; display:block; border:none; box-shadow:none; border-radius: 4px;"
+  style="width:50%; height:auto; display:block; border:none; box-shadow:none; border-radius: 4px;"
   autoplay
   loop
   muted
