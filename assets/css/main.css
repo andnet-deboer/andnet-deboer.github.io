@@ -282,6 +282,14 @@ a:visited {
   transform: translateY(-4px);
 }
 
+.project-card.no-page {
+  cursor: default;
+}
+
+.project-card.no-page:hover {
+  transform: none;
+}
+
 .card-link {
   display: block;
   color: inherit;
@@ -324,6 +332,53 @@ a:visited {
 
 .card-link:hover .card-overlay {
   opacity: 1;
+}
+
+.card-overlay--dark {
+  background-color: rgba(0, 0, 0, 0.92);
+}
+
+.no-page .card-link:hover .card-overlay {
+  opacity: 1;
+}
+
+.card-overlay-links {
+  display: flex;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.card-overlay-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+}
+
+.card-overlay-icon img {
+  width: 32px;
+  height: 32px;
+  opacity: 0.9;
+  transition: opacity var(--transition-speed), transform var(--transition-speed);
+  filter: brightness(0) invert(1);
+}
+
+.card-overlay-icon span {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: color var(--transition-speed);
+}
+
+.card-overlay-icon:hover img {
+  opacity: 1;
+  transform: scale(1.15);
+}
+
+.card-overlay-icon:hover span {
+  color: rgba(255, 255, 255, 1);
 }
 
 .view-project-text {

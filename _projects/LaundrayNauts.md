@@ -15,7 +15,7 @@ preview_gif: "/assets/images/projects/laundarynauts/SmolVLA.mp4"
 tags: ["LeRobot", "VLA", "Bimanual Manipulation"]
 date: 2026-3-1
 description: "A generalizable policy to fold clothes"
-status: "In Progress"
+# status: "In Progress"
 contributors:
   - name: "Andnet DeBoer"
     url: "https://www.linkedin.com/in/andnetdeboer/"

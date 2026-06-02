@@ -1,11 +1,26 @@
-<div class="project-card">
-  <a href="{{ project.url | relative_url }}" class="card-link">
-    <!-- IMAGE FIRST -->
-    <div class="card-image-container">
-      {% if project.preview_split %}
-        <!-- Split view: full left, top/bottom right -->
-        <div class="split-preview">
-          <div class="split-left">
+{% capture card_content %}
+  <!-- IMAGE FIRST -->
+  <div class="card-image-container">
+    {% if project.preview_split %}
+      <!-- Split view: full left, top/bottom right -->
+      <div class="split-preview">
+        <div class="split-left">
+          {% if project.preview_gif contains '.mp4' %}
+            <video autoplay loop muted playsinline class="card-gif">
+              <source src="{{ project.preview_gif | relative_url }}" type="video/mp4">
+            </video>
+          {% elsif project.preview_gif contains '.webm' %}
+            <video autoplay loop muted playsinline class="card-gif">
+              <source src="{{ project.preview_gif | relative_url }}" type="video/webm">
+            </video>
+          {% else %}
+            <img src="{{ project.preview_gif | relative_url }}"
+                 alt="{{ project.title }}"
+                 class="card-gif">
+          {% endif %}
+        </div>
+        <div class="split-right">
+          <div class="split-right-top">
             {% if project.preview_gif contains '.mp4' %}
               <video autoplay loop muted playsinline class="card-gif">
                 <source src="{{ project.preview_gif | relative_url }}" type="video/mp4">
@@ -15,82 +30,94 @@
                 <source src="{{ project.preview_gif | relative_url }}" type="video/webm">
               </video>
             {% else %}
-              <img src="{{ project.preview_gif | relative_url }}" 
-                   alt="{{ project.title }}" 
+              <img src="{{ project.preview_gif | relative_url }}"
+                   alt="{{ project.title }} - top"
                    class="card-gif">
             {% endif %}
           </div>
-          <div class="split-right">
-            <div class="split-right-top">
-              {% if project.preview_gif contains '.mp4' %}
-                <video autoplay loop muted playsinline class="card-gif">
-                  <source src="{{ project.preview_gif | relative_url }}" type="video/mp4">
-                </video>
-              {% elsif project.preview_gif contains '.webm' %}
-                <video autoplay loop muted playsinline class="card-gif">
-                  <source src="{{ project.preview_gif | relative_url }}" type="video/webm">
-                </video>
-              {% else %}
-                <img src="{{ project.preview_gif | relative_url }}" 
-                     alt="{{ project.title }} - top" 
-                     class="card-gif">
-              {% endif %}
-            </div>
-            <div class="split-right-bottom">
-              {% if project.preview_gif contains '.mp4' %}
-                <video autoplay loop muted playsinline class="card-gif">
-                  <source src="{{ project.preview_gif | relative_url }}" type="video/mp4">
-                </video>
-              {% elsif project.preview_gif contains '.webm' %}
-                <video autoplay loop muted playsinline class="card-gif">
-                  <source src="{{ project.preview_gif | relative_url }}" type="video/webm">
-                </video>
-              {% else %}
-                <img src="{{ project.preview_gif | relative_url }}" 
-                     alt="{{ project.title }} - bottom" 
-                     class="card-gif">
-              {% endif %}
-            </div>
+          <div class="split-right-bottom">
+            {% if project.preview_gif contains '.mp4' %}
+              <video autoplay loop muted playsinline class="card-gif">
+                <source src="{{ project.preview_gif | relative_url }}" type="video/mp4">
+              </video>
+            {% elsif project.preview_gif contains '.webm' %}
+              <video autoplay loop muted playsinline class="card-gif">
+                <source src="{{ project.preview_gif | relative_url }}" type="video/webm">
+              </video>
+            {% else %}
+              <img src="{{ project.preview_gif | relative_url }}"
+                   alt="{{ project.title }} - bottom"
+                   class="card-gif">
+            {% endif %}
           </div>
         </div>
-      {% else %}
-        <!-- Standard single view -->
-        {% if project.preview_gif contains '.mp4' %}
-          <video autoplay loop muted playsinline class="card-gif"
-                 style="object-position: {{ project.preview_position | default: 'center' }}; transform: scale({{ project.preview_zoom | default: 1 }});">
-            <source src="{{ project.preview_gif | relative_url }}" type="video/mp4">
-          </video>
-        {% elsif project.preview_gif contains '.webm' %}
-          <video autoplay loop muted playsinline class="card-gif"
-                 style="object-position: {{ project.preview_position | default: 'center' }}; transform: scale({{ project.preview_zoom | default: 1 }});">
-            <source src="{{ project.preview_gif | relative_url }}" type="video/webm">
-          </video>
-        {% else %}
-          <img src="{{ project.preview_gif | relative_url }}" 
-               alt="{{ project.title }}" 
-               class="card-gif"
+      </div>
+    {% else %}
+      <!-- Standard single view -->
+      {% if project.preview_gif contains '.mp4' %}
+        <video autoplay loop muted playsinline class="card-gif"
                style="object-position: {{ project.preview_position | default: 'center' }}; transform: scale({{ project.preview_zoom | default: 1 }});">
-        {% endif %}
+          <source src="{{ project.preview_gif | relative_url }}" type="video/mp4">
+        </video>
+      {% elsif project.preview_gif contains '.webm' %}
+        <video autoplay loop muted playsinline class="card-gif"
+               style="object-position: {{ project.preview_position | default: 'center' }}; transform: scale({{ project.preview_zoom | default: 1 }});">
+          <source src="{{ project.preview_gif | relative_url }}" type="video/webm">
+        </video>
+      {% else %}
+        <img src="{{ project.preview_gif | relative_url }}"
+             alt="{{ project.title }}"
+             class="card-gif"
+             style="object-position: {{ project.preview_position | default: 'center' }}; transform: scale({{ project.preview_zoom | default: 1 }});">
       {% endif %}
-      {% if project.status %}
-      <div class="status-banner">{{ project.status }}</div>
-      {% endif %}
-      <div class="card-overlay">
-        <span class="view-project-text">View Project</span>
+    {% endif %}
+    {% if project.status %}
+    <div class="status-banner">{{ project.status }}</div>
+    {% endif %}
+    {% if project.projectpage == false %}
+      {% if project.paper or project.code %}
+      <div class="card-overlay card-overlay--dark">
+        <div class="card-overlay-links">
+          {% if project.paper %}
+          <a href="{{ project.paper }}" class="card-overlay-icon" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">
+            <img src="{{ '/assets/images/icons/paper.png' | relative_url }}" alt="Writeup">
+            <span>Report</span>
+          </a>
+          {% endif %}
+          {% if project.code %}
+          <a href="{{ project.code }}" class="card-overlay-icon" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">
+            <img src="{{ '/assets/images/icons/github.png' | relative_url }}" alt="Code">
+            <span>Code</span>
+          </a>
+          {% endif %}
+        </div>
       </div>
+      {% endif %}
+    {% else %}
+    <div class="card-overlay">
+      <span class="view-project-text">View Project</span>
     </div>
+    {% endif %}
+  </div>
 
-    <!-- CONTENT SECOND -->
-    <div class="card-content">
-      <h3 class="card-title">{{ project.title }}</h3>
-      {% if project.subtitle %}
-      <p class="card-subtitle">{{ project.subtitle }}</p>
-      {% endif %}
-      <div class="card-tags">
-        {% for tag in project.tags %}
-          <span class="tag">{{ tag }}</span>
-        {% endfor %}
-      </div>
+  <!-- CONTENT SECOND -->
+  <div class="card-content">
+    <h3 class="card-title">{{ project.title }}</h3>
+    {% if project.subtitle %}
+    <p class="card-subtitle">{{ project.subtitle }}</p>
+    {% endif %}
+    <div class="card-tags">
+      {% for tag in project.tags %}
+        <span class="tag">{{ tag }}</span>
+      {% endfor %}
     </div>
-  </a>
+  </div>
+{% endcapture %}
+
+<div class="project-card{% if project.projectpage == false %} no-page{% endif %}">
+  {% if project.projectpage == false %}
+  <div class="card-link">{{ card_content }}</div>
+  {% else %}
+  <a href="{{ project.url | relative_url }}" class="card-link">{{ card_content }}</a>
+  {% endif %}
 </div>
