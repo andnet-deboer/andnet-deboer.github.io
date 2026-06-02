@@ -13,5 +13,6 @@ affiliation: "Northwestern University"
 code: "https://github.com/Zhu-Chenyu/lerobot"
 # paper: /assets/images/projects/sokobanrl/agent_ai.pdf
 projectpage: false
+
 ---
 
