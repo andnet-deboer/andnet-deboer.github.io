@@ -1,6 +1,6 @@
 ---
 layout: project
-title: "VLA for Bimanual Manipulation"
+title: "VLA for Bimanual Objet Transfer"
 subtitle: "Integrating Agilex with MolmoAct2 and LeRobot"
 tags: ["VLA", "LeRobot" ]
 date: 2026-6-14
