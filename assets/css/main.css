@@ -490,7 +490,7 @@ iframe.no-border {
     ============================================ */
 
 .about-section {
-  padding: var(--spacing-xl) 0;
+  padding: var(--spacing-xl) 0 var(--spacing-lg) 0;
   background-color: var(--color-white);
 }
 
@@ -547,8 +547,7 @@ iframe.no-border {
   display: flex;
   align-items: center;
   gap: 1.5rem;
-  padding-top: 1.5rem;
-  border-top: 1px solid var(--color-gray-border);
+  padding-top: 1rem;
   flex-wrap: wrap;
 }
 
@@ -1118,15 +1117,14 @@ iframe.no-border {
 
 .visitor-map-section {
   text-align: center;
-  padding: 2.5rem 0 1.5rem;
-  border-top: 1px solid var(--color-gray-border);
-  margin-top: var(--spacing-xl);
+  padding: 1rem 0 2.5rem;
+  background: var(--color-gray-light);
 }
 
 .visitor-map-label {
-  font-size: 0.7rem;
+  font-size: 0.65rem;
   font-weight: 600;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--color-gray-medium);
   margin: 0 0 1rem;
