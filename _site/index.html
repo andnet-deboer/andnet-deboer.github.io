@@ -32,6 +32,10 @@
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="/assets/images/favicon.ico">
 
+  <!-- GoatCounter analytics -->
+  <script data-goatcounter="https://andnetdeboer.goatcounter.com/count"
+          async src="//gc.zgo.at/count.js"></script>
+
     <!-- MathJax for LaTeX rendering -->
   <script>
   MathJax = {
@@ -722,6 +726,34 @@
   </section>
 
 </div>
+
+<div class="visitor-map-section">
+  <p class="visitor-map-label">Site Visitors</p>
+  <a href="https://mapmyvisitors.com/web/1c53i" title="Visit tracker" class="visitor-map-link">
+    <img src="https://mapmyvisitors.com/map.png?cl=000000&w=400&t=n&d=bTSyNuGn38AoOOhwBS1NL_UJF26NbR3bhmOet92JUcE&co=ffffff" alt="Visitor map" />
+  </a>
+  <div class="visitor-stats-row">
+    <div class="visitor-stat">
+      <span class="visitor-stat-value" id="gc-total">—</span>
+      <span class="visitor-stat-label">Total Views</span>
+    </div>
+    <div class="visitor-stat-divider"></div>
+    <div class="visitor-stat">
+      <span class="visitor-stat-value" id="gc-unique">—</span>
+      <span class="visitor-stat-label">Unique Visitors</span>
+    </div>
+  </div>
+</div>
+
+<script>
+fetch('https://andnetdeboer.goatcounter.com/counter//.json')
+  .then(function(r) { return r.json(); })
+  .then(function(d) {
+    if (d.count)        document.getElementById('gc-total').textContent  = d.count;
+    if (d.count_unique) document.getElementById('gc-unique').textContent = d.count_unique;
+  })
+  .catch(function() {});
+</script>
   </main>
   
   <footer class="site-footer">

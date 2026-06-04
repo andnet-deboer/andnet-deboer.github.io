@@ -1116,6 +1116,67 @@ iframe.no-border {
   margin-top: var(--spacing-xl);
 }
 
+.visitor-map-section {
+  text-align: center;
+  padding: 2.5rem 0 1.5rem;
+  border-top: 1px solid var(--color-gray-border);
+  margin-top: var(--spacing-xl);
+}
+
+.visitor-map-label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-gray-medium);
+  margin: 0 0 1rem;
+}
+
+.visitor-map-link img {
+  display: block;
+  margin: 0 auto;
+  border-radius: 4px;
+}
+
+.visitor-stats-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  margin-top: 1.25rem;
+}
+
+.visitor-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+  padding: 0 3rem;
+}
+
+.visitor-stat-value {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-black);
+  font-family: var(--font-nav);
+  letter-spacing: -0.02em;
+}
+
+.visitor-stat-label {
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-gray-medium);
+}
+
+.visitor-stat-divider {
+  width: 1px;
+  height: 2rem;
+  background: var(--color-gray-border);
+  flex-shrink: 0;
+}
+
 .footer-content {
   max-width: var(--max-width);
   margin: 0 auto;
